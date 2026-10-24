@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#051B38"/>
+      <stop offset="100%" stop-color="#021024"/>
+    </linearGradient>
+    <linearGradient id="wave" x1="20" y1="28" x2="100" y2="95" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38E2F7"/>
+      <stop offset="55%" stop-color="#00B4D8"/>
+      <stop offset="100%" stop-color="#F7C91E"/>
+    </linearGradient>
+  </defs>
+  <circle cx="60" cy="60" r="56" fill="url(#bg)" stroke="#00B4D8" stroke-width="3" stroke-opacity="0.55"/>
+  <!-- Onda estilizada inspirada na logo oficial Maré Azul -->
+  <path d="M26 74C42 74 48 62 66 58C82 54 92 60 98 64C88 42 66 32 48 38C33 43 26 57 32 68C36 56 48 48 61 50C70 51 74 57 70 62C66 67 55 66 51 60C49 57 51 53 56 53C60 53 63 56 61 59" stroke="url(#wave)" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M22 85C39 79 58 79 75 84C84 87 92 86 98 82" stroke="#38E2F7" stroke-width="4.5" stroke-linecap="round" opacity="0.85"/>
+</svg>
