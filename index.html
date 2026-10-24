@@ -17,7 +17,7 @@
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
   <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#031329">
+  <meta name="theme-color" content="#12233A">
 
   <!-- Open Graph / WhatsApp -->
   <meta property="og:type" content="website">
@@ -42,7 +42,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Schema.org JSON-LD (@graph SEO Local + GEO) -->
   <script type="application/ld+json">
@@ -129,984 +129,744 @@
   }
   </script>
 
+  <script>
+    // Marca JS e divide os títulos em palavras antes da pintura (a entrada do topo é CSS puro).
+    document.documentElement.classList.add('js');
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.split').forEach(function (el) {
+        var i = 0;
+        (function walk(node) {
+          Array.prototype.slice.call(node.childNodes).forEach(function (n) {
+            if (n.nodeType === 3) {
+              var frag = document.createDocumentFragment();
+              n.textContent.split(/(\s+)/).forEach(function (t) {
+                if (!t) return;
+                if (/^\s+$/.test(t)) { frag.appendChild(document.createTextNode(' ')); return; }
+                var w = document.createElement('span'); w.className = 'w';
+                var wi = document.createElement('span'); wi.className = 'wi';
+                wi.style.setProperty('--i', i++); wi.textContent = t;
+                w.appendChild(wi); frag.appendChild(w);
+              });
+              node.replaceChild(frag, n);
+            } else if (n.nodeType === 1) { walk(n); }
+          });
+        })(el);
+      });
+    });
+  </script>
+
   <style>
+    /* Paleta "Areia & Oceano": neutros quentes + azul-oceano + 1 destaque (amarelo-sol da marca). O turquesa vem das fotos. */
     :root {
-      --abyss: #031329;
-      --navy-deep: #062144;
-      --navy: #0A3366;
-      --turquoise: #00C2E0;
-      --turquoise-soft: #6AEBFF;
-      --gold: #F7C91E;
-      --gold-deep: #E5A900;
-      --sand-bg: #EAF6FA;
-      --sand-card: #FFFFFF;
-      --lagoon-bg: #07294F;
-      --ink: #041933;
-      --ink-muted: #3D5A78;
+      --sand: #F3EEE6;
+      --sand-2: #EAE2D5;
+      --shell: #FBF8F3;
+      --ink: #12233A;
+      --ink-2: #1B3352;
+      --ink-soft: #55657A;
+      --line: rgba(18, 35, 58, 0.12);
+      --sun: #E8A317;
+      --sun-soft: #F6D58A;
       --wa: #1FA855;
-      --wa-dark: #168C44;
       --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      --display: 'Outfit', system-ui, sans-serif;
+      --serif: 'Fraunces', Georgia, serif;
+      --sans: 'Manrope', -apple-system, 'Segoe UI', Roboto, sans-serif;
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; background: var(--abyss); color: #fff; }
-    body {
-      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-      background: var(--abyss);
-      color: #fff;
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-
-    img { display: block; max-width: 100%; height: auto; }
-    picture { display: block; width: 100%; height: 100%; }
+    html { background: var(--sand); color: var(--ink); font-family: var(--sans); -webkit-text-size-adjust: 100%; -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent; overflow-x: hidden; }
+    body { background: var(--sand); font-size: 16px; line-height: 1.55; overflow-x: hidden; }
+    img { display: block; max-width: 100%; }
     a { color: inherit; text-decoration: none; }
-    button, input { font: inherit; background: none; border: 0; color: inherit; }
-    button { cursor: pointer; }
+    button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; touch-action: manipulation; }
+    a, summary { touch-action: manipulation; }
+    ul { list-style: none; }
+    h1, h2, h3 { font-family: var(--display); font-weight: 700; letter-spacing: -0.025em; line-height: 1.04; }
+    .serif { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+    .wrap { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 16px; }
+    section[id] { scroll-margin-top: 80px; }
+    :focus-visible { outline: 2px solid var(--sun); outline-offset: 3px; }
 
-    h1, h2, h3 {
-      font-family: 'Bricolage Grotesque', system-ui, sans-serif;
-      line-height: 1.06;
-      letter-spacing: -0.026em;
-    }
-    .serif {
-      font-family: 'Instrument Serif', Georgia, serif;
-      font-style: italic;
-      font-weight: 400;
-      color: var(--turquoise-soft);
-      padding-right: 0.04em;
-    }
-    .sec-light .serif { color: #007FA3; }
+    /* ---------- abertura: onda que se desenha ---------- */
+    .intro { position: fixed; inset: 0; z-index: 100; background: var(--ink); display: grid; place-items: center; animation: introOut 0.75s var(--ease) 0.95s forwards; }
+    .intro-in { display: grid; justify-items: center; gap: 12px; color: var(--shell); animation: introIn 0.7s var(--ease) both; }
+    .intro-in b { font-family: var(--display); font-size: 1.9rem; font-weight: 700; letter-spacing: -0.02em; }
+    .intro-in b em { font-family: var(--serif); font-weight: 400; color: var(--sun-soft); }
+    .intro-wave { width: 140px; height: 18px; }
+    .intro-wave path { fill: none; stroke: var(--sun); stroke-width: 2.4; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 1s var(--ease) 0.15s forwards; }
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+    @keyframes introIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+    @keyframes introOut { to { transform: translateY(-100%); visibility: hidden; } }
 
-    .wrap { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 18px; position: relative; z-index: 2; }
-    @media (min-width: 768px) { .wrap { padding: 0 32px; } }
+    .progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 90; background: var(--sun); transform: scaleX(0); transform-origin: left; pointer-events: none; }
 
-    /* Sombra forte para leitura cristalina sobre fotos */
-    .t-shadow {
-      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.92), 0 8px 28px rgba(3, 19, 41, 0.96);
-    }
+    /* ---------- topo ---------- */
+    .nav-wrap { position: fixed; top: 10px; left: 0; right: 0; z-index: 80; padding: 0 12px; transition: transform 0.45s var(--ease); pointer-events: none; }
+    .nav-wrap.hide { transform: translateY(-130%); }
+    .nav { pointer-events: auto; max-width: 1140px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 6px 6px 6px 12px; border-radius: 999px; background: rgba(251, 248, 243, 0.94); border: 1px solid rgba(18, 35, 58, 0.08); box-shadow: 0 10px 30px -18px rgba(18, 35, 58, 0.5); }
+    .brand { display: flex; align-items: center; gap: 10px; min-height: 44px; }
+    .brand img { width: 34px; height: 34px; flex: none; }
+    .brand b { display: block; font-family: var(--display); font-size: 1rem; line-height: 1.05; }
+    .brand b em { font-family: var(--serif); font-weight: 400; }
+    .brand small { display: block; font-size: 0.7rem; color: var(--ink-soft); }
+    .nav-links { display: none; gap: 28px; font-size: 0.92rem; font-weight: 600; color: var(--ink-soft); }
+    .nav-links a { transition: color 0.2s; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta { display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; background: var(--ink); color: var(--shell); font-weight: 700; font-size: 0.9rem; }
 
-    /* Barra de progresso superior */
-    .scroll-bar {
-      position: fixed; top: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, var(--turquoise), var(--gold));
-      transform-origin: 0 50%; transform: scaleX(0); z-index: 120;
-    }
-
-    /* Botões */
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
-      min-height: 52px; padding: 12px 22px; border-radius: 999px;
-      font-weight: 700; font-size: 15.5px;
-      transition: transform 200ms var(--ease), background 200ms var(--ease), box-shadow 200ms var(--ease);
-    }
+    /* ---------- botões ---------- */
+    .btn { display: inline-flex; align-items: center; justify-content: space-between; gap: 14px; min-height: 54px; padding: 6px 6px 6px 24px; border-radius: 999px; background: var(--ink); color: var(--shell); font-weight: 700; font-size: 0.98rem; transition: transform 0.35s var(--ease), background 0.2s; }
+    .btn i { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: var(--sun); color: var(--ink); font-style: normal; font-weight: 800; transition: transform 0.35s var(--ease); }
     .btn:active { transform: scale(0.97); }
-    .btn-wa {
-      background: var(--wa); color: #fff;
-      box-shadow: 0 14px 32px -10px rgba(31, 168, 85, 0.78);
-    }
-    .btn-wa:hover { background: var(--wa-dark); transform: translateY(-1px); }
-    .btn-gold {
-      background: linear-gradient(135deg, var(--gold) 0%, #FFAE00 100%);
-      color: var(--abyss); font-weight: 800;
-      box-shadow: 0 14px 32px -10px rgba(247, 201, 30, 0.6);
-    }
-    .btn-glass {
-      background: rgba(3, 19, 41, 0.58); color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.28);
-      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-    }
+    @media (hover: hover) { .btn:hover { background: var(--ink-2); } .btn:hover i { transform: translateX(3px); } }
+    .btn.sun { background: var(--sun); color: var(--ink); }
+    .btn.sun i { background: var(--ink); color: var(--sun); }
+    @media (hover: hover) { .btn.sun:hover { background: #F0B53A; } }
+    .btn-ghost { display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 26px; border-radius: 999px; border: 1.5px solid rgba(251, 248, 243, 0.55); color: var(--shell); font-weight: 600; transition: background 0.2s; }
+    @media (hover: hover) { .btn-ghost:hover { background: rgba(251, 248, 243, 0.12); } }
+    .btn-line { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 20px; border-radius: 999px; border: 1.5px solid var(--ink); font-weight: 700; font-size: 0.92rem; transition: background 0.2s, color 0.2s; }
+    @media (hover: hover) { .btn-line:hover { background: var(--ink); color: var(--shell); } }
 
-    /* NAVBAR ENXUTA COM AUTO-HIDE AO ROLAR PARA BAIXO */
-    .nav-wrap {
-      position: fixed;
-      top: max(10px, env(safe-area-inset-top));
-      left: 0; right: 0; z-index: 95;
-      padding: 0 12px;
-      pointer-events: none;
-      transition: transform 300ms var(--ease), opacity 240ms var(--ease);
-    }
-    .nav-wrap.nav-hidden {
-      transform: translateY(-150%);
-      opacity: 0;
-    }
-    .nav {
-      pointer-events: auto;
-      max-width: 1100px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between; gap: 8px;
-      padding: 6px 8px 6px 10px;
-      border-radius: 999px;
-      background: rgba(3, 19, 41, 0.78);
-      backdrop-filter: blur(16px) saturate(160%);
-      -webkit-backdrop-filter: blur(16px) saturate(160%);
-      border: 1px solid rgba(106, 235, 255, 0.2);
-      box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.65);
-    }
-    .nav-hidden .nav { pointer-events: none; }
-    .brand { display: inline-flex; align-items: center; gap: 9px; min-width: 0; }
-    .brand img { width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0; }
-    .brand-txt { display: flex; flex-direction: column; line-height: 1.08; }
-    .brand-txt b {
-      font-family: 'Bricolage Grotesque', sans-serif;
-      font-size: 15px; font-weight: 800; letter-spacing: -0.02em;
-      white-space: nowrap; color: #fff;
-    }
-    .brand-txt b span { color: var(--turquoise-soft); }
-    .brand-txt small {
-      font-size: 10.5px; font-weight: 600; color: rgba(255, 255, 255, 0.72);
-      white-space: nowrap;
-    }
-    /* Máximo de 3 links no menu superior */
-    .nav-links {
-      display: none; gap: 26px; font-size: 14px; font-weight: 600; color: rgba(255, 255, 255, 0.9);
-    }
-    .nav-links a:hover { color: var(--turquoise-soft); }
-    .nav .btn-nav { min-height: 36px; padding: 7px 15px; font-size: 13px; white-space: nowrap; flex-shrink: 0; }
-    @media (min-width: 960px) {
-      .nav-links { display: flex; }
-      .brand img { width: 38px; height: 38px; }
-      .brand-txt b { font-size: 16px; }
-      .nav .btn-nav { min-height: 40px; padding: 8px 18px; font-size: 13.5px; }
-    }
+    /* ---------- hero: foto protagonista ---------- */
+    .hero { position: relative; min-height: 100svh; display: flex; align-items: flex-end; overflow: hidden; background: var(--ink); color: var(--shell); }
+    .hero-media { position: absolute; inset: 0; overflow: hidden; }
+    .hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 38%; animation: kenburns 2.6s var(--ease) both; will-change: transform; }
+    @keyframes kenburns { from { transform: scale(1.14); } to { transform: scale(1.03); } }
+    .hero-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(18, 35, 58, 0.35) 0%, rgba(18, 35, 58, 0) 22%, rgba(18, 35, 58, 0) 48%, rgba(18, 35, 58, 0.86) 100%); }
+    .hero-body { position: relative; width: 100%; padding-top: 120px; padding-bottom: 48px; }
+    .rating { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 999px; background: rgba(18, 35, 58, 0.55); border: 1px solid rgba(251, 248, 243, 0.2); font-size: 0.84rem; font-weight: 600; margin-bottom: 16px; }
+    .rating b { color: var(--sun-soft); letter-spacing: 2px; font-weight: 400; }
+    .hero h1 { font-size: clamp(2.5rem, 11.2vw, 5.4rem); max-width: 12ch; margin-bottom: 14px; text-shadow: 0 2px 28px rgba(0, 0, 0, 0.35); }
+    .hero h1 .serif { color: var(--sun-soft); font-size: 1.04em; }
+    .hero-lead { font-size: 1.05rem; color: rgba(251, 248, 243, 0.92); max-width: 32ch; margin-bottom: 24px; }
+    .hero-actions { display: flex; flex-direction: column; gap: 12px; }
+    .w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.12em; margin-bottom: -0.12em; }
+    .wi { display: inline-block; }
+    .js .hero .wi { animation: wordUp 1s var(--ease) both; animation-delay: calc(0.85s + var(--i, 0) * 60ms); }
+    @keyframes wordUp { from { transform: translateY(112%); } to { transform: none; } }
+    .js .hero-in { animation: fadeUp 0.9s var(--ease) both; animation-delay: calc(1.2s + var(--i, 0) * 90ms); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 
-    /* 1ª DOBRA (HERO) 100% LIMPA — FOTO GRANDE DE LANCHA NO TOPO E ZERO CARD TAMPANDO */
-    .hero {
-      position: relative;
-      min-height: 100svh;
-      display: flex;
-      align-items: flex-end;
-      padding: 84px 0 34px;
-      overflow: hidden;
-      background: var(--abyss);
-    }
-    .hero-bg {
-      position: absolute;
-      left: 0; right: 0; top: 0;
-      height: 68svh;
-      overflow: hidden;
-    }
-    .hero-bg img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      object-position: 42% 62%;
-    }
-    .hero-bg::after {
-      content: "";
-      position: absolute; inset: 0;
-      background: linear-gradient(
-        180deg,
-        rgba(3, 19, 41, 0.35) 0%,
-        rgba(3, 19, 41, 0) 24%,
-        rgba(3, 19, 41, 0) 56%,
-        rgba(3, 19, 41, 0.9) 86%,
-        var(--abyss) 100%
-      );
-    }
-    .hero-content { position: relative; z-index: 2; width: 100%; }
-    .rating-pill {
-      display: inline-flex; align-items: center; gap: 7px;
-      padding: 6px 13px; border-radius: 999px;
-      background: rgba(3, 19, 41, 0.75);
-      border: 1px solid rgba(106, 235, 255, 0.3);
-      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-      font-size: 12.5px; font-weight: 700;
-    }
-    .stars { color: var(--gold); letter-spacing: 1px; }
-    .hero h1 {
-      font-size: clamp(33px, 9.2vw, 64px);
-      margin: 12px 0 8px;
-      text-wrap: balance;
-    }
-    .hero-lead {
-      font-size: clamp(15px, 3.8vw, 18px);
-      color: rgba(255, 255, 255, 0.9);
-      max-width: 30em;
-      margin-bottom: 20px;
-    }
-    .hero-ctas { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 10px; max-width: 460px; }
-    .hero-card { display: none; }
+    /* onda divisória que se desenha */
+    .wave { display: block; width: 100%; height: 34px; margin-top: -1px; }
+    .wave path { fill: none; stroke: var(--sun); stroke-width: 2; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.8s var(--ease); }
+    .wave.in path { stroke-dashoffset: 0; }
 
-    @media (min-width: 960px) {
-      .hero {
-        min-height: 0; display: block; padding: 138px 0 96px;
-        background:
-          radial-gradient(900px 520px at 82% 8%, rgba(0, 194, 224, 0.25) 0%, transparent 60%),
-          linear-gradient(165deg, var(--navy-deep) 0%, var(--abyss) 78%);
-      }
-      .hero-bg { display: none; }
-      .hero-content { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 54px; align-items: center; }
-      .hero-card { display: block; position: relative; }
-      /* Double-Bezel no Hero Desktop */
-      .hero-bezel {
-        padding: 8px;
-        border-radius: 34px;
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(106, 235, 255, 0.22);
-        box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.75);
-      }
-      .hero-photo {
-        border-radius: 26px; overflow: hidden; aspect-ratio: 4 / 4.5;
-        position: relative;
-      }
-      .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 40% 65%; }
-    }
+    /* ---------- números ---------- */
+    .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 14px 0 6px; }
+    .stat { padding: 18px 16px; border-radius: 20px; background: var(--shell); border: 1px solid var(--line); }
+    .stat b { display: block; font-family: var(--display); font-weight: 700; font-size: 2rem; line-height: 1; }
+    .stat b em { font-style: normal; color: var(--sun); }
+    .stat > span { display: block; margin-top: 6px; font-size: 0.84rem; color: var(--ink-soft); }
 
-    /* FAIXA EM MOVIMENTO (MARQUEE NÁUTICO) */
-    .ticker {
-      background: linear-gradient(90deg, #041A38, #072B59, #041A38);
-      border-top: 1px solid rgba(106, 235, 255, 0.16);
-      border-bottom: 1px solid rgba(106, 235, 255, 0.16);
-      padding: 13px 0;
-      overflow: hidden;
-      white-space: nowrap;
-    }
-    .ticker-track {
-      display: inline-flex; align-items: center; gap: 28px;
-      animation: tickerMove 28s linear infinite;
-      font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.86);
-    }
-    .ticker-track span i { color: var(--gold); font-style: normal; margin-right: 8px; }
-    @keyframes tickerMove {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
+    /* ---------- seções ---------- */
+    .section { padding: 72px 0; }
+    .section.alt { background: var(--sand-2); }
+    .section.deep { background: var(--ink); color: var(--shell); }
+    .sec-head { margin-bottom: 30px; max-width: 620px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 0.76rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); }
+    .eyebrow::before { content: ''; width: 22px; height: 2px; border-radius: 2px; background: var(--sun); }
+    .deep .eyebrow { color: rgba(251, 248, 243, 0.7); }
+    .sec-title { font-size: clamp(2rem, 8.2vw, 3.4rem); }
+    .sec-title .serif { color: var(--ink-2); }
+    .deep .sec-title .serif { color: var(--sun-soft); }
+    .sec-sub { margin-top: 12px; color: var(--ink-soft); max-width: 44ch; }
+    .deep .sec-sub { color: rgba(251, 248, 243, 0.75); }
 
-    /* SEÇÕES COM RESPIRO E ALTERNÂNCIA DE ATMOSFERA */
-    section { padding: 64px 0; position: relative; }
-    @media (min-width: 960px) { section { padding: 92px 0; } }
+    .js .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); transition-delay: var(--d, 0ms); }
+    .js .reveal.in { opacity: 1; transform: none; }
+    .photo { position: relative; overflow: hidden; border-radius: 24px; background: var(--sand-2); }
+    .photo img { width: 100%; height: 100%; object-fit: cover; }
+    .photo [data-par] { height: 112%; margin-top: -6%; will-change: transform; }
+    .js .clip { clip-path: inset(10% 8% 10% 8% round 24px); transition: clip-path 1.3s var(--ease); }
+    .js .clip.in { clip-path: inset(0); }
 
-    .sec-light {
-      background: linear-gradient(180deg, #EAF6FA 0%, #DDF0F7 100%);
-      color: var(--ink);
-    }
-    .sec-lagoon {
-      background:
-        radial-gradient(800px 420px at 15% 0%, rgba(0, 194, 224, 0.16) 0%, transparent 65%),
-        linear-gradient(180deg, #062144 0%, #031329 100%);
-      color: #fff;
-    }
-    .sec-deep {
-      background:
-        radial-gradient(760px 400px at 85% 15%, rgba(247, 201, 30, 0.11) 0%, transparent 65%),
-        linear-gradient(180deg, #031329 0%, #072347 100%);
-      color: #fff;
-    }
+    /* ---------- Luis Fernando ---------- */
+    .host { display: grid; gap: 22px; }
+    .host .photo { aspect-ratio: 1 / 1; }
+    .host-copy { display: grid; gap: 14px; align-content: center; }
+    .host-copy h2 { font-size: clamp(1.9rem, 7vw, 2.8rem); }
+    .host-copy h2 .serif { color: var(--ink-2); }
+    .host-copy p { color: var(--ink-soft); }
+    .ticks { display: grid; gap: 8px; }
+    .ticks li { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 0.95rem; }
+    .ticks li::before { content: ''; flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--sun); }
+    .host-copy .btn { justify-self: start; margin-top: 6px; }
 
-    .sec-head { margin-bottom: 26px; max-width: 580px; }
-    @media (min-width: 768px) { .sec-head { margin-bottom: 36px; } }
-    .kicker {
-      font-size: 11.5px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--turquoise-soft); display: inline-flex; align-items: center; gap: 8px; margin-bottom: 8px;
-    }
-    .kicker::before { content: ""; width: 18px; height: 2px; background: currentColor; border-radius: 2px; }
-    .sec-light .kicker { color: #007799; }
-    .sec-head h2 { font-size: clamp(27px, 6.8vw, 44px); text-wrap: balance; }
-    .sec-head p { margin-top: 8px; font-size: 15.5px; color: rgba(255, 255, 255, 0.8); }
-    .sec-light .sec-head p { color: var(--ink-muted); }
+    /* ---------- experiências ---------- */
+    .cards { display: grid; gap: 16px; }
+    .card { background: var(--shell); border: 1px solid var(--line); border-radius: 28px; padding: 8px; display: grid; }
+    .card .photo { aspect-ratio: 4 / 4.4; border-radius: 22px; }
+    .tag { position: absolute; top: 12px; left: 12px; z-index: 2; padding: 6px 12px; border-radius: 999px; background: rgba(251, 248, 243, 0.94); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); }
+    .tag.sun { background: var(--sun); }
+    .card-body { padding: 18px 12px 12px; display: grid; gap: 10px; }
+    .card-body h3 { font-size: 1.5rem; }
+    .card-body p { color: var(--ink-soft); font-size: 0.95rem; }
+    .card-body .btn-line { justify-self: start; margin-top: 4px; }
 
-    /* APRESENTAÇÃO ABAIXO DA 1ª DOBRA (ACIMA DAS EMBARCAÇÕES) */
-    .host-box {
-      padding: 7px;
-      border-radius: 30px;
-      background: rgba(4, 25, 51, 0.06);
-      border: 1px solid rgba(4, 25, 51, 0.1);
-    }
-    .host-inner {
-      border-radius: 24px;
-      background: #FFFFFF;
-      padding: 22px 20px;
-      display: grid; gap: 20px; align-items: center;
-      box-shadow: 0 20px 48px -22px rgba(4, 25, 51, 0.18);
-    }
-    @media (min-width: 820px) {
-      .host-inner { grid-template-columns: 220px 1fr auto; padding: 26px 32px; gap: 28px; }
-    }
-    .host-photo {
-      width: 100%; max-width: 220px; aspect-ratio: 1 / 1;
-      border-radius: 20px; overflow: hidden;
-      border: 3px solid var(--turquoise);
-      margin: 0 auto;
-    }
-    .host-photo img { width: 100%; height: 100%; object-fit: cover; }
-    .host-copy h2 { font-size: clamp(23px, 5.6vw, 32px); color: var(--ink); margin: 4px 0 8px; }
-    .host-copy p { font-size: 15px; color: var(--ink-muted); max-width: 46ch; }
-    .host-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-    .host-pill {
-      padding: 6px 12px; border-radius: 999px;
-      background: #E4F4FA; color: #05325E;
-      font-size: 12.5px; font-weight: 700;
-    }
+    /* ---------- roteiros: carrossel no celular ---------- */
+    .routes { display: grid; grid-auto-flow: column; grid-auto-columns: 84%; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 16px 8px; margin: 0 -16px; scrollbar-width: none; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
+    .routes::-webkit-scrollbar { display: none; }
+    .route { scroll-snap-align: center; display: grid; gap: 14px; }
+    .route .photo { aspect-ratio: 4 / 5; border-radius: 26px; }
+    .route h3 { font-size: 1.3rem; }
+    .route p { color: var(--ink-soft); font-size: 0.93rem; margin-top: 4px; }
+    .route small { display: block; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sun); margin-bottom: 4px; }
+    .routes-bar { height: 3px; border-radius: 3px; background: var(--line); margin-top: 18px; overflow: hidden; }
+    .routes-bar i { display: block; height: 100%; width: 25%; background: var(--ink); border-radius: 3px; transition: transform 0.2s linear; }
+    .swipe { margin-top: 10px; font-size: 0.82rem; color: var(--ink-soft); }
 
-    /* CARDS DE FROTA / MODALIDADES COM FOTOS GRANDES E DOUBLE-BEZEL */
-    .photo-grid { display: grid; gap: 18px; }
-    @media (min-width: 768px) { .photo-grid { grid-template-columns: repeat(3, 1fr); gap: 22px; } }
-
-    .bezel-card {
-      padding: 6px;
-      border-radius: 28px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(106, 235, 255, 0.18);
-      box-shadow: 0 22px 50px -20px rgba(0, 0, 0, 0.65);
-    }
-    .photo-card {
-      position: relative;
-      border-radius: 22px;
-      overflow: hidden;
-      aspect-ratio: 4 / 4.7;
-      background: #062144;
-    }
-    .photo-card img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform 600ms var(--ease);
-    }
-    .photo-card:hover img { transform: scale(1.04); }
-    .photo-card::after {
-      content: ""; position: absolute; inset: 0;
-      background: linear-gradient(
-        180deg,
-        rgba(3, 19, 41, 0.2) 0%,
-        transparent 42%,
-        rgba(3, 19, 41, 0.94) 100%
-      );
-    }
-    .photo-tag {
-      position: absolute; top: 12px; left: 12px; z-index: 2;
-      padding: 5px 12px; border-radius: 999px;
-      background: rgba(3, 19, 41, 0.78);
-      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-      border: 1px solid rgba(106, 235, 255, 0.3);
-      font-size: 11px; font-weight: 800; color: var(--turquoise-soft);
-      text-transform: uppercase; letter-spacing: 0.06em;
-    }
-    .photo-tag.gold {
-      background: var(--gold); color: var(--abyss); border-color: var(--gold);
-    }
-    .photo-info {
-      position: absolute; left: 16px; right: 16px; bottom: 16px; z-index: 2;
-    }
-    .photo-info h3 { font-size: 22px; margin-bottom: 4px; color: #fff; }
-    .photo-info p { font-size: 13.5px; color: rgba(255, 255, 255, 0.88); margin-bottom: 12px; }
-    .photo-info .btn { width: 100%; min-height: 44px; padding: 10px 14px; font-size: 14px; }
-
-    /* ROTEIROS EM CABO FRIO (CARDS LIMPÍSSIMOS) */
-    .route-grid { display: grid; gap: 18px; }
-    @media (min-width: 768px) { .route-grid { grid-template-columns: repeat(2, 1fr); gap: 22px; } }
-    .route-card {
-      position: relative;
-      border-radius: 24px;
-      overflow: hidden;
-      aspect-ratio: 16 / 11;
-      border: 1px solid rgba(4, 25, 51, 0.12);
-      box-shadow: 0 20px 44px -18px rgba(4, 25, 51, 0.25);
-    }
-    .route-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 600ms var(--ease); }
-    .route-card:hover img { transform: scale(1.04); }
-    .route-card::after {
-      content: ""; position: absolute; inset: 0;
-      background: linear-gradient(180deg, rgba(3, 19, 41, 0.12) 0%, transparent 40%, rgba(3, 19, 41, 0.92) 100%);
-    }
-    .route-info { position: absolute; left: 18px; right: 18px; bottom: 16px; z-index: 2; color: #fff; }
-    .route-info h3 { font-size: 22px; margin-bottom: 4px; }
-    .route-info p { font-size: 14px; color: rgba(255, 255, 255, 0.88); }
-
-    /* SIMULADOR "MONTE SEU PASSEIO" SEM PREÇOS */
-    .planner-bezel {
-      padding: 7px;
-      border-radius: 32px;
-      background: rgba(106, 235, 255, 0.12);
-      border: 1px solid rgba(106, 235, 255, 0.28);
-      box-shadow: 0 28px 64px -20px rgba(0, 0, 0, 0.7);
-    }
-    .planner {
-      border-radius: 26px;
-      background: linear-gradient(165deg, #082952 0%, #04152D 100%);
-      padding: 26px 18px;
-    }
-    @media (min-width: 768px) { .planner { padding: 38px 36px; } }
-    .p-grid { display: grid; gap: 18px; margin-top: 18px; }
-    @media (min-width: 768px) { .p-grid { grid-template-columns: 1fr 1fr; gap: 22px; } }
-    .p-step { display: flex; flex-direction: column; gap: 8px; }
-    .p-label {
-      font-size: 12px; font-weight: 800; text-transform: uppercase;
-      letter-spacing: 0.08em; color: var(--turquoise-soft);
-    }
+    /* ---------- simulador ---------- */
+    .planner { display: grid; gap: 26px; }
+    .group { display: grid; gap: 10px; }
+    .label { font-size: 0.76rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(251, 248, 243, 0.65); }
     .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-    .chip {
-      padding: 10px 14px; border-radius: 14px;
-      background: rgba(255, 255, 255, 0.07);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      font-size: 13.5px; font-weight: 700; color: rgba(255, 255, 255, 0.9);
-      transition: all 180ms var(--ease);
-    }
-    .chip.active {
-      background: var(--gold); color: var(--abyss);
-      border-color: var(--gold);
-      box-shadow: 0 8px 20px -6px rgba(247, 201, 30, 0.6);
-    }
-    .counter-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .counter-box {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 10px 14px; border-radius: 14px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-    }
-    .counter-box span { font-size: 13.5px; font-weight: 700; }
-    .c-btns { display: inline-flex; align-items: center; gap: 10px; }
-    .c-btn {
-      width: 30px; height: 30px; border-radius: 50%;
-      background: rgba(255, 255, 255, 0.14);
-      font-weight: 800; font-size: 16px;
-      display: inline-flex; align-items: center; justify-content: center;
-    }
-    .c-btn:active { transform: scale(0.92); }
+    .chip { min-height: 48px; padding: 0 16px; border-radius: 999px; border: 1.5px solid rgba(251, 248, 243, 0.22); color: var(--shell); font-weight: 600; font-size: 0.92rem; text-align: left; transition: background 0.2s, border-color 0.2s, color 0.2s; }
+    .chip.active { background: var(--sun); border-color: var(--sun); color: var(--ink); }
+    .counters { display: grid; gap: 10px; }
+    .counter { display: flex; align-items: center; justify-content: space-between; min-height: 64px; padding: 8px 10px 8px 18px; border-radius: 18px; border: 1.5px solid rgba(251, 248, 243, 0.16); }
+    .counter span { font-weight: 700; }
+    .c-ctl { display: flex; align-items: center; gap: 6px; }
+    .c-btn { width: 48px; height: 48px; border-radius: 50%; background: rgba(251, 248, 243, 0.1); color: var(--shell); font-size: 1.4rem; line-height: 1; display: grid; place-items: center; transition: background 0.2s; }
+    .c-btn:active { background: var(--sun); color: var(--ink); }
+    .c-btn:disabled { opacity: 0.3; }
+    .c-val { min-width: 30px; text-align: center; font-family: var(--display); font-weight: 700; font-size: 1.3rem; }
+    .c-val.bump { animation: bump 0.35s var(--ease); }
+    @keyframes bump { 40% { transform: scale(1.3); color: var(--sun-soft); } }
+    .preview { padding: 16px 18px; border-radius: 18px; background: rgba(251, 248, 243, 0.06); border: 1px dashed rgba(251, 248, 243, 0.2); font-size: 0.92rem; color: rgba(251, 248, 243, 0.82); white-space: pre-line; }
+    .planner .btn { width: 100%; }
 
-    /* AVALIAÇÕES REAIS DO GOOGLE */
-    .rev-grid { display: grid; gap: 14px; }
-    @media (min-width: 768px) { .rev-grid { grid-template-columns: repeat(3, 1fr); gap: 18px; } }
-    .rev-card {
-      padding: 22px 20px; border-radius: 22px;
-      background: #FFFFFF;
-      color: var(--ink);
-      border: 1px solid rgba(4, 25, 51, 0.08);
-      box-shadow: 0 16px 36px -18px rgba(4, 25, 51, 0.18);
-    }
-    .rev-card p { font-size: 14.5px; color: var(--ink-muted); margin: 8px 0 12px; }
-    .rev-card b { font-size: 13px; color: var(--ink); display: block; }
-    .rev-card small { font-size: 11.5px; color: #007799; font-weight: 700; }
+    /* ---------- avaliações ---------- */
+    .score { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; }
+    .score strong { font-family: var(--display); font-size: 3.4rem; font-weight: 700; line-height: 1; }
+    .score b { display: block; color: var(--sun); letter-spacing: 2px; font-weight: 400; }
+    .score small { color: var(--ink-soft); font-size: 0.86rem; }
+    .reviews { display: grid; gap: 12px; }
+    .review { padding: 22px; border-radius: 24px; background: var(--shell); border: 1px solid var(--line); display: grid; gap: 14px; align-content: space-between; }
+    .review .stars { color: var(--sun); letter-spacing: 2px; }
+    .review p { font-size: 1.02rem; }
+    .review cite { font-style: normal; font-weight: 700; font-size: 0.92rem; }
+    .review cite small { display: block; font-weight: 500; color: var(--ink-soft); font-size: 0.8rem; }
 
-    /* MAPA E FAQ */
-    .loc-grid { display: grid; gap: 20px; align-items: stretch; }
-    @media (min-width: 860px) { .loc-grid { grid-template-columns: 1fr 1.15fr; gap: 28px; } }
-    .loc-card {
-      padding: 24px 20px; border-radius: 24px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(106, 235, 255, 0.18);
-      display: flex; flex-direction: column; justify-content: space-between; gap: 16px;
-    }
-    .loc-list { display: grid; gap: 12px; font-size: 14.5px; color: rgba(255, 255, 255, 0.88); }
-    .loc-list b { color: var(--turquoise-soft); display: block; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; }
-    .map-frame {
-      border-radius: 24px; overflow: hidden; min-height: 290px;
-      border: 1px solid rgba(106, 235, 255, 0.22);
-      background: #062144;
-    }
-    .map-frame iframe { width: 100%; height: 100%; min-height: 290px; border: 0; display: block; }
+    /* ---------- embarque + dúvidas ---------- */
+    .where { display: grid; gap: 14px; }
+    .where-card { display: grid; gap: 16px; align-content: start; padding: 24px 20px; border-radius: 26px; background: var(--shell); border: 1px solid var(--line); }
+    .where-card h2 { font-size: 2rem; }
+    .where-card h2 .serif { color: var(--ink-2); }
+    .facts { display: grid; gap: 12px; }
+    .facts li { display: grid; gap: 2px; padding-left: 14px; border-left: 2px solid var(--sun); }
+    .facts small { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
+    .facts b { font-weight: 600; }
+    .where-card .btn { justify-self: start; }
+    .map { min-height: 300px; border-radius: 26px; overflow: hidden; border: 1px solid var(--line); background: var(--sand-2); }
+    .map iframe { width: 100%; height: 100%; min-height: 300px; border: 0; display: block; }
+    .faq { margin-top: 48px; display: grid; gap: 10px; }
+    .faq details { border-radius: 20px; background: var(--shell); border: 1px solid var(--line); }
+    .faq summary { list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 60px; padding: 14px 18px; font-weight: 700; cursor: pointer; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: '+'; flex: none; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--sand-2); font-size: 1.2rem; transition: transform 0.3s var(--ease); }
+    .faq details[open] summary::after { transform: rotate(45deg); background: var(--sun); }
+    .faq details p { padding: 0 18px 18px; color: var(--ink-soft); }
 
-    .faq-list { display: grid; gap: 10px; max-width: 780px; margin-top: 22px; }
-    details.faq-item {
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(106, 235, 255, 0.16);
-      padding: 16px 18px;
-    }
-    details.faq-item summary {
-      font-weight: 700; font-size: 15px; cursor: pointer; list-style: none;
-      display: flex; align-items: center; justify-content: space-between; gap: 12px;
-    }
-    details.faq-item summary::-webkit-details-marker { display: none; }
-    details.faq-item summary::after { content: "+"; font-size: 20px; color: var(--turquoise-soft); font-weight: 800; }
-    details.faq-item[open] summary::after { content: "−"; }
-    details.faq-item p { margin-top: 10px; font-size: 14px; color: rgba(255, 255, 255, 0.82); }
+    /* ---------- final ---------- */
+    .final { position: relative; overflow: hidden; color: var(--shell); text-align: center; padding: 120px 0 110px; background: var(--ink); }
+    .final-bg { position: absolute; inset: -8% 0; }
+    .final-bg img { width: 100%; height: 100%; object-fit: cover; }
+    .final::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(18, 35, 58, 0.5), rgba(18, 35, 58, 0.35) 45%, rgba(18, 35, 58, 0.85)); }
+    .final .wrap { position: relative; z-index: 2; display: grid; justify-items: center; gap: 16px; }
+    .final .eyebrow { color: rgba(251, 248, 243, 0.85); }
+    .final h2 { font-size: clamp(2.3rem, 9.5vw, 4.4rem); max-width: 13ch; text-shadow: 0 2px 26px rgba(0, 0, 0, 0.35); }
+    .final h2 .serif { color: var(--sun-soft); }
+    .footer { background: var(--ink); color: rgba(251, 248, 243, 0.7); padding: 40px 0 100px; font-size: 0.88rem; border-top: 1px solid rgba(251, 248, 243, 0.08); }
+    .foot { display: grid; gap: 20px; }
+    .foot strong { color: var(--shell); font-family: var(--display); font-size: 1.15rem; }
+    .foot h4 { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sun-soft); margin-bottom: 8px; }
+    .foot li { padding: 2px 0; }
+    .foot a { display: inline-block; padding: 11px 0; }
 
-    footer {
-      padding: 36px 0 92px;
-      background: #020C1B;
-      border-top: 1px solid rgba(106, 235, 255, 0.12);
-      font-size: 13.5px; color: rgba(255, 255, 255, 0.7);
-    }
-    .foot-flex { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; }
+    /* ---------- WhatsApp ---------- */
+    .fab { position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom)); z-index: 70; width: 60px; height: 60px; border-radius: 50%; background: var(--wa); display: grid; place-items: center; box-shadow: 0 10px 24px -6px rgba(18, 35, 58, 0.5); transition: transform 0.35s var(--ease), opacity 0.3s; }
+    .fab svg { width: 30px; height: 30px; fill: #fff; position: relative; z-index: 1; }
+    .fab::before { content: ''; position: absolute; inset: 0; border-radius: 50%; background: var(--wa); animation: ping 2.6s ease-out infinite; }
+    @keyframes ping { 0% { transform: scale(1); opacity: 0.45; } 80%, 100% { transform: scale(1.7); opacity: 0; } }
+    .fab.away { opacity: 0; transform: scale(0.8); pointer-events: none; }
 
-    /* BOTÃO FLUTUANTE DO WHATSAPP: APENAS BOLINHA REDONDA */
-    .wa-round {
-      position: fixed;
-      right: 16px;
-      bottom: max(16px, env(safe-area-inset-bottom));
-      z-index: 98;
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: var(--wa);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 12px 28px rgba(31, 168, 85, 0.7);
-      border: 2px solid rgba(255, 255, 255, 0.32);
-      transition: transform 180ms var(--ease);
+    /* ---------- desktop ---------- */
+    @media (min-width: 760px) {
+      .wrap { padding: 0 32px; }
+      .nav-wrap { top: 16px; }
+      .nav-links { display: flex; }
+      .hero-actions { flex-direction: row; align-items: center; }
+      .hero-body { padding-bottom: 84px; }
+      .hero-media img { object-position: 50% 60%; }
+      .stats-grid { grid-template-columns: repeat(4, 1fr); gap: 14px; }
+      .stat { padding: 24px 22px; }
+      .stat b { font-size: 2.5rem; }
+      .section { padding: 112px 0; }
+      .sec-head { margin-bottom: 48px; }
+      .host { grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+      .cards { grid-template-columns: repeat(3, 1fr); gap: 18px; }
+      .routes { grid-auto-flow: row; grid-template-columns: 1fr 1fr; grid-auto-columns: auto; overflow: visible; margin: 0; padding: 0; gap: 34px 22px; }
+      .route .photo { aspect-ratio: 5 / 4; }
+      .routes-bar, .swipe { display: none; }
+      .planner { grid-template-columns: 1fr 1fr; gap: 30px 48px; }
+      .planner .full { grid-column: 1 / -1; }
+      .counters { grid-template-columns: 1fr 1fr; }
+      .reviews { grid-template-columns: repeat(3, 1fr); }
+      .where { grid-template-columns: 1fr 1.25fr; }
+      .where-card { padding: 34px; }
+      .faq { grid-template-columns: 1fr 1fr 1fr; align-items: start; }
+      .foot { grid-template-columns: 1.4fr 1fr 1fr; }
+      .footer { padding-bottom: 40px; }
     }
-    .wa-round:hover { transform: scale(1.07); }
-    .wa-round svg { width: 28px; height: 28px; fill: currentColor; }
+    @media (hover: hover) and (pointer: fine) {
+      .nav { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+      .card .photo img, .route .photo img { transition: transform 0.9s var(--ease); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-delay: 0ms !important; transition-duration: 0.01ms !important; }
+      .intro { display: none; }
+      .js .reveal { opacity: 1; transform: none; }
+      .js .clip { clip-path: none; }
+      .wave path { stroke-dashoffset: 0; }
+    }
   </style>
 </head>
 <body>
 
-  <div class="scroll-bar" id="scrollBar"></div>
+  <div class="intro" aria-hidden="true">
+    <div class="intro-in">
+      <b>Maré <em>Azul</em></b>
+      <svg class="intro-wave" viewBox="0 0 140 18"><path pathLength="1" d="M2 9c11 0 11-6 22-6s11 12 22 12 11-12 22-12 11 12 22 12 11-12 22-12 11 6 22 6"/></svg>
+    </div>
+  </div>
+  <div class="progress" id="progress" aria-hidden="true"></div>
 
-  <!-- BARRA DO TOPO ENXUTA COM AUTO-HIDE (3 LINKS + BOTÃO RESERVAR) -->
-  <header class="nav-wrap" id="topNav">
-    <nav class="nav" aria-label="Navegação principal">
-      <a href="#topo" class="brand">
-        <img src="img/favicon.svg" alt="Maré Azul Passeios" width="34" height="34">
-        <span class="brand-txt">
-          <b>Maré <span>Azul</span></b>
-          <small>Cabo Frio · Ogiva</small>
-        </span>
+  <div class="nav-wrap" id="navWrap">
+    <header class="nav">
+      <a href="#topo" class="brand" aria-label="Maré Azul Passeios — início">
+        <img src="img/favicon.svg" alt="" width="34" height="34">
+        <span><b>Maré <em>Azul</em></b><small>Cabo Frio · Ogiva</small></span>
       </a>
-      <div class="nav-links">
-        <a href="#frota">Lancha & Jet</a>
+      <nav class="nav-links" aria-label="Navegação principal">
+        <a href="#frota">Lancha &amp; Jet</a>
         <a href="#roteiros">Roteiros</a>
         <a href="#reservar">Monte seu Passeio</a>
-      </div>
-      <a class="btn btn-wa btn-nav" href="#reservar">Reservar</a>
-    </nav>
-  </header>
+      </nav>
+      <a href="#reservar" class="nav-cta">Reservar</a>
+    </header>
+  </div>
 
   <main id="topo">
-    <!-- 1ª DOBRA (HERO) 100% LIMPA — FOTO GRANDE DA LANCHA E ZERO CARD TAMPANDO -->
     <section class="hero">
-      <div class="hero-bg">
+      <div class="hero-media">
         <picture>
           <source srcset="img/hero-lancha-ilha.webp" type="image/webp">
-          <img src="img/hero-lancha-ilha.jpg" alt="Lancha privativa Maré Azul nas águas cristalinas de Cabo Frio" width="2400" height="3000" fetchpriority="high" decoding="async">
+          <img src="img/hero-lancha-ilha.jpg" alt="Lancha privativa Maré Azul nas águas cristalinas de Cabo Frio" width="2400" height="3000" fetchpriority="high" decoding="async" id="heroImg">
         </picture>
       </div>
-
-      <div class="wrap hero-content">
-        <div class="gs-reveal">
-          <span class="rating-pill"><span class="stars">★★★★★</span> 5,0 no Google · 28 Avaliações Reais</span>
-          <h1 class="t-shadow">O mar cristalino de Cabo Frio de <span class="serif">lancha e Jet Ski.</span></h1>
-          <p class="hero-lead t-shadow">Conforto na lancha privativa e adrenalina no Jet Ski saindo da Ogiva.</p>
-          <div class="hero-ctas">
-            <a class="btn btn-wa" href="#reservar">Montar meu passeio</a>
-            <a class="btn btn-glass" href="#frota">Ver opções</a>
-          </div>
-        </div>
-
-        <div class="hero-card gs-reveal">
-          <div class="hero-bezel">
-            <div class="hero-photo">
-              <picture>
-                <source srcset="img/hero-lancha-ilha.webp" type="image/webp">
-                <img src="img/hero-lancha-ilha.jpg" alt="Passeio de lancha na Ilha dos Papagaios em Cabo Frio" width="1600" height="2000">
-              </picture>
-            </div>
-          </div>
+      <div class="hero-scrim"></div>
+      <div class="wrap hero-body">
+        <a href="#avaliacoes" class="rating hero-in" style="--i:0"><b>★★★★★</b> 5,0 no Google · 28 avaliações reais</a>
+        <h1 class="split">O mar cristalino de Cabo Frio de <span class="serif">lancha e Jet Ski.</span></h1>
+        <p class="hero-lead hero-in" style="--i:1">Conforto na lancha privativa e adrenalina no Jet Ski saindo da Ogiva.</p>
+        <div class="hero-actions hero-in" style="--i:2">
+          <a href="#reservar" class="btn sun" data-mag><span>Montar meu passeio</span><i>→</i></a>
+          <a href="#frota" class="btn-ghost">Ver opções</a>
         </div>
       </div>
     </section>
 
-    <!-- FAIXA EM MOVIMENTO -->
-    <div class="ticker" aria-hidden="true">
-      <div class="ticker-track">
-        <span><i>★</i> Lancha Privativa</span>
-        <span><i>★</i> Jet Ski Sea-Doo GTI Novo</span>
-        <span><i>★</i> Combo Lancha + Jet Ski</span>
-        <span><i>★</i> Ilha dos Papagaios & Enseada do Mimi</span>
-        <span><i>★</i> Ilha do Japonês</span>
-        <span><i>★</i> Churrasco a Bordo</span>
-        <span><i>★</i> Lancha Privativa</span>
-        <span><i>★</i> Jet Ski Sea-Doo GTI Novo</span>
-        <span><i>★</i> Combo Lancha + Jet Ski</span>
-        <span><i>★</i> Ilha dos Papagaios & Enseada do Mimi</span>
-        <span><i>★</i> Ilha do Japonês</span>
-        <span><i>★</i> Churrasco a Bordo</span>
+    <div class="wrap">
+      <svg class="wave reveal-wave" viewBox="0 0 1200 34" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M0 17c50 0 50-12 100-12s50 24 100 24 50-24 100-24 50 24 100 24 50-24 100-24 50 24 100 24 50-24 100-24 50 24 100 24 50-24 100-24 50 24 100 24 50-24 100-24 50 12 100 12"/></svg>
+      <div class="stats-grid">
+        <div class="stat reveal"><b><span data-count="5" data-dec="1">5,0</span> <em>★</em></b><span>Nota no Google</span></div>
+        <div class="stat reveal" style="--d:80ms"><b><span data-count="28">28</span></b><span>Avaliações reais</span></div>
+        <div class="stat reveal" style="--d:160ms"><b><span data-count="3">3</span></b><span>Formas de passeio</span></div>
+        <div class="stat reveal" style="--d:240ms"><b>08–20h</b><span>Todos os dias</span></div>
       </div>
     </div>
 
-    <!-- APRESENTAÇÃO ABAIXO DA 1ª DOBRA (E ACIMA DA ESCOLHA DAS EMBARCAÇÕES) -->
-    <section class="sec-light">
-      <div class="wrap">
-        <div class="host-box gs-reveal">
-          <div class="host-inner">
-            <div class="host-photo">
-              <picture>
-                <source srcset="img/piloto-jetski-mar-azul.webp" type="image/webp">
-                <img src="img/piloto-jetski-mar-azul.jpg" alt="Luis Fernando — Maré Azul Passeios Cabo Frio" width="700" height="700" loading="lazy">
-              </picture>
-            </div>
-            <div class="host-copy">
-              <span class="kicker">Recepção & Segurança no Mar</span>
-              <h2>Atendimento direto com <span class="serif">Luis Fernando.</span></h2>
-              <p>Embarcações impecáveis, Jet Skis Sea-Doo novos e roteiros exclusivos pelas enseadas mais cristalinas de Cabo Frio.</p>
-              <div class="host-badges">
-                <span class="host-pill">★ 5,0 Nota Máxima no Google</span>
-                <span class="host-pill">Saída da Ogiva · Cabo Frio</span>
-                <span class="host-pill">Marinheiro Incluso</span>
-              </div>
-            </div>
-            <div>
-              <a href="https://wa.me/5522999374547?text=Ol%C3%A1%2C%20Luis%20Fernando!%20Vi%20o%20site%20da%20Mar%C3%A9%20Azul%20Passeios%20e%20quero%20consultar%20disponibilidade." target="_blank" rel="noopener" class="btn btn-wa">Falar com Luis Fernando</a>
-            </div>
-          </div>
+    <section class="section">
+      <div class="wrap host">
+        <div class="photo clip">
+          <picture>
+            <source srcset="img/piloto-jetski-mar-azul.webp" type="image/webp">
+            <img src="img/piloto-jetski-mar-azul.jpg" alt="Luis Fernando — Maré Azul Passeios Cabo Frio" width="1400" height="1400" loading="lazy" decoding="async" data-par>
+          </picture>
+        </div>
+        <div class="host-copy reveal">
+          <span class="eyebrow">Recepção &amp; segurança no mar</span>
+          <h2>Atendimento direto com <span class="serif">Luis Fernando.</span></h2>
+          <p>Embarcações impecáveis, Jet Skis Sea-Doo novos e roteiros exclusivos pelas enseadas mais cristalinas de Cabo Frio.</p>
+          <ul class="ticks">
+            <li>5,0 nota máxima no Google</li>
+            <li>Saída da Ogiva · Cabo Frio</li>
+            <li>Marinheiro incluso</li>
+          </ul>
+          <a href="https://wa.me/5522999374547?text=Ol%C3%A1%2C%20Luis%20Fernando!%20Vi%20o%20site%20da%20Mar%C3%A9%20Azul%20Passeios%20e%20quero%20consultar%20disponibilidade." target="_blank" rel="noopener" class="btn" data-mag><span>Falar com Luis Fernando</span><i>→</i></a>
         </div>
       </div>
     </section>
 
-    <!-- ESCOLHA A EMBARCAÇÃO / MODALIDADE -->
-    <section id="frota" class="sec-lagoon">
+    <section class="section alt" id="frota">
       <div class="wrap">
-        <div class="sec-head gs-reveal">
-          <span class="kicker">Nossas Experiências</span>
-          <h2>Escolha a embarcação ideal para <span class="serif">o seu grupo.</span></h2>
-          <p>Alugue só a lancha, só o Jet Ski ou combine os dois no mesmo passeio.</p>
+        <div class="sec-head reveal">
+          <span class="eyebrow">Nossas experiências</span>
+          <h2 class="sec-title">Escolha a embarcação ideal para <span class="serif">o seu grupo.</span></h2>
+          <p class="sec-sub">Alugue só a lancha, só o Jet Ski ou combine os dois no mesmo passeio.</p>
         </div>
-
-        <div class="photo-grid">
-          <div class="bezel-card gs-reveal">
-            <article class="photo-card">
+        <div class="cards">
+          <article class="card reveal">
+            <div class="photo clip">
+              <span class="tag sun">Mais pedido</span>
               <picture>
                 <source srcset="img/lancha-proa-por-do-sol.webp" type="image/webp">
-                <img src="img/lancha-proa-por-do-sol.jpg" alt="Combo Lancha + Jet Ski em Cabo Frio" loading="lazy">
+                <img src="img/lancha-proa-por-do-sol.jpg" alt="Combo Lancha + Jet Ski em Cabo Frio" width="1400" height="1650" loading="lazy" decoding="async" data-par>
               </picture>
-              <span class="photo-tag gold">Mais Pedido</span>
-              <div class="photo-info">
-                <h3 class="t-shadow">Combo Lancha + Jet Ski</h3>
-                <p class="t-shadow">Conforto na lancha para o grupo + adrenalina no Jet Ski.</p>
-                <a href="https://wa.me/5522999374547?text=Ol%C3%A1!%20Quero%20consultar%20o%20*Combo%20Lancha%20%2B%20Jet%20Ski*%20da%20Mar%C3%A9%20Azul%20em%20Cabo%20Frio." target="_blank" rel="noopener" class="btn btn-gold">Consultar Combo</a>
-              </div>
-            </article>
-          </div>
-
-          <div class="bezel-card gs-reveal">
-            <article class="photo-card">
+            </div>
+            <div class="card-body">
+              <h3>Combo Lancha + Jet Ski</h3>
+              <p>Conforto na lancha para o grupo + adrenalina no Jet Ski.</p>
+              <a href="https://wa.me/5522999374547?text=Ol%C3%A1!%20Quero%20consultar%20o%20*Combo%20Lancha%20%2B%20Jet%20Ski*%20da%20Mar%C3%A9%20Azul%20em%20Cabo%20Frio." target="_blank" rel="noopener" class="btn-line">Consultar Combo <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+          <article class="card reveal" style="--d:100ms">
+            <div class="photo clip">
+              <span class="tag">Exclusivo</span>
               <picture>
                 <source srcset="img/churrasco-a-bordo.webp" type="image/webp">
-                <img src="img/churrasco-a-bordo.jpg" alt="Churrasco a bordo da lancha privativa em Cabo Frio" loading="lazy">
+                <img src="img/churrasco-a-bordo.jpg" alt="Churrasco a bordo da lancha privativa em Cabo Frio" width="1400" height="1650" loading="lazy" decoding="async" data-par>
               </picture>
-              <span class="photo-tag">Exclusivo</span>
-              <div class="photo-info">
-                <h3 class="t-shadow">Lancha Privativa</h3>
-                <p class="t-shadow">Marinheiro, churrasqueira na popa, som Bluetooth e cooler.</p>
-                <a href="https://wa.me/5522999374547?text=Ol%C3%A1!%20Quero%20consultar%20a%20*Lancha%20Privativa*%20da%20Mar%C3%A9%20Azul%20em%20Cabo%20Frio." target="_blank" rel="noopener" class="btn btn-wa">Consultar Lancha</a>
-              </div>
-            </article>
-          </div>
-
-          <div class="bezel-card gs-reveal">
-            <article class="photo-card">
+            </div>
+            <div class="card-body">
+              <h3>Lancha Privativa</h3>
+              <p>Marinheiro, churrasqueira na popa, som Bluetooth e cooler.</p>
+              <a href="https://wa.me/5522999374547?text=Ol%C3%A1!%20Quero%20consultar%20a%20*Lancha%20Privativa*%20da%20Mar%C3%A9%20Azul%20em%20Cabo%20Frio." target="_blank" rel="noopener" class="btn-line">Consultar Lancha <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+          <article class="card reveal" style="--d:200ms">
+            <div class="photo clip">
+              <span class="tag">Adrenalina</span>
               <picture>
                 <source srcset="img/jetski-cristalino.webp" type="image/webp">
-                <img src="img/jetski-cristalino.jpg" alt="Jet Ski Sea-Doo GTI nas águas cristalinas de Cabo Frio" loading="lazy">
+                <img src="img/jetski-cristalino.jpg" alt="Jet Ski Sea-Doo GTI nas águas cristalinas de Cabo Frio" width="2000" height="2000" loading="lazy" decoding="async" data-par>
               </picture>
-              <span class="photo-tag">Adrenalina</span>
-              <div class="photo-info">
-                <h3 class="t-shadow">Jet Ski Sea-Doo GTI</h3>
-                <p class="t-shadow">Jet Skis super novos para curtir as enseadas cristalinas.</p>
-                <a href="https://wa.me/5522999374547?text=Ol%C3%A1!%20Quero%20consultar%20o%20passeio%20de%20*Jet%20Ski*%20na%20Mar%C3%A9%20Azul%20em%20Cabo%20Frio." target="_blank" rel="noopener" class="btn btn-wa">Consultar Jet Ski</a>
-              </div>
-            </article>
+            </div>
+            <div class="card-body">
+              <h3>Jet Ski Sea-Doo GTI</h3>
+              <p>Jet Skis super novos para curtir as enseadas cristalinas.</p>
+              <a href="https://wa.me/5522999374547?text=Ol%C3%A1!%20Quero%20consultar%20o%20passeio%20de%20*Jet%20Ski*%20na%20Mar%C3%A9%20Azul%20em%20Cabo%20Frio." target="_blank" rel="noopener" class="btn-line">Consultar Jet Ski <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="roteiros">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="eyebrow">Paraísos de Cabo Frio</span>
+          <h2 class="sec-title">Paradas de água <span class="serif">transparente.</span></h2>
+          <p class="sec-sub">Navegação tranquila saindo da Ogiva pelos cartões-postais da Região dos Lagos.</p>
+        </div>
+        <div class="routes" id="routes">
+          <article class="route reveal">
+            <div class="photo clip">
+              <picture>
+                <source srcset="img/ilha-papagaios-cristalina.webp" type="image/webp">
+                <img src="img/ilha-papagaios-cristalina.jpg" alt="Enseada do Mimi na Ilha dos Papagaios em Cabo Frio" width="1920" height="1440" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <div><small>Parada principal</small><h3>Ilha dos Papagaios &amp; Enseada do Mimi</h3><p>Piscina natural de água azul-turquesa perfeita para mergulho e churrasco.</p></div>
+          </article>
+          <article class="route reveal" style="--d:80ms">
+            <div class="photo clip">
+              <picture>
+                <source srcset="img/agua-esmeralda-proa.webp" type="image/webp">
+                <img src="img/agua-esmeralda-proa.jpg" alt="Ilha do Japonês e Canal do Itajuru vistos da proa da lancha" width="1400" height="1650" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <div><small>Águas calmas</small><h3>Ilha do Japonês &amp; Canal do Itajuru</h3><p>Águas rasas e cristalinas ideais para famílias, crianças e fotos incríveis.</p></div>
+          </article>
+          <article class="route reveal" style="--d:160ms">
+            <div class="photo clip">
+              <picture>
+                <source srcset="img/tartaruga-marinha.webp" type="image/webp">
+                <img src="img/tartaruga-marinha.jpg" alt="Tartaruga marinha ao lado da lancha em Cabo Frio" width="1200" height="1500" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <div><small>Vida marinha</small><h3>Mergulho com Tartarugas</h3><p>Encontros frequentes com tartarugas marinhas ao lado da lancha.</p></div>
+          </article>
+          <article class="route reveal" style="--d:240ms">
+            <div class="photo clip">
+              <picture>
+                <source srcset="img/jetski-enseada.webp" type="image/webp">
+                <img src="img/jetski-enseada.jpg" alt="Jet Ski Sea-Doo ancorado na enseada em Cabo Frio" width="1200" height="1500" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <div><small>Visual único</small><h3>Praia do Forte &amp; Farol da Lajinha</h3><p>Costeira histórica de Cabo Frio e pôr do sol inesquecível no canal.</p></div>
+          </article>
+        </div>
+        <div class="routes-bar" aria-hidden="true"><i id="routesBar"></i></div>
+        <p class="swipe">Arraste para o lado para ver todas as paradas.</p>
+      </div>
+    </section>
+
+    <section class="section deep" id="reservar">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="eyebrow">Reserva direta sem taxas</span>
+          <h2 class="sec-title">Monte seu passeio e chame <span class="serif">no WhatsApp.</span></h2>
+          <p class="sec-sub">Escolha sua opção abaixo e receba a disponibilidade na hora com o Luis Fernando.</p>
+        </div>
+        <div class="planner reveal">
+          <div class="group">
+            <span class="label">1. O que você prefere?</span>
+            <div class="chips" data-g="modalidade">
+              <button type="button" class="chip active" data-v="Combo Lancha + Jet Ski">Combo Lancha + Jet Ski</button>
+              <button type="button" class="chip" data-v="Lancha Privativa">Só Lancha Privativa</button>
+              <button type="button" class="chip" data-v="Passeio de Jet Ski">Só Jet Ski Sea-Doo</button>
+            </div>
+          </div>
+          <div class="group">
+            <span class="label">2. Roteiro preferido</span>
+            <div class="chips" data-g="roteiro">
+              <button type="button" class="chip active" data-v="Ilha dos Papagaios + Enseada do Mimi + Ilha do Japonês">Ilha dos Papagaios + Japonês</button>
+              <button type="button" class="chip" data-v="Canal do Itajuru + Praia do Forte + Papagaios">Roteiro Completo Cabo Frio</button>
+              <button type="button" class="chip" data-v="Passeio Pôr do Sol">Especial Pôr do Sol</button>
+            </div>
+          </div>
+          <div class="group">
+            <span class="label">3. Quantas pessoas?</span>
+            <div class="counters">
+              <div class="counter"><span>Adultos</span><div class="c-ctl"><button type="button" class="c-btn" data-c="adultos" data-d="-1" aria-label="Menos um adulto">−</button><b class="c-val" id="val-adultos">4</b><button type="button" class="c-btn" data-c="adultos" data-d="1" aria-label="Mais um adulto">+</button></div></div>
+              <div class="counter"><span>Crianças</span><div class="c-ctl"><button type="button" class="c-btn" data-c="criancas" data-d="-1" aria-label="Menos uma criança">−</button><b class="c-val" id="val-criancas">0</b><button type="button" class="c-btn" data-c="criancas" data-d="1" aria-label="Mais uma criança">+</button></div></div>
+            </div>
+          </div>
+          <div class="group">
+            <span class="label">4. Extras a bordo</span>
+            <div class="chips" data-g="extras">
+              <button type="button" class="chip active" data-v="Com Churrasco a Bordo">Churrasco a Bordo</button>
+              <button type="button" class="chip" data-v="Comemoração / Aniversário">Aniversário / Festa</button>
+              <button type="button" class="chip" data-v="Passeio Tranquilo em Família">Passeio em Família</button>
+            </div>
+          </div>
+          <div class="group full">
+            <span class="label">Sua mensagem</span>
+            <div class="preview" id="preview"></div>
+            <a href="https://wa.me/5522999374547" target="_blank" rel="noopener" id="sendWa" class="btn sun" data-mag><span>Consultar Disponibilidade no WhatsApp</span><i>→</i></a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ROTEIROS EM DESTAQUE VISUAL (IMAGENS GRANDES E LIMPAS) -->
-    <section id="roteiros" class="sec-light">
+    <section class="section alt" id="avaliacoes">
       <div class="wrap">
-        <div class="sec-head gs-reveal">
-          <span class="kicker">Paraísos de Cabo Frio</span>
-          <h2>Paradas de água <span class="serif">transparente.</span></h2>
-          <p>Navegação tranquila saindo da Ogiva pelos cartões-postais da Região dos Lagos.</p>
+        <div class="sec-head reveal">
+          <span class="eyebrow">Nota 5,0 ★ no Google</span>
+          <h2 class="sec-title">Quem já navegou com a <span class="serif">Maré Azul.</span></h2>
         </div>
-
-        <div class="route-grid">
-          <article class="route-card gs-reveal">
-            <picture>
-              <source srcset="img/ilha-papagaios-cristalina.webp" type="image/webp">
-              <img src="img/ilha-papagaios-cristalina.jpg" alt="Enseada do Mimi na Ilha dos Papagaios em Cabo Frio" loading="lazy">
-            </picture>
-            <span class="photo-tag">Parada Principal</span>
-            <div class="route-info">
-              <h3 class="t-shadow">Ilha dos Papagaios & Enseada do Mimi</h3>
-              <p class="t-shadow">Piscina natural de água azul-turquesa perfeita para mergulho e churrasco.</p>
-            </div>
-          </article>
-
-          <article class="route-card gs-reveal">
-            <picture>
-              <source srcset="img/agua-esmeralda-proa.webp" type="image/webp">
-              <img src="img/agua-esmeralda-proa.jpg" alt="Ilha do Japonês e Canal do Itajuru vistos da proa da lancha" loading="lazy">
-            </picture>
-            <span class="photo-tag">Águas Calmas</span>
-            <div class="route-info">
-              <h3 class="t-shadow">Ilha do Japonês & Canal do Itajuru</h3>
-              <p class="t-shadow">Águas rasas e cristalinas ideais para famílias, crianças e fotos incríveis.</p>
-            </div>
-          </article>
-
-          <article class="route-card gs-reveal">
-            <picture>
-              <source srcset="img/tartaruga-marinha.webp" type="image/webp">
-              <img src="img/tartaruga-marinha.jpg" alt="Tartaruga marinha ao lado da lancha em Cabo Frio" loading="lazy">
-            </picture>
-            <span class="photo-tag">Vida Marinha</span>
-            <div class="route-info">
-              <h3 class="t-shadow">Mergulho com Tartarugas</h3>
-              <p class="t-shadow">Encontros frequentes com tartarugas marinhas ao lado da lancha.</p>
-            </div>
-          </article>
-
-          <article class="route-card gs-reveal">
-            <picture>
-              <source srcset="img/jetski-enseada.webp" type="image/webp">
-              <img src="img/jetski-enseada.jpg" alt="Jet Ski Sea-Doo ancorado na enseada em Cabo Frio" loading="lazy">
-            </picture>
-            <span class="photo-tag">Visual Único</span>
-            <div class="route-info">
-              <h3 class="t-shadow">Praia do Forte & Farol da Lajinha</h3>
-              <p class="t-shadow">Costeira histórica de Cabo Frio e pôr do sol inesquecível no canal.</p>
-            </div>
-          </article>
+        <div class="score reveal"><strong>5,0</strong><div><b>★★★★★</b><small>28 avaliações reais no Google</small></div></div>
+        <div class="reviews">
+          <article class="review reveal"><div><div class="stars" aria-label="5 estrelas">★★★★★</div><p>"Experiência incrível do início ao fim! A lancha estava impecável, o roteiro foi muito bom e tudo feito com muita segurança."</p></div><cite>Arthur França<small>Avaliação verificada no Google</small></cite></article>
+          <article class="review reveal" style="--d:100ms"><div><div class="stars" aria-label="5 estrelas">★★★★★</div><p>"Excelentes profissionais, ótimo passeio! Equipe preparada, barco e Jet Skis super novos."</p></div><cite>Vinicius Fazolo<small>Avaliação verificada no Google</small></cite></article>
+          <article class="review reveal" style="--d:200ms"><div><div class="stars" aria-label="5 estrelas">★★★★★</div><p>"Passeio maravilhoso, o pessoal é muito bacana e prestativo. Quero agradecer ao Luis Fernando pelo carinho e dedicação!"</p></div><cite>Sergio Luiz C. Santos<small>Avaliação verificada no Google</small></cite></article>
         </div>
       </div>
     </section>
 
-    <!-- SIMULADOR "MONTE SEU PASSEIO" (SEM PREÇOS) -->
-    <section id="reservar" class="sec-deep">
+    <section class="section" id="embarque">
       <div class="wrap">
-        <div class="planner-bezel gs-reveal">
-          <div class="planner">
-            <span class="kicker">Reserva Direta sem Taxas</span>
-            <h2>Monte seu passeio e chame <span class="serif">no WhatsApp.</span></h2>
-            <p style="font-size:15px;color:rgba(255,255,255,0.8);margin-top:6px;">Escolha sua opção abaixo e receba a disponibilidade na hora com o Luis Fernando.</p>
-
-            <div class="p-grid">
-              <div class="p-step">
-                <span class="p-label">1. O que você prefere?</span>
-                <div class="chips" data-g="modalidade">
-                  <button type="button" class="chip active" data-v="Combo Lancha + Jet Ski">Combo Lancha + Jet Ski</button>
-                  <button type="button" class="chip" data-v="Lancha Privativa">Só Lancha Privativa</button>
-                  <button type="button" class="chip" data-v="Passeio de Jet Ski">Só Jet Ski Sea-Doo</button>
-                </div>
-              </div>
-
-              <div class="p-step">
-                <span class="p-label">2. Roteiro preferido</span>
-                <div class="chips" data-g="roteiro">
-                  <button type="button" class="chip active" data-v="Ilha dos Papagaios + Enseada do Mimi + Ilha do Japonês">Ilha dos Papagaios + Japonês</button>
-                  <button type="button" class="chip" data-v="Canal do Itajuru + Praia do Forte + Papagaios">Roteiro Completo Cabo Frio</button>
-                  <button type="button" class="chip" data-v="Passeio Pôr do Sol">Especial Pôr do Sol</button>
-                </div>
-              </div>
-
-              <div class="p-step">
-                <span class="p-label">3. Quantas pessoas?</span>
-                <div class="counter-row">
-                  <div class="counter-box">
-                    <span>Adultos</span>
-                    <div class="c-btns">
-                      <button type="button" class="c-btn" data-c="adultos" data-d="-1">−</button>
-                      <b id="val-adultos">4</b>
-                      <button type="button" class="c-btn" data-c="adultos" data-d="1">+</button>
-                    </div>
-                  </div>
-                  <div class="counter-box">
-                    <span>Crianças</span>
-                    <div class="c-btns">
-                      <button type="button" class="c-btn" data-c="criancas" data-d="-1">−</button>
-                      <b id="val-criancas">0</b>
-                      <button type="button" class="c-btn" data-c="criancas" data-d="1">+</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="p-step">
-                <span class="p-label">4. Extras a bordo</span>
-                <div class="chips" data-g="extras">
-                  <button type="button" class="chip active" data-v="Com Churrasco a Bordo">Churrasco a Bordo</button>
-                  <button type="button" class="chip" data-v="Comemoração / Aniversário">Aniversário / Festa</button>
-                  <button type="button" class="chip" data-v="Passeio Tranquilo em Família">Passeio em Família</button>
-                </div>
-              </div>
-            </div>
-
-            <div style="margin-top:24px;">
-              <button type="button" id="sendWa" class="btn btn-wa" style="width:100%;font-size:16px;">
-                Consultar Disponibilidade no WhatsApp
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- AVALIAÇÕES REAIS DO GOOGLE -->
-    <section class="sec-light">
-      <div class="wrap">
-        <div class="sec-head gs-reveal">
-          <span class="kicker">Nota 5,0 ★ no Google</span>
-          <h2>Quem já navegou com a <span class="serif">Maré Azul.</span></h2>
-        </div>
-
-        <div class="rev-grid">
-          <article class="rev-card gs-reveal">
-            <div class="stars">★★★★★</div>
-            <p>"Experiência incrível do início ao fim! A lancha estava impecável, o roteiro foi muito bom e tudo feito com muita segurança."</p>
-            <b>Arthur França</b>
-            <small>Avaliação verificada no Google</small>
-          </article>
-
-          <article class="rev-card gs-reveal">
-            <div class="stars">★★★★★</div>
-            <p>"Excelentes profissionais, ótimo passeio! Equipe preparada, barco e Jet Skis super novos."</p>
-            <b>Vinicius Fazolo</b>
-            <small>Avaliação verificada no Google</small>
-          </article>
-
-          <article class="rev-card gs-reveal">
-            <div class="stars">★★★★★</div>
-            <p>"Passeio maravilhoso, o pessoal é muito bacana e prestativo. Quero agradecer ao Luis Fernando pelo carinho e dedicação!"</p>
-            <b>Sergio Luiz C. Santos</b>
-            <small>Avaliação verificada no Google</small>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- LOCALIZAÇÃO NA OGIVA + PERGUNTAS FREQUENTES -->
-    <section class="sec-lagoon">
-      <div class="wrap">
-        <div class="loc-grid">
-          <div class="loc-card gs-reveal">
+        <div class="where">
+          <div class="where-card reveal">
             <div>
-              <span class="kicker">Ponto de Embarque</span>
-              <h2 style="font-size:clamp(24px,6vw,36px);margin-bottom:14px;">Saída na Ogiva, <span class="serif">Cabo Frio.</span></h2>
-              <div class="loc-list">
-                <div>
-                  <b>Endereço Oficial</b>
-                  Rua dos Camarões, 117 — Ogiva, Cabo Frio - RJ (CEP 28924-150)
-                </div>
-                <div>
-                  <b>Horário de Atendimento</b>
-                  Todos os dias, das 08h00 às 20h00
-                </div>
-                <div>
-                  <b>WhatsApp Direto</b>
-                  (22) 99937-4547 · Luis Fernando
-                </div>
-              </div>
+              <span class="eyebrow">Ponto de embarque</span>
+              <h2>Saída na Ogiva, <span class="serif">Cabo Frio.</span></h2>
             </div>
-            <a href="https://www.google.com/maps/place/?q=place_id:ChIJPYs88soFlwARjp5l1egRsi8" target="_blank" rel="noopener" class="btn btn-glass" style="width:100%;">Abrir localização no Google Maps</a>
+            <ul class="facts">
+              <li><small>Endereço oficial</small><b>Rua dos Camarões, 117 — Ogiva, Cabo Frio - RJ (CEP 28924-150)</b></li>
+              <li><small>Horário de atendimento</small><b>Todos os dias, das 08h00 às 20h00</b></li>
+              <li><small>WhatsApp direto</small><b>(22) 99937-4547 · Luis Fernando</b></li>
+            </ul>
+            <a href="https://www.google.com/maps/place/?q=place_id:ChIJPYs88soFlwARjp5l1egRsi8" target="_blank" rel="noopener" class="btn" data-mag><span>Abrir no Google Maps</span><i>↗</i></a>
           </div>
-
-          <div class="map-frame gs-reveal">
-            <iframe
-              title="Localização Maré Azul Passeios na Ogiva, Cabo Frio"
-              src="https://www.google.com/maps?q=Rua+dos+Camar%C3%B5es,+117+-+Ogiva,+Cabo+Frio+-+RJ&output=embed"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+          <div class="map reveal" style="--d:100ms">
+            <iframe title="Localização Maré Azul Passeios na Ogiva, Cabo Frio" src="https://www.google.com/maps?q=Rua+dos+Camar%C3%B5es,+117+-+Ogiva,+Cabo+Frio+-+RJ&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
-
-        <div class="faq-list gs-reveal">
-          <details class="faq-item">
-            <summary>Como funciona o Combo Lancha + Jet Ski?</summary>
-            <p>Você e sua turma aproveitam todo o conforto da lancha privativa com som e churrasco, enquanto o Jet Ski Sea-Doo acompanha o passeio nas paradas para quem quer pilotar e curtir nas águas cristalinas.</p>
-          </details>
-          <details class="faq-item">
-            <summary>Posso levar bebidas e carnes para o churrasco?</summary>
-            <p>Sim! Nossa lancha tem churrasqueira, tábua e cooler a bordo. Você leva o que preferir consumir e nosso marinheiro prepara o churrasco na parada da ilha.</p>
-          </details>
-          <details class="faq-item">
-            <summary>O passeio é seguro para crianças e idosos?</summary>
-            <p>Sim! O embarque na Ogiva sai direto pelas águas calmas do Canal do Itajuru e Ilha do Japonês, com coletes homologados e acompanhamento profissional durante todo o trajeto.</p>
-          </details>
+        <div class="faq">
+          <details class="reveal" open><summary>Como funciona o Combo Lancha + Jet Ski?</summary><p>Você e sua turma aproveitam todo o conforto da lancha privativa com som e churrasco, enquanto o Jet Ski Sea-Doo acompanha o passeio nas paradas para quem quer pilotar e curtir nas águas cristalinas.</p></details>
+          <details class="reveal" style="--d:80ms"><summary>Posso levar bebidas e carnes para o churrasco?</summary><p>Sim! Nossa lancha tem churrasqueira, tábua e cooler a bordo. Você leva o que preferir consumir e nosso marinheiro prepara o churrasco na parada da ilha.</p></details>
+          <details class="reveal" style="--d:160ms"><summary>O passeio é seguro para crianças e idosos?</summary><p>Sim! O embarque na Ogiva sai direto pelas águas calmas do Canal do Itajuru e Ilha do Japonês, com coletes homologados e acompanhamento profissional durante todo o trajeto.</p></details>
         </div>
+      </div>
+    </section>
+
+    <section class="final">
+      <div class="final-bg" aria-hidden="true">
+        <picture>
+          <source srcset="img/lancha-laluna-enseada.webp" type="image/webp">
+          <img src="img/lancha-laluna-enseada.jpg" alt="" width="1400" height="1650" loading="lazy" decoding="async" data-final>
+        </picture>
+      </div>
+      <div class="wrap">
+        <span class="eyebrow reveal">Cabo Frio te espera</span>
+        <h2 class="reveal" style="--d:80ms">Seu dia no mar começa <span class="serif">na Ogiva.</span></h2>
+        <a href="#reservar" class="btn sun reveal" style="--d:160ms" data-mag><span>Montar meu passeio</span><i>→</i></a>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="wrap foot-flex">
-      <div>
-        <b style="color:#fff;">Maré Azul Passeios Náuticos · Cabo Frio, RJ</b><br>
-        Rua dos Camarões, 117 — Ogiva · WhatsApp (22) 99937-4547
-      </div>
-      <div>Nota 5,0 ★ no Google Maps</div>
+  <footer class="footer">
+    <div class="wrap foot">
+      <div><strong>Maré Azul Passeios Náuticos</strong><p>Lancha privativa e Jet Ski saindo da Ogiva, Cabo Frio - RJ.</p></div>
+      <div><h4>Navegue</h4><ul><li><a href="#frota">Lancha &amp; Jet</a></li><li><a href="#roteiros">Roteiros</a></li><li><a href="#reservar">Monte seu Passeio</a></li></ul></div>
+      <div><h4>Contato</h4><ul><li><a href="https://wa.me/5522999374547" target="_blank" rel="noopener">(22) 99937-4547</a></li><li>Rua dos Camarões, 117 — Ogiva</li><li>Nota 5,0 ★ no Google Maps</li></ul></div>
     </div>
   </footer>
 
-  <!-- BOTÃO REDONDO DO WHATSAPP NO CANTO INFERIOR DIREITO -->
-  <a href="https://wa.me/5522999374547?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Mar%C3%A9%20Azul%20Passeios%20e%20quero%20consultar%20disponibilidade." target="_blank" rel="noopener" class="wa-round" aria-label="Chamar no WhatsApp">
-    <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.6.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg>
+  <a href="https://wa.me/5522999374547?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Mar%C3%A9%20Azul%20Passeios%20e%20quero%20consultar%20disponibilidade." target="_blank" rel="noopener" class="fab" id="fab" aria-label="Chamar no WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.6.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg>
   </a>
 
-  <!-- GSAP + ScrollTrigger -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
   <script>
-    // Auto-hide da barra superior ao rolar para baixo e barra de progresso
-    const topNav = document.getElementById("topNav");
-    const scrollBar = document.getElementById("scrollBar");
-    let lastY = window.scrollY;
-    window.addEventListener("scroll", () => {
-      const y = window.scrollY;
-      if (y > 40 && y > lastY + 4) {
-        topNav.classList.add("nav-hidden");
-      } else if (y < lastY - 4 || y < 30) {
-        topNav.classList.remove("nav-hidden");
+    document.addEventListener('DOMContentLoaded', function () {
+      // ---------- simulador (mesma mensagem do site anterior) ----------
+      var counts = { adultos: 4, criancas: 0 };
+      function active(g) { return document.querySelector('[data-g="' + g + '"] .chip.active').dataset.v; }
+      function mensagem() {
+        var pessoas = [counts.adultos + ' adulto' + (counts.adultos > 1 ? 's' : '')];
+        if (counts.criancas > 0) pessoas.push(counts.criancas + ' criança' + (counts.criancas > 1 ? 's' : ''));
+        return 'Olá, Luis Fernando! Tudo bem? Vim pelo site da *Maré Azul Passeios* e gostaria de consultar disponibilidade:\n\n🛥️ *Opção:* ' + active('modalidade') + '\n📍 *Roteiro:* ' + active('roteiro') + '\n👥 *Grupo:* ' + pessoas.join(' e ') + '\n✨ *Detalhe:* ' + active('extras');
       }
-      lastY = y;
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-      if (maxScroll > 0 && scrollBar) {
-        scrollBar.style.transform = `scaleX(${Math.min(1, Math.max(0, y / maxScroll))})`;
-      }
-    }, { passive: true });
-
-    // Chips do simulador
-    document.querySelectorAll(".chips").forEach(group => {
-      group.querySelectorAll(".chip").forEach(btn => {
-        btn.addEventListener("click", () => {
-          group.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
-          btn.classList.add("active");
-        });
-      });
-    });
-
-    // Contadores de passageiros
-    const counts = { adultos: 4, criancas: 0 };
-    document.querySelectorAll(".c-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const key = btn.dataset.c;
-        const delta = parseInt(btn.dataset.d, 10);
-        const min = key === "adultos" ? 1 : 0;
-        counts[key] = Math.max(min, Math.min(20, counts[key] + delta));
-        document.getElementById(`val-${key}`).textContent = counts[key];
-      });
-    });
-
-    // Envio para o WhatsApp (22) 99937-4547
-    document.getElementById("sendWa").addEventListener("click", () => {
-      const mod = document.querySelector('[data-g="modalidade"] .chip.active').dataset.v;
-      const rot = document.querySelector('[data-g="roteiro"] .chip.active').dataset.v;
-      const ext = document.querySelector('[data-g="extras"] .chip.active').dataset.v;
-      const partesPessoas = [`${counts.adultos} adulto${counts.adultos > 1 ? 's' : ''}`];
-      if (counts.criancas > 0) {
-        partesPessoas.push(`${counts.criancas} criança${counts.criancas > 1 ? 's' : ''}`);
-      }
-      const msg = `Olá, Luis Fernando! Tudo bem? Vim pelo site da *Maré Azul Passeios* e gostaria de consultar disponibilidade:\n\n🛥️ *Opção:* ${mod}\n📍 *Roteiro:* ${rot}\n👥 *Grupo:* ${partesPessoas.join(" e ")}\n✨ *Detalhe:* ${ext}`;
-      window.open("https://wa.me/5522999374547?text=" + encodeURIComponent(msg), "_blank");
-    });
-
-    // Animações GSAP suaves no scroll
-    window.addEventListener("DOMContentLoaded", () => {
-      if (window.gsap && window.ScrollTrigger) {
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.utils.toArray(".gs-reveal").forEach(el => {
-          gsap.fromTo(el,
-            { y: 24, opacity: 0 },
-            {
-              y: 0, opacity: 1, duration: 0.7, ease: "power3.out",
-              scrollTrigger: { trigger: el, start: "top 88%", once: true }
-            }
-          );
+      function atualizar() {
+        var msg = mensagem();
+        document.getElementById('preview').textContent = msg.replace(/\*/g, '');
+        document.getElementById('sendWa').href = 'https://wa.me/5522999374547?text=' + encodeURIComponent(msg);
+        document.querySelectorAll('.c-btn').forEach(function (b) {
+          var k = b.dataset.c, min = k === 'adultos' ? 1 : 0;
+          b.disabled = Number(b.dataset.d) < 0 ? counts[k] <= min : counts[k] >= 20;
         });
       }
+      document.querySelectorAll('.chips').forEach(function (group) {
+        group.querySelectorAll('.chip').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            group.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('active'); });
+            btn.classList.add('active'); atualizar();
+          });
+        });
+      });
+      document.querySelectorAll('.c-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var k = btn.dataset.c, min = k === 'adultos' ? 1 : 0;
+          counts[k] = Math.max(min, Math.min(20, counts[k] + Number(btn.dataset.d)));
+          var v = document.getElementById('val-' + k);
+          v.textContent = counts[k]; v.classList.remove('bump'); void v.offsetWidth; v.classList.add('bump');
+          atualizar();
+        });
+      });
+      atualizar();
+
+      // ---------- revelações (IntersectionObserver: leve no Android e sem depender de CDN) ----------
+      var els = document.querySelectorAll('.reveal, .clip, .reveal-wave');
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (es) {
+          es.forEach(function (en) {
+            if (!en.isIntersecting) return;
+            var el = en.target;
+            if (el.matches('.reveal, .clip, .reveal-wave')) el.classList.add('in');
+            (el.__clips || []).forEach(function (c) { c.classList.add('in'); });
+            io.unobserve(el);
+          });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+        els.forEach(function (el) {
+          // .clip nasce recortado, então observamos o elemento pai
+          if (el.classList.contains('clip')) { var h = el.parentElement; (h.__clips = h.__clips || []).push(el); io.observe(h); }
+          if (el.matches('.reveal, .reveal-wave')) io.observe(el);
+        });
+      } else { els.forEach(function (el) { el.classList.add('in'); }); }
+      // rede de segurança: numa rolagem rápida em Android lento o observer pode pular um bloco;
+      // a cada quadro de rolagem revela o que já passou pela tela
+      var pending = Array.prototype.slice.call(els), sweeping = false;
+      function sweep() {
+        sweeping = false;
+        var lim = window.innerHeight * 0.95;
+        pending = pending.filter(function (el) {
+          if (el.getBoundingClientRect().top < lim) { el.classList.add('in'); return false; }
+          return true;
+        });
+        if (!pending.length) window.removeEventListener('scroll', onSweep);
+      }
+      function onSweep() { if (!sweeping) { sweeping = true; requestAnimationFrame(sweep); } }
+      window.addEventListener('scroll', onSweep, { passive: true });
+      sweep();
+
+      // barra do carrossel de roteiros
+      var routes = document.getElementById('routes'), bar = document.getElementById('routesBar');
+      routes.addEventListener('scroll', function () {
+        var max = routes.scrollWidth - routes.clientWidth;
+        bar.style.transform = 'translateX(' + (max > 0 ? (routes.scrollLeft / max) * 300 : 0) + '%)';
+      }, { passive: true });
+
+      // topo some ao descer e volta ao subir
+      var nav = document.getElementById('navWrap'), lastY = window.scrollY, tick = false;
+      window.addEventListener('scroll', function () {
+        if (tick) return; tick = true;
+        requestAnimationFrame(function () {
+          var y = window.scrollY;
+          if (y > lastY + 6 && y > 140) nav.classList.add('hide');
+          else if (y < lastY - 6 || y < 140) nav.classList.remove('hide');
+          lastY = y; tick = false;
+        });
+      }, { passive: true });
+
+      // bolinha do WhatsApp some onde já existe o botão grande
+      var fab = document.getElementById('fab'), vis = new Set();
+      var fio = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { e.isIntersecting ? vis.add(e.target) : vis.delete(e.target); });
+        fab.classList.toggle('away', vis.size > 0);
+      }, { threshold: 0.3 });
+      [document.querySelector('.hero'), document.getElementById('reservar'), document.querySelector('.final')].forEach(function (t) { fio.observe(t); });
+    });
+
+    // ---------- movimento (GSAP): só roda se carregar; o site funciona sem ele ----------
+    window.addEventListener('load', function () {
+      var fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+      if (!window.gsap || !window.ScrollTrigger || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      gsap.registerPlugin(ScrollTrigger);
+      if (fine && window.Lenis) {
+        var lenis = new Lenis({ duration: 1.15 });
+        lenis.on('scroll', ScrollTrigger.update);
+        gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
+        gsap.ticker.lagSmoothing(0);
+        document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+          a.addEventListener('click', function (e) { var t = document.querySelector(a.getAttribute('href')); if (!t) return; e.preventDefault(); lenis.scrollTo(t, { offset: -70 }); });
+        });
+      }
+      gsap.to('#progress', { scaleX: 1, ease: 'none', scrollTrigger: { start: 0, end: 'max', scrub: 0.3 } });
+      gsap.to('#heroImg', { yPercent: 6, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+      document.querySelectorAll('[data-par]').forEach(function (img) {
+        gsap.fromTo(img, { yPercent: -4 }, { yPercent: 4, ease: 'none', scrollTrigger: { trigger: img.closest('.photo'), start: 'top bottom', end: 'bottom top', scrub: true } });
+      });
+      gsap.fromTo('[data-final]', { yPercent: -6 }, { yPercent: 6, ease: 'none', scrollTrigger: { trigger: '.final', start: 'top bottom', end: 'bottom top', scrub: true } });
+      document.querySelectorAll('[data-count]').forEach(function (el) {
+        var end = parseFloat(el.dataset.count), dec = Number(el.dataset.dec || 0), o = { v: 0 };
+        ScrollTrigger.create({ trigger: el, start: 'top 92%', once: true, onEnter: function () {
+          gsap.to(o, { v: end, duration: 1.4, ease: 'power2.out', onUpdate: function () { el.textContent = o.v.toFixed(dec).replace('.', ','); } });
+        } });
+      });
+      if (fine) {
+        document.querySelectorAll('[data-mag]').forEach(function (b) {
+          var qx = gsap.quickTo(b, 'x', { duration: 0.5, ease: 'power3' }), qy = gsap.quickTo(b, 'y', { duration: 0.5, ease: 'power3' });
+          b.addEventListener('mousemove', function (e) { var r = b.getBoundingClientRect(); qx((e.clientX - r.left - r.width / 2) * 0.18); qy((e.clientY - r.top - r.height / 2) * 0.3); });
+          b.addEventListener('mouseleave', function () { qx(0); qy(0); });
+        });
+      }
+      ScrollTrigger.refresh();
     });
   </script>
 </body>
