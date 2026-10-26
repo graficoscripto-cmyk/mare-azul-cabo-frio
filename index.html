@@ -382,6 +382,9 @@
     .jet-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-items: start; }
     .jet-photos .photo { aspect-ratio: 3 / 4; border-radius: 22px; }
     .jet-photos .photo:last-child { margin-top: 36px; }
+    .boat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 16px; }
+    .boat-grid .photo { aspect-ratio: 3 / 4; border-radius: 20px; }
+    @media (min-width: 760px) { .boat-grid { grid-template-columns: repeat(4, 1fr); gap: 12px; } }
 
     /* ---------- roteiros: rota que se desenha ---------- */
     .routes { display: grid; gap: 18px; }
@@ -499,7 +502,7 @@
       .section { padding: 76px 0; }
       .sec-head { margin-bottom: 32px; }
       .host { grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-      .cards { grid-template-columns: repeat(3, 1fr); gap: 18px; }
+      .cards { grid-template-columns: repeat(2, 1fr); gap: 18px; } @media (min-width: 1024px) { .cards { grid-template-columns: repeat(4, 1fr); } }
       .routes { grid-template-columns: 1fr 1fr; gap: 22px; align-items: start; }
       .route-body { padding: 28px 30px 32px; }
       .incl { grid-template-columns: 1fr 1.15fr; gap: 22px; align-items: start; }
@@ -656,6 +659,20 @@
               <a href="https://wa.me/5522999374547?text=Ol%C3%A1!%20Quero%20consultar%20o%20*Jet%20Ski*%20da%20Mar%C3%A9%20Azul%20em%20Cabo%20Frio." target="_blank" rel="noopener" class="btn-line">Consultar Jet Ski <span aria-hidden="true">→</span></a>
             </div>
           </article>
+          <article class="card reveal" style="--d:260ms">
+            <div class="photo clip">
+              <span class="tag sun">Privativo ou Compartilhado</span>
+              <picture>
+                <source srcset="img/passeio-barco-gruta-lateral.webp" type="image/webp">
+                <img src="img/passeio-barco-gruta-lateral.jpg" alt="Passeio de Barco em Cabo Frio e Arraial do Cabo — Maré Azul Passeios" width="768" height="1024" loading="lazy" decoding="async" data-par>
+              </picture>
+            </div>
+            <div class="card-body">
+              <h3>Passeio de Barco</h3>
+              <p>Passeio de barco privativo ou compartilhado em Cabo Frio e Arraial do Cabo.</p>
+              <a href="https://wa.me/5522999374547?text=Ol%C3%A1!%20Quero%20consultar%20o%20*Passeio%20de%20Barco*%20em%20Cabo%20Frio%20e%20Arraial%20do%20Cabo." target="_blank" rel="noopener" class="btn-line">Consultar Barco <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
         </div>
         <div class="times reveal"><span>Tempo de passeio</span><b>Meia hora</b><b>1 hora ou mais</b><b>Diária</b></div>
       </div>
@@ -703,9 +720,40 @@
             </ul>
           </div>
         </div>
+        <div class="panel reveal" style="margin-top:16px">
+          <div>
+            <small class="eyebrow">Passeio de Barco · Privativo ou Compartilhado</small>
+            <h3>Passeio de barco em Cabo Frio e <span class="serif">Arraial do Cabo.</span></h3>
+          </div>
+          <div class="boat-grid">
+            <div class="photo clip">
+              <picture>
+                <source type="image/webp" srcset="img/passeio-barco-gruta-lateral.webp">
+                <img src="img/passeio-barco-gruta-lateral.jpg" alt="Passeio de barco diante da gruta em Arraial do Cabo" width="768" height="1024" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <div class="photo clip">
+              <picture>
+                <source type="image/webp" srcset="img/passeio-barco-jubarte.webp">
+                <img src="img/passeio-barco-jubarte.jpg" alt="Barco Jubarte nas águas cristalinas" width="472" height="1024" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <div class="photo clip">
+              <picture>
+                <source type="image/webp" srcset="img/passeio-barco-conves.webp">
+                <img src="img/passeio-barco-conves.jpg" alt="Convés espaçoso do barco com vista para o mar cristalino" width="576" height="1024" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <div class="photo clip">
+              <picture>
+                <source type="image/webp" srcset="img/passeio-barco-gruta-frente.webp">
+                <img src="img/passeio-barco-gruta-frente.jpg" alt="Navegação no paredão rochoso e gruta azul" width="768" height="1024" loading="lazy" decoding="async">
+              </picture>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
-
     <section class="section" id="roteiros">
       <div class="wrap">
         <div class="sec-head reveal">
@@ -813,7 +861,7 @@
             <div class="chips" data-g="modalidade">
               <button type="button" class="chip active" data-v="Passeio de Lancha">Passeio de Lancha</button>
               <button type="button" class="chip" data-v="Jet Ski">Jet Ski</button>
-              <button type="button" class="chip" data-v="Combo Lancha + Jet Ski">Combo Lancha + Jet Ski</button>
+              <button type="button" class="chip" data-v="Combo Lancha + Jet Ski">Combo Lancha + Jet Ski</button><button type="button" class="chip" data-v="Passeio de Barco (Privativo ou Compartilhado)">Passeio de Barco</button>
             </div>
           </div>
           <div class="group">
