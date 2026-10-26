@@ -120,7 +120,7 @@
           "@type": "ItemList",
           "itemListOrder": "https://schema.org/ItemListOrderAscending",
           "itemListElement": [
-            
+            { "@type": "ListItem", "position": 1, "item": { "@type": "Place", "name": "Canal do Itajuru" } },
             { "@type": "ListItem", "position": 2, "item": { "@type": "Place", "name": "Bairro da Passagem" } },
             { "@type": "ListItem", "position": 3, "item": { "@type": "Place", "name": "Praia do Forte" } },
             { "@type": "ListItem", "position": 4, "item": { "@type": "Place", "name": "Forte São Mateus" } },
@@ -139,7 +139,7 @@
           "@type": "ItemList",
           "itemListOrder": "https://schema.org/ItemListOrderAscending",
           "itemListElement": [
-            
+            { "@type": "ListItem", "position": 1, "item": { "@type": "Place", "name": "Canal do Itajuru" } },
             { "@type": "ListItem", "position": 2, "item": { "@type": "Place", "name": "Bairro da Passagem" } },
             { "@type": "ListItem", "position": 3, "item": { "@type": "Place", "name": "Praia do Forte" } },
             { "@type": "ListItem", "position": 4, "item": { "@type": "Place", "name": "Forte São Mateus" } },
@@ -387,10 +387,12 @@
     @media (min-width: 760px) { .boat-grid { grid-template-columns: repeat(4, 1fr); gap: 12px; } }
 
     /* ---------- roteiros: rota que se desenha ---------- */
-    .routes { display: grid; gap: 18px; }
-    .route { display: grid; gap: 0; border-radius: 28px; background: var(--shell); border: 1px solid var(--line); overflow: hidden; }
-    .route .photo { aspect-ratio: 16 / 9; border-radius: 0; }
-    .route-body { padding: 22px 20px 24px; display: grid; gap: 14px; }
+    .routes { display: grid; gap: 20px; }
+    .route { display: grid; gap: 0; border-radius: 28px; background: var(--shell); border: 1px solid var(--line); padding: 8px; box-shadow: 0 18px 40px -28px rgba(18, 35, 58, 0.35); transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease); }
+    @media (hover: hover) { .route:hover { transform: translateY(-3px); box-shadow: 0 24px 48px -26px rgba(18, 35, 58, 0.45); } .route:hover .photo img { transform: scale(1.04); } }
+    .route .photo { aspect-ratio: 4 / 3; border-radius: 22px; }
+    .route .photo img { object-position: 50% 52%; }
+    .route-body { padding: 22px 18px 20px; display: grid; gap: 14px; align-content: start; }
     .route-body small { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
     .route-body h3 { font-size: clamp(1.7rem, 6.4vw, 2.3rem); }
     .route-body h3 .serif { color: var(--ink-2); }
@@ -399,19 +401,20 @@
     .stops { position: relative; display: grid; padding-left: 26px; list-style: none; }
     .stops::before { content: ''; position: absolute; left: 6px; top: 12px; bottom: 12px; width: 2px; border-radius: 2px; background: var(--sun); transform: scaleY(0); transform-origin: top; transition: transform 1.6s var(--ease) 0.2s; }
     .stops.in::before { transform: none; }
-    .stops li { position: relative; padding: 5px 0; font-weight: 600; font-size: 0.97rem; }
-    .stops li::before { content: ''; position: absolute; left: -24px; top: 50%; width: 10px; height: 10px; margin-top: -5px; border-radius: 50%; background: var(--shell); border: 2px solid var(--ink); }
+    .stops li { position: relative; padding: 6px 0; font-weight: 600; font-size: 0.97rem; }
+    .stops li::before { content: ''; position: absolute; left: -24px; top: 50%; width: 10px; height: 10px; margin-top: -5px; border-radius: 50%; background: var(--shell); border: 2px solid var(--ink); transition: background 0.3s, border-color 0.3s; }
+    @media (hover: hover) { .route:hover .stops li:first-child::before, .route:hover .stops li:last-child::before { background: var(--sun); border-color: var(--sun); } }
     .stops li.turn { margin-top: 6px; color: var(--ink-soft); font-size: 0.78rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
     .stops li.turn::before { background: var(--sun); border-color: var(--sun); }
-    .beach-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 18px; }
-    .beach-card { position: relative; border-radius: 18px; overflow: hidden; aspect-ratio: 4 / 3; background: var(--sand-2); border: 1px solid var(--line); }
-    .beach-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s var(--ease); }
-    @media (hover: hover) { .beach-card:hover img { transform: scale(1.05); } }
-    .beach-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(18,35,58,0) 40%, rgba(18,35,58,0.82) 100%); pointer-events: none; }
-    .beach-info { position: absolute; left: 10px; right: 10px; bottom: 8px; z-index: 2; color: var(--shell); }
-    .beach-info small { display: block; font-size: 0.65rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sun-soft); }
-    .beach-info b { display: block; font-family: var(--display); font-size: 0.96rem; line-height: 1.15; }
-    @media (min-width: 760px) { .beach-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 24px; } .beach-info { left: 14px; right: 14px; bottom: 12px; } .beach-info b { font-size: 1.08rem; } }
+    .beach-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 24px; }
+    .beach-card { position: relative; border-radius: 22px; overflow: hidden; aspect-ratio: 4 / 3.4; background: var(--sand-2); border: 1px solid var(--line); box-shadow: 0 14px 30px -22px rgba(18, 35, 58, 0.4); }
+    .beach-card img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.85s var(--ease); }
+    @media (hover: hover) { .beach-card:hover img { transform: scale(1.06); } }
+    .beach-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(18,35,58,0) 42%, rgba(18,35,58,0.84) 100%); pointer-events: none; }
+    .beach-info { position: absolute; left: 12px; right: 12px; bottom: 10px; z-index: 2; color: var(--shell); }
+    .beach-info small { display: block; font-size: 0.65rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sun-soft); margin-bottom: 2px; }
+    .beach-info b { display: block; font-family: var(--display); font-size: 0.98rem; line-height: 1.15; text-shadow: 0 2px 12px rgba(0,0,0,0.35); }
+    @media (min-width: 760px) { .beach-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 30px; } .beach-card { aspect-ratio: 4 / 3.1; border-radius: 24px; } .beach-info { left: 16px; right: 16px; bottom: 14px; } .beach-info b { font-size: 1.12rem; } }
 
     /* ---------- simulador ---------- */
     .planner { display: grid; gap: 26px; }
@@ -765,14 +768,14 @@
           <figure class="beach-card reveal">
             <picture>
               <source srcset="img/ilha-do-japones.webp" type="image/webp">
-              <img src="img/ilha-do-japones.jpg" alt="Ilha do Japonês em Cabo Frio — vista aérea" width="1000" height="368" loading="lazy" decoding="async">
+              <img src="img/ilha-do-japones.jpg" alt="Ilha do Japonês em Cabo Frio — vista aérea de águas turquesas" width="1400" height="1400" loading="lazy" decoding="async" style="object-position: 50% 54%">
             </picture>
             <figcaption class="beach-info"><small>Cabo Frio</small><b>Ilha do Japonês</b></figcaption>
           </figure>
           <figure class="beach-card reveal" style="--d:60ms">
             <picture>
               <source srcset="img/ilha-papagaios-cristalina.webp" type="image/webp">
-              <img src="img/ilha-papagaios-cristalina.jpg" alt="Ilha dos Papagaios em Cabo Frio" width="1400" height="1050" loading="lazy" decoding="async">
+              <img src="img/ilha-papagaios-cristalina.jpg" alt="Lancha nas águas cristalinas da Ilha dos Papagaios em Cabo Frio" width="1400" height="1050" loading="lazy" decoding="async" style="object-position: 50% 55%">
             </picture>
             <figcaption class="beach-info"><small>Cabo Frio</small><b>Ilha dos Papagaios</b></figcaption>
           </figure>
@@ -810,13 +813,15 @@
             <div class="photo clip">
               <picture>
                 <source srcset="img/ilha-do-japones.webp" type="image/webp">
-                <img src="img/ilha-do-japones.jpg" alt="Vista aérea da Ilha do Japonês em Cabo Frio" width="1000" height="368" loading="lazy" decoding="async">
+                <img src="img/ilha-do-japones.jpg" alt="Vista aérea da Ilha do Japonês em Cabo Frio" width="1400" height="1400" loading="lazy" decoding="async" data-par style="object-position: 50% 54%">
               </picture>
             </div>
             <div class="route-body">
               <small>Roteiro 1</small>
               <h3>Roteiro <span class="serif">Cabo Frio</span></h3>
               <ol class="stops">
+                <li>Canal do Itajuru</li>
+                <li>Bairro da Passagem</li>
                 <li>Praia do Forte &amp; Forte São Mateus</li>
                 <li>Ilha dos Papagaios</li>
                 <li>Ilha do Japonês</li>
@@ -827,7 +832,7 @@
             <div class="photo clip">
               <picture>
                 <source srcset="img/arraial-praia-escada.webp" type="image/webp">
-                <img src="img/arraial-praia-escada.jpg" alt="Roteiro Arraial do Cabo — Prainhas do Pontal e Praia do Farol" width="1066" height="584" loading="lazy" decoding="async">
+                <img src="img/arraial-praia-escada.jpg" alt="Roteiro Arraial do Cabo — Prainhas do Pontal e Praia do Farol" width="1066" height="584" loading="lazy" decoding="async" data-par>
               </picture>
             </div>
             <div class="route-body">
