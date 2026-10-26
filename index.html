@@ -120,7 +120,7 @@
           "@type": "ItemList",
           "itemListOrder": "https://schema.org/ItemListOrderAscending",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "item": { "@type": "Place", "name": "Canal do Itajuru" } },
+            
             { "@type": "ListItem", "position": 2, "item": { "@type": "Place", "name": "Bairro da Passagem" } },
             { "@type": "ListItem", "position": 3, "item": { "@type": "Place", "name": "Praia do Forte" } },
             { "@type": "ListItem", "position": 4, "item": { "@type": "Place", "name": "Forte São Mateus" } },
@@ -139,7 +139,7 @@
           "@type": "ItemList",
           "itemListOrder": "https://schema.org/ItemListOrderAscending",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "item": { "@type": "Place", "name": "Canal do Itajuru" } },
+            
             { "@type": "ListItem", "position": 2, "item": { "@type": "Place", "name": "Bairro da Passagem" } },
             { "@type": "ListItem", "position": 3, "item": { "@type": "Place", "name": "Praia do Forte" } },
             { "@type": "ListItem", "position": 4, "item": { "@type": "Place", "name": "Forte São Mateus" } },
@@ -319,10 +319,10 @@
     .stat > span { display: block; margin-top: 6px; font-size: 0.84rem; color: var(--ink-soft); }
 
     /* ---------- seções ---------- */
-    .section { padding: 72px 0; }
+    .section { padding: 48px 0; }
     .section.alt { background: var(--sand-2); }
     .section.deep { background: var(--ink); color: var(--shell); }
-    .sec-head { margin-bottom: 30px; max-width: 620px; }
+    .sec-head { margin-bottom: 22px; max-width: 620px; }
     .eyebrow { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 0.76rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); }
     .eyebrow::before { content: ''; width: 22px; height: 2px; border-radius: 2px; background: var(--sun); }
     .deep .eyebrow { color: rgba(251, 248, 243, 0.7); }
@@ -400,6 +400,15 @@
     .stops li::before { content: ''; position: absolute; left: -24px; top: 50%; width: 10px; height: 10px; margin-top: -5px; border-radius: 50%; background: var(--shell); border: 2px solid var(--ink); }
     .stops li.turn { margin-top: 6px; color: var(--ink-soft); font-size: 0.78rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
     .stops li.turn::before { background: var(--sun); border-color: var(--sun); }
+    .beach-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 18px; }
+    .beach-card { position: relative; border-radius: 18px; overflow: hidden; aspect-ratio: 4 / 3; background: var(--sand-2); border: 1px solid var(--line); }
+    .beach-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s var(--ease); }
+    @media (hover: hover) { .beach-card:hover img { transform: scale(1.05); } }
+    .beach-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(18,35,58,0) 40%, rgba(18,35,58,0.82) 100%); pointer-events: none; }
+    .beach-info { position: absolute; left: 10px; right: 10px; bottom: 8px; z-index: 2; color: var(--shell); }
+    .beach-info small { display: block; font-size: 0.65rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sun-soft); }
+    .beach-info b { display: block; font-family: var(--display); font-size: 0.96rem; line-height: 1.15; }
+    @media (min-width: 760px) { .beach-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 24px; } .beach-info { left: 14px; right: 14px; bottom: 12px; } .beach-info b { font-size: 1.08rem; } }
 
     /* ---------- simulador ---------- */
     .planner { display: grid; gap: 26px; }
@@ -487,8 +496,8 @@
       .stats-grid { grid-template-columns: repeat(4, 1fr); gap: 14px; }
       .stat { padding: 24px 22px; }
       .stat b { font-size: 2.5rem; }
-      .section { padding: 112px 0; }
-      .sec-head { margin-bottom: 48px; }
+      .section { padding: 76px 0; }
+      .sec-head { margin-bottom: 32px; }
       .host { grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
       .cards { grid-template-columns: repeat(3, 1fr); gap: 18px; }
       .routes { grid-template-columns: 1fr 1fr; gap: 22px; align-items: start; }
@@ -586,7 +595,7 @@
         <div class="host-copy reveal">
           <span class="eyebrow">Recepção &amp; segurança no mar</span>
           <h2>Atendimento direto com <span class="serif">Luis Fernando.</span></h2>
-          <p>Passeios de lancha (com diversos modelos de lanchas à sua escolha) e Jet Ski com marinheiro habilitado, do Canal do Itajuru a Arraial do Cabo.</p>
+          <p>Passeios de lancha (com diversos modelos de lanchas à sua escolha) e Jet Ski com marinheiro habilitado, em Cabo Frio e Arraial do Cabo.</p>
           <ul class="ticks">
             <li>5,0 nota máxima no Google</li>
             <li>Saída em Cabo Frio</li>
@@ -700,25 +709,67 @@
     <section class="section" id="roteiros">
       <div class="wrap">
         <div class="sec-head reveal">
-          <span class="eyebrow">Dois roteiros</span>
-          <h2 class="sec-title">Cabo Frio ou <span class="serif">Arraial do Cabo.</span></h2>
+          <span class="eyebrow">Principais praias &amp; paradas</span>
+          <h2 class="sec-title">Cabo Frio e <span class="serif">Arraial do Cabo.</span></h2>
+          <p class="sec-sub">Conheça cada praia e ilha dos nossos roteiros em Cabo Frio e Arraial do Cabo.</p>
+        </div>
+        <div class="beach-grid">
+          <figure class="beach-card reveal">
+            <picture>
+              <source srcset="img/ilha-do-japones.webp" type="image/webp">
+              <img src="img/ilha-do-japones.jpg" alt="Ilha do Japonês em Cabo Frio — vista aérea" width="1000" height="368" loading="lazy" decoding="async">
+            </picture>
+            <figcaption class="beach-info"><small>Cabo Frio</small><b>Ilha do Japonês</b></figcaption>
+          </figure>
+          <figure class="beach-card reveal" style="--d:60ms">
+            <picture>
+              <source srcset="img/ilha-papagaios-cristalina.webp" type="image/webp">
+              <img src="img/ilha-papagaios-cristalina.jpg" alt="Ilha dos Papagaios em Cabo Frio" width="1400" height="1050" loading="lazy" decoding="async">
+            </picture>
+            <figcaption class="beach-info"><small>Cabo Frio</small><b>Ilha dos Papagaios</b></figcaption>
+          </figure>
+          <figure class="beach-card reveal" style="--d:120ms">
+            <picture>
+              <source srcset="img/praia-do-forte.webp" type="image/webp">
+              <img src="img/praia-do-forte.jpg" alt="Praia do Forte em Cabo Frio" width="1400" height="699" loading="lazy" decoding="async">
+            </picture>
+            <figcaption class="beach-info"><small>Cabo Frio</small><b>Praia do Forte</b></figcaption>
+          </figure>
+          <figure class="beach-card reveal" style="--d:180ms">
+            <picture>
+              <source srcset="img/praia-do-farol.webp" type="image/webp">
+              <img src="img/praia-do-farol.jpg" alt="Praia do Farol em Arraial do Cabo" width="1400" height="1050" loading="lazy" decoding="async">
+            </picture>
+            <figcaption class="beach-info"><small>Arraial do Cabo</small><b>Praia do Farol</b></figcaption>
+          </figure>
+          <figure class="beach-card reveal" style="--d:240ms">
+            <picture>
+              <source srcset="img/arraial-praia-escada.webp" type="image/webp">
+              <img src="img/arraial-praia-escada.jpg" alt="Prainhas do Pontal em Arraial do Cabo" width="1066" height="584" loading="lazy" decoding="async">
+            </picture>
+            <figcaption class="beach-info"><small>Arraial do Cabo</small><b>Prainhas do Pontal</b></figcaption>
+          </figure>
+          <figure class="beach-card reveal" style="--d:300ms">
+            <picture>
+              <source srcset="img/praia-do-forno.webp" type="image/webp">
+              <img src="img/praia-do-forno.jpg" alt="Praia do Forno em Arraial do Cabo" width="1400" height="930" loading="lazy" decoding="async">
+            </picture>
+            <figcaption class="beach-info"><small>Arraial do Cabo</small><b>Praia do Forno</b></figcaption>
+          </figure>
         </div>
         <div class="routes">
           <article class="route reveal">
             <div class="photo clip">
               <picture>
-                <source srcset="img/ilha-papagaios-cristalina.webp" type="image/webp">
-                <img src="img/ilha-papagaios-cristalina.jpg" alt="Água cristalina em Cabo Frio" width="1920" height="1440" loading="lazy" decoding="async">
+                <source srcset="img/ilha-do-japones.webp" type="image/webp">
+                <img src="img/ilha-do-japones.jpg" alt="Vista aérea da Ilha do Japonês em Cabo Frio" width="1000" height="368" loading="lazy" decoding="async">
               </picture>
             </div>
             <div class="route-body">
               <small>Roteiro 1</small>
               <h3>Roteiro <span class="serif">Cabo Frio</span></h3>
               <ol class="stops">
-                <li>Canal do Itajuru</li>
-                <li>Bairro da Passagem</li>
-                <li>Praia do Forte</li>
-                <li>Forte São Mateus</li>
+                <li>Praia do Forte &amp; Forte São Mateus</li>
                 <li>Ilha dos Papagaios</li>
                 <li>Ilha do Japonês</li>
               </ol>
@@ -728,35 +779,27 @@
             <div class="photo clip">
               <picture>
                 <source srcset="img/arraial-praia-escada.webp" type="image/webp">
-                <img src="img/arraial-praia-escada.jpg" alt="Escada de madeira até a praia de areia branca e água turquesa em Arraial do Cabo" width="1066" height="584" loading="lazy" decoding="async">
+                <img src="img/arraial-praia-escada.jpg" alt="Roteiro Arraial do Cabo — Prainhas do Pontal e Praia do Farol" width="1066" height="584" loading="lazy" decoding="async">
               </picture>
             </div>
             <div class="route-body">
               <small>Roteiro 2 · Panorâmico</small>
               <h3>Roteiro <span class="serif">Arraial do Cabo</span></h3>
-              <p class="note">Saída de Cabo Frio. Passeio <b>panorâmico</b> em Arraial, com parada para mergulho apenas no retorno a Cabo Frio.</p>
+              <p class="note">Saída de Cabo Frio. Passeio <b>panorâmico</b> em Arraial, com parada para mergulho no retorno a Cabo Frio.</p>
               <ol class="stops">
-                <li>Canal do Itajuru</li>
-                <li>Bairro da Passagem</li>
                 <li>Praia do Forte</li>
-                <li>Forte São Mateus</li>
-                <li>Praia do Farol (Ilha do Farol)</li>
-                <li>Fenda de Nossa Senhora</li>
-                <li>Pedra do Macaco</li>
-                <li>Buraco do Meteoro</li>
-                <li>Gruta Azul</li>
+                <li>Praia do Farol (Arraial do Cabo)</li>
+                <li>Gruta Azul &amp; Fenda de Nossa Senhora</li>
                 <li>Prainhas do Pontal</li>
                 <li>Praia do Forno</li>
                 <li class="turn">Retorno a Cabo Frio</li>
                 <li>Ilha do Japonês</li>
               </ol>
-              <p class="note">O roteiro pode mudar conforme as condições do clima.</p>
             </div>
           </article>
         </div>
       </div>
     </section>
-
     <section class="section deep" id="reservar">
       <div class="wrap">
         <div class="sec-head reveal">
