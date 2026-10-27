@@ -348,7 +348,7 @@
     .js .clip { clip-path: inset(10% 8% 10% 8% round 24px); transition: clip-path 1.3s var(--ease); }
     .js .clip.in { clip-path: inset(0); }
 
-    /* ---------- Luis Fernando ---------- */
+    /* ---------- atendimento direto ---------- */
     .host { display: grid; gap: 22px; }
     .host .photo { aspect-ratio: 1 / 1; }
     .host-copy { display: grid; gap: 14px; align-content: center; }
@@ -620,19 +620,19 @@
         <div class="photo clip">
           <picture>
             <source srcset="img/piloto-jetski-mar-azul.webp" type="image/webp">
-            <img src="img/piloto-jetski-mar-azul.jpg" alt="Luis Fernando — Maré Azul Passeios Cabo Frio" width="1400" height="1400" loading="lazy" decoding="async" data-par>
+            <img src="img/piloto-jetski-mar-azul.jpg" alt="Jet Ski da Maré Azul Passeios em Cabo Frio" width="1400" height="1400" loading="lazy" decoding="async" data-par>
           </picture>
         </div>
         <div class="host-copy reveal">
           <span class="eyebrow">Recepção &amp; segurança no mar</span>
-          <h2>Atendimento direto com <span class="serif">Luis Fernando.</span></h2>
+          <h2>Atendimento direto com a <span class="serif">Maré Azul.</span></h2>
           <p>Passeios de lancha (com diversos modelos de lanchas à sua escolha) e Jet Ski com marinheiro habilitado, em Cabo Frio e Arraial do Cabo.</p>
           <ul class="ticks">
             <li>5,0 nota máxima no Google</li>
             <li>Saída em Cabo Frio</li>
             <li>Diversos modelos de lanchas + marinheiro incluso</li>
           </ul>
-          <a href="https://wa.me/5522999374547?text=Ol%C3%A1%2C%20Luis%20Fernando!%20Vi%20o%20site%20da%20Mar%C3%A9%20Azul%20Passeios%20e%20quero%20consultar%20disponibilidade." target="_blank" rel="noopener" class="btn" data-mag><span>Falar com Luis Fernando</span><i>→</i></a>
+          <a href="https://wa.me/5522999374547?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Mar%C3%A9%20Azul%20Passeios%20e%20quero%20consultar%20disponibilidade." target="_blank" rel="noopener" class="btn" data-mag><span>Chamar no WhatsApp</span><i>→</i></a>
         </div>
       </div>
     </section>
@@ -894,7 +894,7 @@
         <div class="sec-head reveal">
           <span class="eyebrow">Reserva direta sem taxas</span>
           <h2 class="sec-title">Monte seu passeio e chame <span class="serif">no WhatsApp.</span></h2>
-          <p class="sec-sub">Escolha sua opção abaixo e receba a disponibilidade na hora com o Luis Fernando.</p>
+          <p class="sec-sub">Escolha sua opção abaixo e receba a disponibilidade na hora pelo WhatsApp da Maré Azul.</p>
         </div>
         <div class="planner reveal">
           <div class="group">
@@ -972,7 +972,7 @@
               <li><small>Ponto de saída</small><b>Bairro da Passagem ou Portinho — combinado na reserva</b></li>
               <li><small>Endereço no Google</small><b>Rua dos Camarões, 117 — Ogiva, Cabo Frio - RJ</b></li>
               <li><small>Horário de atendimento</small><b>Todos os dias, das 08h00 às 20h00</b></li>
-              <li><small>WhatsApp direto</small><b>(22) 99937-4547 · Luis Fernando</b></li>
+              <li><small>WhatsApp direto</small><b>(22) 99937-4547 · Maré Azul Passeios</b></li>
               <li><small>Instagram oficial</small><b><a href="https://www.instagram.com/mareazulpasseios/" target="_blank" rel="noopener">@mareazulpasseios</a></b></li>
             </ul>
             <div class="where-actions">
@@ -1030,7 +1030,7 @@
       function mensagem() {
         var pessoas = [counts.adultos + ' adulto' + (counts.adultos > 1 ? 's' : '')];
         if (counts.criancas > 0) pessoas.push(counts.criancas + ' criança' + (counts.criancas > 1 ? 's' : ''));
-        return 'Olá, Luis Fernando! Tudo bem? Vim pelo site da *Maré Azul Passeios* e gostaria de consultar disponibilidade:\n\n*Opção:* ' + active('modalidade') + '\n*Roteiro:* ' + active('roteiro') + '\n*Tempo:* ' + active('tempo') + '\n*Grupo:* ' + pessoas.join(' e ') + '\n*Detalhe:* ' + active('extras');
+        return 'Olá! Tudo bem? Vim pelo site da *Maré Azul Passeios* e gostaria de consultar disponibilidade:\n\n*Opção:* ' + active('modalidade') + '\n*Roteiro:* ' + active('roteiro') + '\n*Tempo:* ' + active('tempo') + '\n*Grupo:* ' + pessoas.join(' e ') + '\n*Detalhe:* ' + active('extras');
       }
       function atualizar() {
         var msg = mensagem();
