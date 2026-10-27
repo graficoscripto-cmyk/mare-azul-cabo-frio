@@ -516,7 +516,7 @@
       .section { padding: 76px 0; }
       .sec-head { margin-bottom: 32px; }
       .host { grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-      .cards { grid-template-columns: repeat(2, 1fr); gap: 18px; } @media (min-width: 1024px) { .cards { grid-template-columns: repeat(4, 1fr); } }
+      .cards { grid-template-columns: repeat(2, 1fr); gap: 18px; }
       .routes { grid-template-columns: 1fr 1fr; gap: 22px; align-items: start; }
       .route-body { padding: 28px 30px 32px; }
       .incl { grid-template-columns: 1fr 1.15fr; gap: 22px; align-items: start; }
@@ -531,6 +531,7 @@
       .foot { grid-template-columns: 1.4fr 1fr 1fr; }
       .footer { padding-bottom: 40px; }
     }
+      @media (min-width: 1024px) { .cards { grid-template-columns: repeat(4, 1fr); } }
     @media (hover: hover) and (pointer: fine) {
       .nav { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
       .card .photo img, .route .photo img { transition: transform 0.9s var(--ease); }
@@ -597,7 +598,7 @@
         <div class="stat reveal"><b><span data-count="5" data-dec="1">5,0</span> <em>★</em></b><span>Nota no Google</span></div>
         <div class="stat reveal" style="--d:80ms"><b><span data-count="28">28</span></b><span>Avaliações reais</span></div>
         <div class="stat reveal" style="--d:160ms"><b><span data-count="2">2</span></b><span>Roteiros</span></div>
-        <div class="stat reveal" style="--d:240ms"><b>10–17h</b><span>Passeio de lancha</span></div>
+        <div class="stat reveal" style="--d:240ms"><b>10–17h</b><span>Jet Ski &amp; Passeios</span></div>
       </div>
     </div>
 
@@ -647,7 +648,7 @@
           </article>
           <article class="card reveal" style="--d:100ms">
             <div class="photo clip">
-              <span class="tag">10h às 17h</span>
+              <span class="tag">Diversos Modelos</span>
               <picture>
                 <source srcset="img/churrasco-a-bordo.webp" type="image/webp">
                 <img src="img/churrasco-a-bordo.jpg" alt="Churrasco a bordo no passeio de lancha em Cabo Frio" width="1400" height="1650" loading="lazy" decoding="async" data-par>
@@ -661,7 +662,7 @@
           </article>
           <article class="card reveal" style="--d:200ms">
             <div class="photo clip">
-              <span class="tag">Adrenalina</span>
+              <span class="tag">Meia hora · 1h+ · Diária</span>
               <picture>
                 <source srcset="img/frota-jetskis.webp" type="image/webp">
                 <img src="img/frota-jetskis.jpg" alt="Jet Ski nas águas cristalinas da Região dos Lagos" width="2000" height="2000" loading="lazy" decoding="async" data-par>
@@ -669,7 +670,7 @@
             </div>
             <div class="card-body">
               <h3>Jet Ski</h3>
-              <p>Marinheiro habilitado, coletes e jet skis novos e revisados.</p>
+              <p>Marinheiro habilitado, coletes e jet skis novos e revisados. Opções de meia hora, 1 hora ou mais e diária.</p>
               <a href="https://wa.me/5522999374547?text=Ol%C3%A1!%20Quero%20consultar%20o%20*Jet%20Ski*%20da%20Mar%C3%A9%20Azul%20em%20Cabo%20Frio." target="_blank" rel="noopener" class="btn-line">Consultar Jet Ski <span aria-hidden="true">→</span></a>
             </div>
           </article>
@@ -688,7 +689,7 @@
             </div>
           </article>
         </div>
-        <div class="times reveal"><span>Tempo de passeio</span><b>Meia hora</b><b>1 hora ou mais</b><b>Diária</b></div>
+        <div class="times reveal"><span>Tempo no Jet Ski</span><b>Meia hora</b><b>1 hora ou mais</b><b>Diária</b></div>
       </div>
     </section>
 
@@ -700,10 +701,10 @@
         </div>
         <div class="incl">
           <div class="panel reveal">
-            <small class="eyebrow">Passeio de lancha · diversos modelos</small>
-            <div class="hours">10h <em>às</em> 17h</div>
+            <small class="eyebrow">Passeio de lancha ou barco · diversos modelos</small>
+            <h3>Passeio de Lancha e <span class="serif">Barco.</span></h3>
             <ul class="incl-list">
-              <li>Diversos modelos de lanchas disponíveis</li>
+              <li>Diversos modelos de lanchas e barcos disponíveis</li>
               <li>Gelo</li>
               <li>Carvão</li>
               <li>Som Bluetooth</li>
@@ -711,8 +712,9 @@
             </ul>
           </div>
           <div class="panel reveal" style="--d:100ms" id="jetski">
-            <small class="eyebrow">Jet Ski</small>
-            <h3>Adrenalina com <span class="serif">segurança.</span></h3>
+            <small class="eyebrow">Jet Ski · Das 10h às 17h</small>
+            <div class="hours">10h <em>às</em> 17h</div>
+            <div class="times" style="margin-top:0"><span>Tempo no Jet Ski</span><b>Meia hora</b><b>1 hora ou mais</b><b>Diária</b></div>
             <div class="jet-photos">
               <div class="photo clip">
                 <picture>
@@ -728,6 +730,7 @@
               </div>
             </div>
             <ul class="incl-list">
+              <li>Opções no Jet Ski: Meia hora · 1 hora ou mais · Diária</li>
               <li>Marinheiro habilitado</li>
               <li>Coletes</li>
               <li>Jet skis novos e revisados</li>
@@ -892,12 +895,12 @@
             </div>
           </div>
           <div class="group">
-            <span class="label">3. Tempo de passeio</span>
+            <span class="label">3. Tempo / Horário</span>
             <div class="chips" data-g="tempo">
-              <button type="button" class="chip" data-v="Meia hora">Meia hora</button>
-              <button type="button" class="chip" data-v="1 hora ou mais">1 hora ou mais</button>
-              <button type="button" class="chip" data-v="Diária">Diária</button>
-              <button type="button" class="chip active" data-v="Passeio das 10h às 17h">10h às 17h</button>
+              <button type="button" class="chip active" data-v="Meia hora (Jet Ski)">Meia hora (Jet Ski)</button>
+              <button type="button" class="chip" data-v="1 hora ou mais (Jet Ski)">1 hora ou mais (Jet Ski)</button>
+              <button type="button" class="chip" data-v="Diária (Jet Ski / Lancha)">Diária</button>
+              <button type="button" class="chip" data-v="Das 10h às 17h">10h às 17h</button>
             </div>
           </div>
           <div class="group">
