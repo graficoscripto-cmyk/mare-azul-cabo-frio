@@ -371,6 +371,14 @@
     .times > span { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); margin-right: 4px; }
     .times b { display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px; border-radius: 999px; background: var(--shell); border: 1px solid var(--line); font-weight: 700; font-size: 0.9rem; }
 
+    .price { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; margin: 2px 0; }
+    .price small { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); }
+    .price b { font-family: var(--display); font-size: 1.5rem; line-height: 1; color: var(--ink); }
+    .price-list { display: grid; gap: 6px; margin: 2px 0; }
+    .price-list li { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding-bottom: 6px; border-bottom: 1px solid var(--line); font-size: 0.92rem; font-weight: 600; }
+    .price-list li b { font-family: var(--display); font-size: 1.05rem; text-align: right; }
+    .price-note { margin-top: 18px; font-size: 0.82rem; color: var(--ink-soft); text-align: center; }
+
     /* ---------- incluso: barco + jet ski ---------- */
     .incl { display: grid; gap: 16px; }
     .panel { padding: 26px 22px; border-radius: 28px; background: var(--shell); border: 1px solid var(--line); display: grid; gap: 16px; align-content: start; }
@@ -657,6 +665,7 @@
             <div class="card-body">
               <h3>Passeio de Lancha</h3>
               <p>Diversos modelos de lanchas disponíveis. Gelo, carvão, som Bluetooth e marinheiro inclusos.</p>
+              <div class="price"><small>A partir de</small><b>R$ 1.199</b></div>
               <a href="https://wa.me/5522999374547?text=Ol%C3%A1!%20Quero%20consultar%20o%20*Passeio%20de%20Lancha*%20da%20Mar%C3%A9%20Azul%20em%20Cabo%20Frio." target="_blank" rel="noopener" class="btn-line">Consultar Lanchas <span aria-hidden="true">→</span></a>
             </div>
           </article>
@@ -671,7 +680,7 @@
             <div class="card-body">
               <h3>Jet Ski</h3>
               <p>Marinheiro habilitado, coletes e jet skis novos e revisados. Opções de meia hora, 1 hora ou mais e diária.</p>
-              <div class="times" style="margin-top:0"><span>Tempo no Jet Ski</span><b>Meia hora</b><b>1 hora ou mais</b><b>Diária</b></div>
+              <ul class="price-list"><li>Meia hora <b>a partir de R$ 199</b></li><li>1 hora <b>a partir de R$ 399</b></li><li>Diária <b>a partir de R$ 1.199</b></li></ul>
               <a href="https://wa.me/5522999374547?text=Ol%C3%A1!%20Quero%20consultar%20o%20*Jet%20Ski*%20da%20Mar%C3%A9%20Azul%20em%20Cabo%20Frio." target="_blank" rel="noopener" class="btn-line">Consultar Jet Ski <span aria-hidden="true">→</span></a>
             </div>
           </article>
@@ -686,10 +695,12 @@
             <div class="card-body">
               <h3>Passeio de Barco</h3>
               <p>Passeio de barco privativo ou compartilhado em Cabo Frio e Arraial do Cabo.</p>
+              <ul class="price-list"><li>Privativo · Cabo Frio <b>a partir de R$ 1.199</b></li><li>Privativo · Arraial do Cabo <b>a partir de R$ 1.499</b></li><li>Compartilhado, por pessoa <b>a partir de R$ 70</b></li></ul>
               <a href="https://wa.me/5522999374547?text=Ol%C3%A1!%20Quero%20consultar%20o%20*Passeio%20de%20Barco*%20em%20Cabo%20Frio%20e%20Arraial%20do%20Cabo." target="_blank" rel="noopener" class="btn-line">Consultar Barco <span aria-hidden="true">→</span></a>
             </div>
           </article>
         </div>
+        <p class="price-note reveal">Valores a partir de, de baixa temporada. Variam conforme embarcação, roteiro e temporada.</p>
       </div>
     </section>
 
@@ -714,7 +725,7 @@
           <div class="panel reveal" style="--d:100ms" id="jetski">
             <small class="eyebrow">Jet Ski · Das 10h às 17h</small>
             <div class="hours">10h <em>às</em> 17h</div>
-            <div class="times" style="margin-top:0"><span>Tempo no Jet Ski</span><b>Meia hora</b><b>1 hora ou mais</b><b>Diária</b></div>
+            <div class="times" style="margin-top:0"><span>A partir de</span><b>Meia hora · R$ 199</b><b>1 hora · R$ 399</b><b>Diária · R$ 1.199</b></div>
             <div class="jet-photos">
               <div class="photo clip">
                 <picture>
