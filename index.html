@@ -367,6 +367,8 @@
     .tag { position: absolute; top: 12px; left: 12px; z-index: 2; padding: 6px 12px; border-radius: 999px; background: rgba(251, 248, 243, 0.94); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); }
     .tag.sun { background: var(--sun); }
     .card-body { padding: 18px 12px 12px; display: grid; gap: 10px; }
+    .card.destaque { grid-column: 1 / -1; }
+    @media (min-width: 760px) { .card.destaque { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); align-items: center; } .card.destaque .card-body { padding: 24px 28px; } .card.destaque h3 { font-size: clamp(1.6rem, 3vw, 2.2rem); } }
     .card-body h3 { font-size: 1.5rem; }
     .card-body p { color: var(--ink-soft); font-size: 0.95rem; }
     .card-body .btn-line { justify-self: start; margin-top: 4px; }
@@ -703,6 +705,21 @@
               <p>Passeio de barco privativo ou compartilhado em Cabo Frio e Arraial do Cabo.</p>
               <ul class="price-list"><li>Privativo · Cabo Frio <b>a partir de R$ 1.199</b></li><li>Privativo · Arraial do Cabo <b>a partir de R$ 1.499</b></li><li>Compartilhado, por pessoa <b>a partir de R$ 70</b></li></ul>
               <a href="https://wa.me/5522999374547?text=Ol%C3%A1!%20Quero%20consultar%20o%20*Passeio%20de%20Barco*%20em%20Cabo%20Frio%20e%20Arraial%20do%20Cabo." target="_blank" rel="noopener" class="btn-line">Consultar Barco <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+          <article class="card destaque reveal">
+            <div class="photo clip">
+              <span class="tag sun">Lancha de destaque</span>
+              <picture>
+                <source srcset="img/lancha-destaque.webp" type="image/webp">
+                <img src="img/lancha-destaque.jpg" alt="Proa da lancha com solário e almofadas laranja em águas turquesa de Arraial do Cabo, com um jet ski ao fundo" width="1086" height="1448" loading="lazy" decoding="async" data-par>
+              </picture>
+            </div>
+            <div class="card-body">
+              <h3>Lancha Premium</h3>
+              <p>Solário na proa, cabine com cozinha e área de popa ampla para curtir o mar com conforto.</p>
+              <div class="price"><small>A partir de</small><b>R$ 3.000</b></div>
+              <a href="https://wa.me/5522999374547?text=Ol%C3%A1!%20Quero%20consultar%20a%20*Lancha%20Premium*%20da%20Mar%C3%A9%20Azul%20em%20Cabo%20Frio." target="_blank" rel="noopener" class="btn-line">Consultar Lancha Premium <span aria-hidden="true">→</span></a>
             </div>
           </article>
         </div>
