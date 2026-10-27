@@ -462,13 +462,13 @@
     .facts b { font-weight: 600; }
     .where-card .btn { justify-self: start; }
     .where-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 2px; }
-    .ig-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 24px; padding: 14px 18px; border-radius: 22px; background: var(--shell); border: 1px solid var(--line); box-shadow: 0 12px 28px -22px rgba(18, 35, 58, 0.35); }
+    .ig-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 24px; padding: 14px 18px; border-radius: 22px; background: linear-gradient(135deg, #FFF6DF, var(--shell)); border: 1px solid rgba(232, 163, 23, 0.35); box-shadow: 0 12px 28px -22px rgba(18, 35, 58, 0.25); }
     .ig-bar span { font-size: 0.92rem; color: var(--ink-soft); font-weight: 500; }
     .ig-bar span b { color: var(--ink); font-weight: 700; }
-    .ig-pill { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 18px; border-radius: 999px; background: var(--ink); color: var(--shell); font-weight: 700; font-size: 0.88rem; transition: transform 0.3s var(--ease), background 0.2s; }
+    .ig-pill { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 18px; border-radius: 999px; background: linear-gradient(135deg, var(--sun-soft), var(--sun)); color: var(--ink); font-weight: 700; font-size: 0.88rem; transition: transform 0.3s var(--ease), background 0.2s; }
     .ig-pill svg, .btn-line svg { width: 18px; height: 18px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-    .ig-pill svg { stroke: var(--sun-soft); }
-    @media (hover: hover) { .ig-pill:hover { background: var(--ink-2); transform: translateY(-2px); } }
+    .ig-pill svg { stroke: var(--ink); }
+    @media (hover: hover) { .ig-pill:hover { filter: brightness(1.05); transform: translateY(-2px); } }
     .map { min-height: 300px; border-radius: 26px; overflow: hidden; border: 1px solid var(--line); background: var(--sand-2); }
     .map iframe { width: 100%; height: 100%; min-height: 300px; border: 0; display: block; }
     .faq { margin-top: 48px; display: grid; gap: 10px; }
@@ -561,7 +561,7 @@
     <header class="nav">
       <a href="#topo" class="brand" aria-label="Maré Azul Passeios — início">
         <img src="img/logo-mare-azul-128.webp" alt="Logo Maré Azul Passeios" width="42" height="42">
-        <span><b>Maré <em>Azul</em></b><small>Cabo Frio · Arraial</small></span>
+        <span><b>Maré <em>Azul</em> Passeios</b><small>Cabo Frio · Arraial</small></span>
       </a>
       <nav class="nav-links" aria-label="Navegação principal">
         <a href="#frota">Lancha &amp; Jet Ski</a>
@@ -583,7 +583,7 @@
       <div class="hero-scrim"></div>
       <div class="wrap hero-body">
         <a href="#avaliacoes" class="rating hero-in" style="--i:0"><b>★★★★★</b> 5,0 no Google · 28 avaliações reais</a>
-        <h1 class="split">O mar cristalino de Cabo Frio de <span class="serif">lancha e Jet Ski.</span></h1>
+        <h1 class="split">Viva a experiência pelo melhor ângulo: <span class="serif">o mar.</span></h1>
         <p class="hero-lead hero-in" style="--i:1">Passeio de lancha (diversos modelos disponíveis) e Jet Ski por Cabo Frio e Arraial do Cabo.</p>
         <div class="hero-actions hero-in" style="--i:2">
           <a href="#reservar" class="btn sun" data-mag><span>Montar meu passeio</span><i>→</i></a>
@@ -671,6 +671,7 @@
             <div class="card-body">
               <h3>Jet Ski</h3>
               <p>Marinheiro habilitado, coletes e jet skis novos e revisados. Opções de meia hora, 1 hora ou mais e diária.</p>
+              <div class="times" style="margin-top:0"><span>Tempo no Jet Ski</span><b>Meia hora</b><b>1 hora ou mais</b><b>Diária</b></div>
               <a href="https://wa.me/5522999374547?text=Ol%C3%A1!%20Quero%20consultar%20o%20*Jet%20Ski*%20da%20Mar%C3%A9%20Azul%20em%20Cabo%20Frio." target="_blank" rel="noopener" class="btn-line">Consultar Jet Ski <span aria-hidden="true">→</span></a>
             </div>
           </article>
@@ -689,7 +690,6 @@
             </div>
           </article>
         </div>
-        <div class="times reveal"><span>Tempo no Jet Ski</span><b>Meia hora</b><b>1 hora ou mais</b><b>Diária</b></div>
       </div>
     </section>
 
@@ -864,6 +864,7 @@
                 <li>Prainhas do Pontal</li>
                 <li>Praia do Forno</li>
                 <li class="turn">Retorno a Cabo Frio</li>
+                <li>Ilha dos Papagaios</li>
                 <li>Ilha do Japonês</li>
               </ol>
             </div>
