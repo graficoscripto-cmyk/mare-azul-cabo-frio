@@ -109,7 +109,10 @@
           "ratingCount": "28",
           "reviewCount": "28"
         },
-        "hasMap": "https://www.google.com/maps/place/?q=place_id:ChIJPYs88soFlwARjp5l1egRsi8"
+        "hasMap": "https://www.google.com/maps/place/?q=place_id:ChIJPYs88soFlwARjp5l1egRsi8",
+        "sameAs": [
+          "https://www.instagram.com/mareazulpasseios/"
+        ]
       },
       {
         "@type": "TouristTrip",
@@ -458,6 +461,14 @@
     .facts small { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
     .facts b { font-weight: 600; }
     .where-card .btn { justify-self: start; }
+    .where-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 2px; }
+    .ig-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 24px; padding: 14px 18px; border-radius: 22px; background: var(--shell); border: 1px solid var(--line); box-shadow: 0 12px 28px -22px rgba(18, 35, 58, 0.35); }
+    .ig-bar span { font-size: 0.92rem; color: var(--ink-soft); font-weight: 500; }
+    .ig-bar span b { color: var(--ink); font-weight: 700; }
+    .ig-pill { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 18px; border-radius: 999px; background: var(--ink); color: var(--shell); font-weight: 700; font-size: 0.88rem; transition: transform 0.3s var(--ease), background 0.2s; }
+    .ig-pill svg, .btn-line svg { width: 18px; height: 18px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .ig-pill svg { stroke: var(--sun-soft); }
+    @media (hover: hover) { .ig-pill:hover { background: var(--ink-2); transform: translateY(-2px); } }
     .map { min-height: 300px; border-radius: 26px; overflow: hidden; border: 1px solid var(--line); background: var(--sand-2); }
     .map iframe { width: 100%; height: 100%; min-height: 300px; border: 0; display: block; }
     .faq { margin-top: 48px; display: grid; gap: 10px; }
@@ -764,6 +775,10 @@
           <h2 class="sec-title">Cabo Frio e <span class="serif">Arraial do Cabo.</span></h2>
           <p class="sec-sub">Conheça cada praia e ilha dos nossos roteiros em Cabo Frio e Arraial do Cabo.</p>
         </div>
+        <div class="ig-bar reveal">
+          <span>Vídeos e momentos reais todos os dias no Instagram <b>@mareazulpasseios</b></span>
+          <a href="https://www.instagram.com/mareazulpasseios/" target="_blank" rel="noopener" class="ig-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg><span>@mareazulpasseios · Ver no Instagram</span></a>
+        </div>
         <div class="beach-grid">
           <figure class="beach-card reveal">
             <picture>
@@ -937,8 +952,12 @@
               <li><small>Endereço no Google</small><b>Rua dos Camarões, 117 — Ogiva, Cabo Frio - RJ</b></li>
               <li><small>Horário de atendimento</small><b>Todos os dias, das 08h00 às 20h00</b></li>
               <li><small>WhatsApp direto</small><b>(22) 99937-4547 · Luis Fernando</b></li>
+              <li><small>Instagram oficial</small><b><a href="https://www.instagram.com/mareazulpasseios/" target="_blank" rel="noopener">@mareazulpasseios</a></b></li>
             </ul>
-            <a href="https://www.google.com/maps/place/?q=place_id:ChIJPYs88soFlwARjp5l1egRsi8" target="_blank" rel="noopener" class="btn" data-mag><span>Abrir no Google Maps</span><i>↗</i></a>
+            <div class="where-actions">
+              <a href="https://www.google.com/maps/place/?q=place_id:ChIJPYs88soFlwARjp5l1egRsi8" target="_blank" rel="noopener" class="btn" data-mag><span>Abrir no Google Maps</span><i>↗</i></a>
+              <a href="https://www.instagram.com/mareazulpasseios/" target="_blank" rel="noopener" class="btn-line"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg><span>@mareazulpasseios</span></a>
+            </div>
           </div>
           <div class="map reveal" style="--d:100ms">
             <iframe title="Localização Maré Azul Passeios na Ogiva, Cabo Frio" src="https://www.google.com/maps?q=Rua+dos+Camar%C3%B5es,+117+-+Ogiva,+Cabo+Frio+-+RJ&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -971,7 +990,7 @@
     <div class="wrap foot">
       <div style="display:flex;align-items:center;gap:14px"><img src="img/logo-mare-azul-128.webp" alt="Logo Maré Azul Passeios" width="56" height="56" style="border-radius:50%;object-fit:cover;border:1.5px solid rgba(251,248,243,0.22);flex:none"><div><strong>Maré Azul Passeios Náuticos</strong><p>Passeio de lancha (diversos modelos) e Jet Ski em Cabo Frio e Arraial do Cabo - RJ.</p></div></div>
       <div><h4>Navegue</h4><ul><li><a href="#frota">Lancha &amp; Jet Ski</a></li><li><a href="#roteiros">Roteiros</a></li><li><a href="#reservar">Monte seu Passeio</a></li></ul></div>
-      <div><h4>Contato</h4><ul><li><a href="https://wa.me/5522999374547" target="_blank" rel="noopener">(22) 99937-4547</a></li><li>Rua dos Camarões, 117 — Ogiva</li><li>Nota 5,0 ★ no Google Maps</li></ul></div>
+      <div><h4>Contatos &amp; Redes</h4><ul><li><a href="https://wa.me/5522999374547" target="_blank" rel="noopener">WhatsApp (22) 99937-4547</a></li><li><a href="https://www.instagram.com/mareazulpasseios/" target="_blank" rel="noopener">Instagram @mareazulpasseios</a></li><li>Rua dos Camarões, 117 — Ogiva</li><li>Nota 5,0 ★ no Google Maps</li></ul></div>
     </div>
   </footer>
 
