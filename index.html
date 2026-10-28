@@ -17,7 +17,7 @@
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
   <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#12233A">
+  <meta name="theme-color" content="#0A1B33">
 
   <!-- Open Graph / WhatsApp -->
   <meta property="og:type" content="website">
@@ -26,15 +26,16 @@
   <meta property="og:title" content="Maré Azul Passeios | Lancha e Jet Ski em Cabo Frio">
   <meta property="og:description" content="Nota 5,0 ★ no Google. Passeio de lancha das 10h às 17h (diversos modelos de lanchas), Jet Ski e dois roteiros: Cabo Frio e Arraial do Cabo (panorâmico).">
   <meta property="og:url" content="https://mare-azul-cabo-frio.vercel.app/">
-  <meta property="og:image" content="https://mare-azul-cabo-frio.vercel.app/img/og-mare-azul.jpg">
+  <meta property="og:image" content="https://mare-azul-cabo-frio.vercel.app/img/og-mare-azul-v2.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Maré Azul Passeios: lancha e jet ski em Cabo Frio e Arraial do Cabo">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Maré Azul Passeios | Lancha e Jet Ski em Cabo Frio">
   <meta name="twitter:description" content="Passeio de lancha das 10h às 17h (diversos modelos de lanchas) e Jet Ski. Roteiros Cabo Frio e Arraial do Cabo.">
-  <meta name="twitter:image" content="https://mare-azul-cabo-frio.vercel.app/img/og-mare-azul.jpg">
+  <meta name="twitter:image" content="https://mare-azul-cabo-frio.vercel.app/img/og-mare-azul-v2.jpg">
 
   <!-- Preload Hero 4K -->
   <link rel="preload" as="image" href="img/hero-lancha-ilha.webp" type="image/webp" fetchpriority="high">
@@ -42,7 +43,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@600;700;800&family=Instrument+Serif:ital@1&family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Schema.org JSON-LD (@graph SEO Local + GEO) -->
   <script type="application/ld+json">
@@ -65,7 +66,7 @@
           "https://mare-azul-cabo-frio.vercel.app/img/logo-mare-azul.jpg",
           "https://mare-azul-cabo-frio.vercel.app/img/combo-lancha-jetski.jpg",
           "https://mare-azul-cabo-frio.vercel.app/img/frota-jetskis.jpg",
-          "https://mare-azul-cabo-frio.vercel.app/img/og-mare-azul.jpg",
+          "https://mare-azul-cabo-frio.vercel.app/img/og-mare-azul-v2.jpg",
           "https://mare-azul-cabo-frio.vercel.app/img/hero-lancha-ilha.jpg",
           "https://mare-azul-cabo-frio.vercel.app/img/jetski-arraial-gruta.jpg",
           "https://mare-azul-cabo-frio.vercel.app/img/jetski-arraial-paredao.jpg",
@@ -225,20 +226,21 @@
   <style>
     /* Paleta "Areia & Oceano": neutros quentes + azul-oceano + 1 destaque (amarelo-sol da marca). O turquesa vem das fotos. */
     :root {
-      --sand: #F3EEE6;
-      --sand-2: #EAE2D5;
-      --shell: #FBF8F3;
-      --ink: #12233A;
+      --sand: #EEF4F4;
+      --sand-2: #DCEBEC;
+      --shell: #F9FCFC;
+      --ink: #0A1B33;
       --ink-2: #1B3352;
       --ink-soft: #55657A;
       --line: rgba(18, 35, 58, 0.12);
-      --sun: #E8A317;
-      --sun-soft: #F6D58A;
+      --sun: #16C4D6;
+      --sun-soft: #93EBF3;
+      --star: #F5B301;
       --wa: #1FA855;
       --ease: cubic-bezier(0.22, 1, 0.36, 1);
-      --display: 'Outfit', system-ui, sans-serif;
-      --serif: 'Fraunces', Georgia, serif;
-      --sans: 'Manrope', -apple-system, 'Segoe UI', Roboto, sans-serif;
+      --display: 'Gabarito', system-ui, sans-serif;
+      --serif: 'Instrument Serif', Georgia, serif;
+      --sans: 'Schibsted Grotesk', -apple-system, 'Segoe UI', Roboto, sans-serif;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { background: var(--sand); color: var(--ink); font-family: var(--sans); -webkit-text-size-adjust: 100%; -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent; overflow-x: hidden; }
@@ -249,7 +251,7 @@
     a, summary { touch-action: manipulation; }
     ul { list-style: none; }
     h1, h2, h3 { font-family: var(--display); font-weight: 700; letter-spacing: -0.025em; line-height: 1.04; }
-    .serif { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+    .serif { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: 0; font-size: 1.12em; }
     .wrap { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 16px; }
     section[id] { scroll-margin-top: 80px; }
     :focus-visible { outline: 2px solid var(--sun); outline-offset: 3px; }
@@ -302,9 +304,9 @@
     .hero-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(18, 35, 58, 0.35) 0%, rgba(18, 35, 58, 0) 22%, rgba(18, 35, 58, 0) 48%, rgba(18, 35, 58, 0.86) 100%); }
     .hero-body { position: relative; width: 100%; padding-top: 120px; padding-bottom: 48px; }
     .rating { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 999px; background: rgba(18, 35, 58, 0.55); border: 1px solid rgba(251, 248, 243, 0.2); font-size: 0.84rem; font-weight: 600; margin-bottom: 16px; }
-    .rating b { color: var(--sun-soft); letter-spacing: 2px; font-weight: 400; }
+    .rating b { color: var(--star); letter-spacing: 2px; font-weight: 400; }
     .hero h1 { font-size: clamp(2.5rem, 11.2vw, 5.4rem); max-width: 12ch; margin-bottom: 14px; text-shadow: 0 2px 28px rgba(0, 0, 0, 0.35); }
-    .hero h1 .serif { color: var(--sun-soft); font-size: 1.04em; }
+    .hero h1 .serif { color: var(--sun-soft); font-size: 1.12em; }
     .hero-lead { font-size: 1.05rem; color: rgba(251, 248, 243, 0.92); max-width: 32ch; margin-bottom: 24px; }
     .hero-actions { display: flex; flex-direction: column; gap: 12px; }
     .w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.12em; margin-bottom: -0.12em; }
@@ -323,8 +325,58 @@
     .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 14px 0 6px; }
     .stat { padding: 18px 16px; border-radius: 20px; background: var(--shell); border: 1px solid var(--line); }
     .stat b { display: block; font-family: var(--display); font-weight: 700; font-size: 2rem; line-height: 1; }
-    .stat b em { font-style: normal; color: var(--sun); }
+    .stat b em { font-style: normal; color: var(--star); }
     .stat > span { display: block; margin-top: 6px; font-size: 0.84rem; color: var(--ink-soft); }
+
+
+    /* ---------- retoque final: rota, maré, jet ski na onda ---------- */
+    .sea { position: absolute; left: 0; right: 0; bottom: -1px; height: 46px; z-index: 3; pointer-events: none; }
+    .sea .sv { position: absolute; inset: 0; overflow: hidden; }
+    .sea svg.wv { display: block; width: 200%; height: 100%; animation: onda 12s linear infinite; }
+    @keyframes onda { to { transform: translateX(-50%); } }
+    .jet { position: absolute; bottom: 20px; left: 0; width: 118px; will-change: transform; }
+    .jet svg { width: 100%; overflow: visible; animation: jbob 1.6s ease-in-out infinite; transform-origin: 40% 80%; }
+    @keyframes jbob { 50% { transform: translateY(-4px) rotate(-3deg); } }
+    .jet .spray { animation: spray 0.9s ease-out infinite; transform-origin: 20px 40px; }
+    @keyframes spray { from { opacity: 0.9; transform: translate(0, 0) scale(0.6); } to { opacity: 0; transform: translate(-16px, -10px) scale(1.2); } }
+    .hero-body { padding-bottom: 84px; }
+    .sea.mb { z-index: 2; }
+    .mare { position: relative; background: var(--ink); color: var(--shell); padding: 40px 0 96px; overflow: hidden; }
+    .tide { position: absolute; inset: 0; pointer-events: none; }
+    .tide-fill { position: absolute; left: 0; right: 0; top: 0; height: 100%; transform: translateY(100%); will-change: transform; background: linear-gradient(180deg, rgba(22, 196, 214, 0.28), rgba(22, 196, 214, 0.1) 40%, rgba(22, 196, 214, 0.04)); }
+    .tide-fill svg { position: absolute; left: 0; top: -22px; width: 200%; height: 24px; animation: onda 9s linear infinite; }
+    .mare .wrap { position: relative; }
+    .mare-t { max-width: 18ch; }
+    .mare .sec-title .serif { color: var(--sun-soft); }
+    .mare .eyebrow { color: rgba(249, 252, 252, 0.7); }
+    .rt { position: relative; margin: 6px auto 0; max-width: 400px; }
+    .rt.h { display: none; max-width: 1040px; }
+    .rt svg.rs { width: 100%; height: auto; overflow: visible; display: block; }
+    .rt .base { fill: none; stroke: rgba(147, 235, 243, 0.45); stroke-width: 3; stroke-dasharray: 2 12; stroke-linecap: round; }
+    .rt .feito { fill: none; stroke: var(--sun); stroke-width: 5; stroke-linecap: round; filter: drop-shadow(0 0 6px rgba(22, 196, 214, 0.8)); }
+    .rt .barco { position: absolute; left: 0; top: 0; width: 26px; height: 54px; margin: -27px 0 0 -13px; will-change: transform; }
+    .bu { position: absolute; width: 0; height: 0; }
+    .bu .b { position: absolute; left: -38px; top: -38px; width: 76px; height: 76px; border-radius: 50%; background: conic-gradient(#fff 0 25%, var(--sun) 0 50%, #fff 0 75%, var(--sun) 0); display: grid; place-items: center; box-shadow: 0 10px 22px -8px rgba(0, 0, 0, 0.6); opacity: 0.35; transform: scale(0.85); transition: opacity 0.5s var(--ease), transform 0.6s var(--ease); }
+    .bu .b::before { content: ''; position: absolute; inset: 8px; border-radius: 50%; background: var(--ink); }
+    .bu .b::after { content: ''; position: absolute; inset: -3px; border-radius: 50%; border: 2px solid var(--sun); opacity: 0; }
+    .bu.on .b { opacity: 1; transform: scale(1); animation: jbob2 3.4s ease-in-out infinite; }
+    .bu.on .b::after { animation: sonar 2.8s ease-out infinite; }
+    @keyframes jbob2 { 50% { transform: translateY(-5px) rotate(4deg); } }
+    @keyframes sonar { from { opacity: 0.8; transform: scale(1); } to { opacity: 0; transform: scale(1.7); } }
+    .bu .b b { position: relative; z-index: 1; font-family: var(--display); font-weight: 800; font-size: 1.35rem; line-height: 1; letter-spacing: -0.02em; }
+    .bu .b b.sm { font-size: 0.98rem; }
+    .bu .t { position: absolute; width: 120px; font-size: 0.78rem; font-weight: 700; line-height: 1.25; color: rgba(249, 252, 252, 0.85); }
+    .bu.a .t { left: 46px; top: -10px; text-align: left; }
+    .bu.c .t { right: 46px; top: -10px; text-align: right; }
+    @media (max-width: 359px) { .bu .t { width: 88px; font-size: 0.72rem; } }
+    .ext { position: absolute; font-family: var(--serif); font-style: italic; font-size: 1.35rem; color: var(--sun-soft); white-space: nowrap; }
+    @media (min-width: 760px) {
+      .rt { display: none; } .rt.h { display: block; margin-top: 20px; }
+      .bu.a .t, .bu.c .t { left: -60px; right: auto; top: 46px; width: 120px; text-align: center; }
+      .bu.c .t { top: -64px; }
+      .mare { padding: 60px 0 90px; }
+      .mare-t { max-width: 26ch; }
+    }
 
     /* ---------- seções ---------- */
     .section { padding: 48px 0; }
@@ -335,6 +387,8 @@
     .eyebrow::before { content: ''; width: 22px; height: 2px; border-radius: 2px; background: var(--sun); }
     .deep .eyebrow { color: rgba(251, 248, 243, 0.7); }
     .sec-title { font-size: clamp(2rem, 8.2vw, 3.4rem); }
+    .js .reveal .sec-title .wi { transform: translateY(115%); transition: transform 0.85s var(--ease); transition-delay: calc(var(--i, 0) * 60ms + 120ms); }
+    .js .reveal.in .sec-title .wi { transform: none; }
     .sec-title .serif { color: var(--ink-2); }
     .deep .sec-title .serif { color: var(--sun-soft); }
     .sec-sub { margin-top: 12px; color: var(--ink-soft); max-width: 44ch; }
@@ -457,11 +511,11 @@
     /* ---------- avaliações ---------- */
     .score { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; }
     .score strong { font-family: var(--display); font-size: 3.4rem; font-weight: 700; line-height: 1; }
-    .score b { display: block; color: var(--sun); letter-spacing: 2px; font-weight: 400; }
+    .score b { display: block; color: var(--star); letter-spacing: 2px; font-weight: 400; }
     .score small { color: var(--ink-soft); font-size: 0.86rem; }
     .reviews { display: grid; gap: 12px; }
     .review { padding: 22px; border-radius: 24px; background: var(--shell); border: 1px solid var(--line); display: grid; gap: 14px; align-content: space-between; }
-    .review .stars { color: var(--sun); letter-spacing: 2px; }
+    .review .stars { color: var(--star); letter-spacing: 2px; }
     .review p { font-size: 1.02rem; }
     .review cite { font-style: normal; font-weight: 700; font-size: 0.92rem; }
     .review cite small { display: block; font-weight: 500; color: var(--ink-soft); font-size: 0.8rem; }
@@ -477,7 +531,7 @@
     .facts b { font-weight: 600; }
     .where-card .btn { justify-self: start; }
     .where-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 2px; }
-    .ig-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 24px; padding: 14px 18px; border-radius: 22px; background: linear-gradient(135deg, #FFF6DF, var(--shell)); border: 1px solid rgba(232, 163, 23, 0.35); box-shadow: 0 12px 28px -22px rgba(18, 35, 58, 0.25); }
+    .ig-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 24px; padding: 14px 18px; border-radius: 22px; background: linear-gradient(135deg, #DDF6F9, var(--shell)); border: 1px solid rgba(22, 196, 214, 0.4); box-shadow: 0 12px 28px -22px rgba(18, 35, 58, 0.25); }
     .ig-bar span { font-size: 0.92rem; color: var(--ink-soft); font-weight: 500; }
     .ig-bar span b { color: var(--ink); font-weight: 700; }
     .ig-pill { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 18px; border-radius: 999px; background: linear-gradient(135deg, var(--sun-soft), var(--sun)); color: var(--ink); font-weight: 700; font-size: 0.88rem; transition: transform 0.3s var(--ease), background 0.2s; }
@@ -555,6 +609,10 @@
       *, *::before, *::after { animation-duration: 0.01ms !important; animation-delay: 0ms !important; transition-duration: 0.01ms !important; }
       .intro { display: none; }
       .js .reveal { opacity: 1; transform: none; }
+      .js .reveal .sec-title .wi { transform: none; }
+      .sea svg.wv, .jet svg, .jet .spray, .tide-fill svg, .bu.on .b, .bu.on .b::after { animation: none !important; }
+      .tide-fill { transform: translateY(35%); }
+      .bu .b { opacity: 1; transform: none; }
       .js .clip { clip-path: none; }
       .wave path { stroke-dashoffset: 0; }
       .stops::before { transform: none; }
@@ -605,17 +663,28 @@
           <a href="#frota" class="btn-ghost">Ver opções</a>
         </div>
       </div>
+      <div class="sea" aria-hidden="true"><div class="jet" id="jet" aria-hidden="true"><svg viewBox="0 0 120 60"><g class="spray"><circle cx="14" cy="42" r="3" fill="#fff"/><circle cx="6" cy="36" r="2" fill="#fff"/><circle cx="20" cy="34" r="2" fill="#93EBF3"/></g><path d="M2 46c14-4 28-2 40-3" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" opacity=".8"/><path d="M10 44c18 4 56 4 92-12l8-4c-10-4-22-4-34-2L20 36z" fill="#16C4D6"/><path d="M10 44c18 4 56 4 92-12l-4-1c-30 10-62 12-86 5z" fill="#0A1B33" opacity=".35"/><path d="M42 33l22-4 8 3-24 6z" fill="#0A1B33"/><path d="M82 27l6-12 3 1-3 10z" fill="#fff"/><path d="M84 15l10-1" stroke="#0A1B33" stroke-width="3" stroke-linecap="round"/><circle cx="52" cy="20" r="5" fill="#0A1B33"/><path d="M48 25l10 0 4 8-14 1z" fill="#F5B301"/></svg></div><div class="sv"><svg class="wv" viewBox="0 0 1200 50" preserveAspectRatio="none"><path fill="#0A1B33" d="M0 22 Q75 4 150 22 T300 22 T450 22 T600 22 T750 22 T900 22 T1050 22 T1200 22 V50 H0Z"/></svg></div></div>
     </section>
 
-    <div class="wrap">
-      <svg class="wave reveal-wave" viewBox="0 0 1200 34" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M0 17c50 0 50-12 100-12s50 24 100 24 50-24 100-24 50 24 100 24 50-24 100-24 50 24 100 24 50-24 100-24 50 24 100 24 50-24 100-24 50 24 100 24 50-24 100-24 50 12 100 12"/></svg>
-      <div class="stats-grid">
-        <div class="stat reveal"><b><span data-count="5" data-dec="1">5,0</span> <em>★</em></b><span>Nota no Google</span></div>
-        <div class="stat reveal" style="--d:80ms"><b><span data-count="28">28</span></b><span>Avaliações reais</span></div>
-        <div class="stat reveal" style="--d:160ms"><b><span data-count="2">2</span></b><span>Roteiros</span></div>
-        <div class="stat reveal" style="--d:240ms"><b>10–17h</b><span>Jet Ski &amp; Passeios</span></div>
+    <section class="mare" id="mare" aria-label="Maré Azul em números">
+      <div class="tide" aria-hidden="true"><div class="tide-fill" id="tide"><svg viewBox="0 0 1200 24" preserveAspectRatio="none"><path fill="rgba(22,196,214,0.28)" d="M0 12 Q75 0 150 12 T300 12 T450 12 T600 12 T750 12 T900 12 T1050 12 T1200 12 V24 H0Z"/></svg></div></div>
+      <div class="wrap">
+        <div class="mare-t reveal"><span class="eyebrow">Rota Maré Azul</span><h2 class="sec-title split">De Cabo Frio a <span class="serif">Arraial do Cabo.</span></h2></div>
+        <div class="rt v" id="rtV">
+          <span class="ext" style="left:104px;top:12px">Cabo Frio</span>
+          <svg class="rs" viewBox="0 0 360 700" aria-hidden="true"><path class="base" d="M 70 30 C 70 110, 290 120, 280 230 S 80 330, 100 440 S 300 540, 290 680"/><path class="feito" d="M 70 30 C 70 110, 290 120, 280 230 S 80 330, 100 440 S 300 540, 290 680"/></svg>
+          <svg class="barco" viewBox="0 0 26 54" aria-hidden="true"><path d="M13 1C20 12 23 24 22 50H4C3 24 6 12 13 1z" fill="#fff"/><path d="M13 12c4 7 5 15 5 30H8c0-15 1-23 5-30z" fill="#16C4D6"/><rect x="9" y="28" width="8" height="10" rx="2" fill="#0A1B33"/></svg><div class="bu a" data-f="0.17" data-h="0.16"><div class="b"><b data-to="5" data-dec="1">5,0</b></div><div class="t">Nota no Google</div></div><div class="bu c" data-f="0.4" data-h="0.4"><div class="b"><b data-to="28" data-dec="0">28</b></div><div class="t">Avaliações reais</div></div><div class="bu a" data-f="0.63" data-h="0.64"><div class="b"><b data-to="2" data-dec="0">2</b></div><div class="t">Roteiros</div></div><div class="bu c" data-f="0.86" data-h="0.86"><div class="b"><b class="sm" data-to="0" data-dec="0">10–17h</b></div><div class="t">Jet Ski &amp; Passeios</div></div>
+          <span class="ext" style="right:0;bottom:-34px">Arraial do Cabo</span>
+        </div>
+        <div class="rt h" id="rtH">
+          <span class="ext" style="left:0;top:228px">Cabo Frio</span>
+          <svg class="rs" viewBox="0 0 1040 280" aria-hidden="true"><path class="base" d="M 30 200 C 190 200, 230 60, 370 90 S 570 250, 700 170 S 890 50, 1010 130"/><path class="feito" d="M 30 200 C 190 200, 230 60, 370 90 S 570 250, 700 170 S 890 50, 1010 130"/></svg>
+          <svg class="barco" viewBox="0 0 26 54" aria-hidden="true"><path d="M13 1C20 12 23 24 22 50H4C3 24 6 12 13 1z" fill="#fff"/><path d="M13 12c4 7 5 15 5 30H8c0-15 1-23 5-30z" fill="#16C4D6"/><rect x="9" y="28" width="8" height="10" rx="2" fill="#0A1B33"/></svg><div class="bu a" data-f="0.17" data-h="0.16"><div class="b"><b data-to="5" data-dec="1">5,0</b></div><div class="t">Nota no Google</div></div><div class="bu c" data-f="0.4" data-h="0.4"><div class="b"><b data-to="28" data-dec="0">28</b></div><div class="t">Avaliações reais</div></div><div class="bu a" data-f="0.63" data-h="0.64"><div class="b"><b data-to="2" data-dec="0">2</b></div><div class="t">Roteiros</div></div><div class="bu c" data-f="0.86" data-h="0.86"><div class="b"><b class="sm" data-to="0" data-dec="0">10–17h</b></div><div class="t">Jet Ski &amp; Passeios</div></div>
+          <span class="ext" style="right:0;top:176px">Arraial do Cabo</span>
+        </div>
       </div>
-    </div>
+      <div class="sea mb" aria-hidden="true"><div class="sv"><svg class="wv" viewBox="0 0 1200 50" preserveAspectRatio="none"><path fill="#EEF4F4" d="M0 22 Q75 4 150 22 T300 22 T450 22 T600 22 T750 22 T900 22 T1050 22 T1200 22 V50 H0Z"/></svg></div></div>
+    </section>
 
     <section class="section">
       <div class="wrap host">
@@ -643,7 +712,7 @@
       <div class="wrap">
         <div class="sec-head reveal">
           <span class="eyebrow">Nossas experiências</span>
-          <h2 class="sec-title">Lancha, Jet Ski ou <span class="serif">os dois juntos.</span></h2>
+          <h2 class="sec-title split">Lancha, Jet Ski ou <span class="serif">os dois juntos.</span></h2>
           <p class="sec-sub">Possuímos diversos modelos de lanchas para o tamanho do seu grupo. Escolha sua experiência no mar.</p>
         </div>
         <div class="cards">
@@ -731,7 +800,7 @@
       <div class="wrap">
         <div class="sec-head reveal">
           <span class="eyebrow">O que está incluso</span>
-          <h2 class="sec-title">Você só leva <span class="serif">a vontade de curtir.</span></h2>
+          <h2 class="sec-title split">Você só leva <span class="serif">a vontade de curtir.</span></h2>
         </div>
         <div class="incl">
           <div class="panel reveal">
@@ -809,7 +878,7 @@
       <div class="wrap">
         <div class="sec-head reveal">
           <span class="eyebrow">Principais praias &amp; paradas</span>
-          <h2 class="sec-title">Cabo Frio e <span class="serif">Arraial do Cabo.</span></h2>
+          <h2 class="sec-title split">Cabo Frio e <span class="serif">Arraial do Cabo.</span></h2>
           <p class="sec-sub">Conheça cada praia e ilha dos nossos roteiros em Cabo Frio e Arraial do Cabo.</p>
         </div>
         <div class="ig-bar reveal">
@@ -910,7 +979,7 @@
       <div class="wrap">
         <div class="sec-head reveal">
           <span class="eyebrow">Reserva direta sem taxas</span>
-          <h2 class="sec-title">Monte seu passeio e chame <span class="serif">no WhatsApp.</span></h2>
+          <h2 class="sec-title split">Monte seu passeio e chame <span class="serif">no WhatsApp.</span></h2>
           <p class="sec-sub">Escolha sua opção abaixo e receba a disponibilidade na hora pelo WhatsApp da Maré Azul.</p>
         </div>
         <div class="planner reveal">
@@ -966,7 +1035,7 @@
       <div class="wrap">
         <div class="sec-head reveal">
           <span class="eyebrow">Nota 5,0 ★ no Google</span>
-          <h2 class="sec-title">Quem já navegou com a <span class="serif">Maré Azul.</span></h2>
+          <h2 class="sec-title split">Quem já navegou com a <span class="serif">Maré Azul.</span></h2>
         </div>
         <div class="score reveal"><strong>5,0</strong><div><b>★★★★★</b><small>28 avaliações reais no Google</small></div></div>
         <div class="reviews">
@@ -1110,6 +1179,55 @@
       function onSweep() { if (!sweeping) { sweeping = true; requestAnimationFrame(sweep); } }
       window.addEventListener('scroll', onSweep, { passive: true });
       sweep();
+
+
+      // ---------- rota: barco desenha o caminho, boias acendem, maré sobe, jet ski cruza a onda ----------
+      var rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var rts = [].map.call(document.querySelectorAll('.rt'), function (r) {
+        var svg = r.querySelector('svg.rs'), base = r.querySelector('.base'), feito = r.querySelector('.feito'), barco = r.querySelector('.barco'), vb = svg.viewBox.baseVal, L = base.getTotalLength();
+        feito.style.strokeDasharray = L; feito.style.strokeDashoffset = rm ? 0 : L;
+        var v = r.classList.contains('v');
+        var pts = [].map.call(r.querySelectorAll('.bu'), function (el) {
+          var f = parseFloat(el.getAttribute(v ? 'data-f' : 'data-h')), pt = base.getPointAtLength(L * f);
+          el.style.left = (pt.x / vb.width * 100) + '%'; el.style.top = (pt.y / vb.height * 100) + '%';
+          return { el: el, f: f, on: false };
+        });
+        return { r: r, base: base, feito: feito, barco: barco, vb: vb, L: L, pts: pts };
+      });
+      function fmt(b, x) { return x.toFixed(+b.getAttribute('data-dec')).replace('.', ','); }
+      function acende(q) {
+        q.on = true; q.el.classList.add('on');
+        var b = q.el.querySelector('b'), to = parseFloat(b.getAttribute('data-to'));
+        if (rm || !to) return;
+        var t0 = performance.now();
+        (function st(now) { var k = Math.min(1, (now - t0) / 900); b.textContent = fmt(b, to * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(st); })(t0);
+      }
+      var tide = document.getElementById('tide'), mare = document.getElementById('mare'), jet = document.getElementById('jet'), heroEl = document.querySelector('.hero');
+      function anima() {
+        var vh = window.innerHeight;
+        rts.forEach(function (o) {
+          if (!o.r.offsetParent) return;
+          var rc = o.r.getBoundingClientRect();
+          var p = rm ? 1 : Math.min(1, Math.max(0, (vh * 0.78 - rc.top) / (rc.height + vh * 0.1)));
+          var pt = o.base.getPointAtLength(o.L * p), a = o.base.getPointAtLength(Math.max(0, o.L * p - 2)), b2 = o.base.getPointAtLength(Math.min(o.L, o.L * p + 2));
+          var ang = Math.atan2(b2.y - a.y, b2.x - a.x) * 180 / Math.PI + 90, sx = rc.width / o.vb.width;
+          o.barco.style.transform = 'translate(' + (pt.x * sx) + 'px,' + (pt.y * sx) + 'px) rotate(' + ang + 'deg)';
+          o.feito.style.strokeDashoffset = o.L * (1 - p);
+          o.pts.forEach(function (q) { if (!q.on && p >= q.f - 0.02) acende(q); });
+        });
+        if (tide && !rm) {
+          var mr = mare.getBoundingClientRect(), tp = Math.min(1, Math.max(0, (vh - mr.top) / (mr.height + vh * 0.4)));
+          tide.style.transform = 'translateY(' + ((1 - tp * 0.92) * 100) + '%)';
+        }
+        if (jet) {
+          var hp = rm ? 0.6 : Math.min(1, Math.max(0, window.scrollY / (heroEl.offsetHeight * 0.85)));
+          jet.style.transform = 'translateX(' + (window.innerWidth * 0.06 + hp * (window.innerWidth * 0.94)) + 'px)';
+        }
+      }
+      var rq = false;
+      window.addEventListener('scroll', function () { if (!rq) { rq = true; requestAnimationFrame(function () { rq = false; anima(); }); } }, { passive: true });
+      window.addEventListener('resize', anima);
+      anima();
 
       // topo some ao descer e volta ao subir
       var nav = document.getElementById('navWrap'), lastY = window.scrollY, tick = false;
