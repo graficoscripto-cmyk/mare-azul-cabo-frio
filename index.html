@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Maré Azul Passeios | Lancha e Jet Ski em Cabo Frio e Arraial do Cabo</title>
-  <meta name="description" content="★ 5,0 no Google (31 avaliações). Passeio de lancha das 10h às 17h (diversos modelos de lanchas), passeio de barco e Jet Ski com marinheiro habilitado. Roteiro Cabo Frio e roteiro panorâmico Arraial do Cabo. WhatsApp (22) 99937-4547.">
+  <meta name="description" content="Passeio de lancha das 10h às 17h (diversos modelos de lanchas), passeio de barco e Jet Ski com marinheiro habilitado. Roteiro Cabo Frio e roteiro panorâmico Arraial do Cabo. WhatsApp (22) 99937-4547.">
   <meta name="keywords" content="passeio de lancha cabo frio, aluguel de lancha cabo frio, aluguel de jet ski cabo frio, passeio arraial do cabo saindo de cabo frio, maré azul passeios cabo frio, ilha do japonês, ilha dos papagaios, praia do farol, praia do forno, gruta azul arraial">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="author" content="Maré Azul Passeios Náuticos — Cabo Frio, RJ">
@@ -109,14 +109,6 @@
             "closes": "20:00"
           }
         ],
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "5.0",
-          "bestRating": "5",
-          "worstRating": "1",
-          "ratingCount": "31",
-          "reviewCount": "31"
-        },
         "hasMap": "https://www.google.com/maps/place/?q=place_id:ChIJPYs88soFlwARjp5l1egRsi8",
         "sameAs": [
           "https://www.instagram.com/mareazulpasseios/",
@@ -519,17 +511,26 @@
     .preview { padding: 16px 18px; border-radius: 18px; background: rgba(251, 248, 243, 0.06); border: 1px dashed rgba(251, 248, 243, 0.2); font-size: 0.92rem; color: rgba(251, 248, 243, 0.82); white-space: pre-line; }
     .planner .btn { width: 100%; }
 
-    /* ---------- avaliações ---------- */
-    .score { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; }
-    .score strong { font-family: var(--display); font-size: 3.4rem; font-weight: 700; line-height: 1; }
-    .score b { display: block; color: var(--star); letter-spacing: 2px; font-weight: 400; }
-    .score small { color: var(--ink-soft); font-size: 0.86rem; }
-    .reviews { display: grid; gap: 12px; }
-    .review { padding: 22px; border-radius: 24px; background: var(--shell); border: 1px solid var(--line); display: grid; gap: 14px; align-content: space-between; }
-    .review .stars { color: var(--star); letter-spacing: 2px; }
-    .review p { font-size: 1.02rem; }
-    .review cite { font-style: normal; font-weight: 700; font-size: 0.92rem; }
-    .review cite small { display: block; font-weight: 500; color: var(--ink-soft); font-size: 0.8rem; }
+    /* ---------- travessia (motion) ---------- */
+    .trav { margin: 0 auto; max-width: 720px; border-radius: 28px; overflow: hidden; background: var(--ink); box-shadow: 0 30px 60px -36px rgba(10, 27, 51, 0.6); }
+    .trav svg { display: block; width: 100%; height: auto; }
+    .trav-leg { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 16px; padding: 14px 16px 16px; color: #FBF8F3; font-size: 0.86rem; font-weight: 600; }
+    .trav-leg span { display: inline-flex; align-items: center; gap: 7px; }
+    .trav-leg i { width: 10px; height: 10px; border-radius: 50%; }
+    .tv-cheia { stroke-dasharray: 340; stroke-dashoffset: 340; }
+    .trav.in .tv-cheia { animation: tvRisca 2.4s var(--ease) forwards; }
+    @keyframes tvRisca { to { stroke-dashoffset: 0; } }
+    .tv-ondas path { animation: tvOnda 6s linear infinite; }
+    @keyframes tvOnda { to { transform: translateX(-80px); } }
+    .tv-sol { transform-origin: 72px 66px; animation: tvSol 5s ease-in-out infinite alternate; }
+    @keyframes tvSol { to { transform: scale(1.18); opacity: .7; } }
+    .tv-pino { transform-box: fill-box; transform-origin: center; animation: tvPino 2.6s ease-in-out infinite; }
+    @keyframes tvPino { 50% { transform: scale(1.25); } }
+    .tv-boia { animation: tvBoia 3.2s ease-in-out infinite; }
+    @keyframes tvBoia { 50% { transform: translateY(-3px) rotate(-4deg); } }
+    .tv-bolhas circle { animation: tvBolha 3.6s ease-in infinite; opacity: 0; }
+    @keyframes tvBolha { 0% { transform: translateY(0); opacity: 0; } 30% { opacity: .8; } 100% { transform: translateY(-26px); opacity: 0; } }
+    @media (min-width: 900px) { .trav { max-width: 760px; } }
 
     /* ---------- embarque + dúvidas ---------- */
     .where { display: grid; gap: 14px; }
@@ -617,6 +618,8 @@
       .card .photo img, .route .photo img { transition: transform 0.9s var(--ease); }
     }
     @media (prefers-reduced-motion: reduce) {
+      .tv-cheia { stroke-dashoffset: 0 !important; animation: none !important; }
+      .tv-ondas path, .tv-sol, .tv-pino, .tv-boia, .tv-bolhas circle { animation: none !important; }
       *, *::before, *::after { animation-duration: 0.01ms !important; animation-delay: 0ms !important; transition-duration: 0.01ms !important; }
       .intro { display: none; }
       .js .reveal { opacity: 1; transform: none; }
@@ -666,7 +669,7 @@
       </div>
       <div class="hero-scrim"></div>
       <div class="wrap hero-body">
-        <a href="#avaliacoes" class="rating hero-in" style="--i:0"><b>★★★★★</b> 5,0 no Google · 31 avaliações reais</a>
+        <a href="#travessia" class="rating hero-in" style="--i:0"><b>★★★★★</b> Lancha · Barco · Jet Ski</a>
         <h1 class="split">Viva a experiência pelo melhor ângulo: <span class="serif">o mar.</span></h1>
         <p class="hero-lead hero-in" style="--i:1">Passeio de lancha (diversos modelos disponíveis) e Jet Ski por Cabo Frio e Arraial do Cabo.</p>
         <div class="hero-actions hero-in" style="--i:2">
@@ -684,13 +687,13 @@
         <div class="rt v" id="rtV">
           <span class="ext" style="left:104px;top:12px">Cabo Frio</span>
           <svg class="rs" viewBox="0 0 360 700" aria-hidden="true"><path class="base" d="M 70 30 C 70 110, 290 120, 280 230 S 80 330, 100 440 S 300 540, 290 680"/><path class="feito" d="M 70 30 C 70 110, 290 120, 280 230 S 80 330, 100 440 S 300 540, 290 680"/></svg>
-          <svg class="barco" viewBox="0 0 26 54" aria-hidden="true"><path d="M13 1C20 12 23 24 22 50H4C3 24 6 12 13 1z" fill="#fff"/><path d="M13 12c4 7 5 15 5 30H8c0-15 1-23 5-30z" fill="#16C4D6"/><rect x="9" y="28" width="8" height="10" rx="2" fill="#0A1B33"/></svg><div class="bu a" data-f="0.17" data-h="0.16"><div class="b"><b data-to="5" data-dec="1">5,0</b></div><div class="t">Nota no Google</div></div><div class="bu c" data-f="0.4" data-h="0.4"><div class="b"><b data-to="31" data-dec="0">31</b></div><div class="t">Avaliações reais</div></div><div class="bu a" data-f="0.63" data-h="0.64"><div class="b"><b data-to="2" data-dec="0">2</b></div><div class="t">Roteiros</div></div><div class="bu c" data-f="0.86" data-h="0.86"><div class="b"><b class="sm" data-to="0" data-dec="0">10–17h</b></div><div class="t">Jet Ski &amp; Passeios</div></div>
+          <svg class="barco" viewBox="0 0 26 54" aria-hidden="true"><path d="M13 1C20 12 23 24 22 50H4C3 24 6 12 13 1z" fill="#fff"/><path d="M13 12c4 7 5 15 5 30H8c0-15 1-23 5-30z" fill="#16C4D6"/><rect x="9" y="28" width="8" height="10" rx="2" fill="#0A1B33"/></svg><div class="bu a" data-f="0.17" data-h="0.16"><div class="b"><b data-to="5" data-dec="1">5,0</b></div><div class="t">Nota no Google</div></div><div class="bu c" data-f="0.4" data-h="0.4"><div class="b"><b data-to="3" data-dec="0">3</b></div><div class="t">Lancha · Barco · Jet Ski</div></div><div class="bu a" data-f="0.63" data-h="0.64"><div class="b"><b data-to="2" data-dec="0">2</b></div><div class="t">Roteiros</div></div><div class="bu c" data-f="0.86" data-h="0.86"><div class="b"><b class="sm" data-to="0" data-dec="0">10–17h</b></div><div class="t">Jet Ski &amp; Passeios</div></div>
           <span class="ext" style="right:0;bottom:-34px">Arraial do Cabo</span>
         </div>
         <div class="rt h" id="rtH">
           <span class="ext" style="left:0;top:228px">Cabo Frio</span>
           <svg class="rs" viewBox="0 0 1040 280" aria-hidden="true"><path class="base" d="M 30 200 C 190 200, 230 60, 370 90 S 570 250, 700 170 S 890 50, 1010 130"/><path class="feito" d="M 30 200 C 190 200, 230 60, 370 90 S 570 250, 700 170 S 890 50, 1010 130"/></svg>
-          <svg class="barco" viewBox="0 0 26 54" aria-hidden="true"><path d="M13 1C20 12 23 24 22 50H4C3 24 6 12 13 1z" fill="#fff"/><path d="M13 12c4 7 5 15 5 30H8c0-15 1-23 5-30z" fill="#16C4D6"/><rect x="9" y="28" width="8" height="10" rx="2" fill="#0A1B33"/></svg><div class="bu a" data-f="0.17" data-h="0.16"><div class="b"><b data-to="5" data-dec="1">5,0</b></div><div class="t">Nota no Google</div></div><div class="bu c" data-f="0.4" data-h="0.4"><div class="b"><b data-to="31" data-dec="0">31</b></div><div class="t">Avaliações reais</div></div><div class="bu a" data-f="0.63" data-h="0.64"><div class="b"><b data-to="2" data-dec="0">2</b></div><div class="t">Roteiros</div></div><div class="bu c" data-f="0.86" data-h="0.86"><div class="b"><b class="sm" data-to="0" data-dec="0">10–17h</b></div><div class="t">Jet Ski &amp; Passeios</div></div>
+          <svg class="barco" viewBox="0 0 26 54" aria-hidden="true"><path d="M13 1C20 12 23 24 22 50H4C3 24 6 12 13 1z" fill="#fff"/><path d="M13 12c4 7 5 15 5 30H8c0-15 1-23 5-30z" fill="#16C4D6"/><rect x="9" y="28" width="8" height="10" rx="2" fill="#0A1B33"/></svg><div class="bu a" data-f="0.17" data-h="0.16"><div class="b"><b data-to="5" data-dec="1">5,0</b></div><div class="t">Nota no Google</div></div><div class="bu c" data-f="0.4" data-h="0.4"><div class="b"><b data-to="3" data-dec="0">3</b></div><div class="t">Lancha · Barco · Jet Ski</div></div><div class="bu a" data-f="0.63" data-h="0.64"><div class="b"><b data-to="2" data-dec="0">2</b></div><div class="t">Roteiros</div></div><div class="bu c" data-f="0.86" data-h="0.86"><div class="b"><b class="sm" data-to="0" data-dec="0">10–17h</b></div><div class="t">Jet Ski &amp; Passeios</div></div>
           <span class="ext" style="right:0;top:176px">Arraial do Cabo</span>
         </div>
       </div>
@@ -894,7 +897,7 @@
         </div>
         <div class="ig-bar reveal">
           <span>Vídeos e momentos reais todos os dias no Instagram <b>@mareazulpasseios</b></span>
-          <a href="https://www.instagram.com/mareazulpasseios/" target="_blank" rel="noopener" class="ig-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg><span>@mareazulpasseios · Ver no Instagram</span></a>
+          <a href="https://www.instagram.com/mareazulpasseios/" target="_blank" rel="noopener" class="ig-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg><span>@mareazulpasseios · Ver no Instagram</span></a> <a href="#" target="_blank" rel="noopener" class="ig-pill tt-link" hidden><svg viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none"><path d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.7 5.7 0 1 0 4.9 5.7V9.1a7.4 7.4 0 0 0 4.3 1.4V7.4a4.3 4.3 0 0 1-3.2-1.6z"/></svg><span>Ver no TikTok</span></a>
         </div>
         <div class="beach-grid">
           <figure class="beach-card reveal">
@@ -1042,18 +1045,64 @@
       </div>
     </section>
 
-    <section class="section alt" id="avaliacoes">
+    <section class="section alt" id="travessia" aria-label="Travessia Cabo Frio – Arraial do Cabo">
       <div class="wrap">
         <div class="sec-head reveal">
-          <span class="eyebrow">Nota 5,0 ★ no Google</span>
-          <h2 class="sec-title split">Quem já navegou com a <span class="serif">Maré Azul.</span></h2>
+          <span class="eyebrow">Cabo Frio ⇄ Arraial do Cabo</span>
+          <h2 class="sec-title split">O mar é o caminho <span class="serif">e o passeio.</span></h2>
         </div>
-        <div class="score reveal"><strong>5,0</strong><div><b>★★★★★</b><small>31 avaliações reais no Google</small></div></div>
-        <div class="reviews">
-          <article class="review reveal"><div><div class="stars" aria-label="5 estrelas">★★★★★</div><p>"Experiência incrível do início ao fim! A lancha estava impecável, o roteiro foi muito bom e tudo feito com muita segurança."</p></div><cite>Arthur França<small>Avaliação verificada no Google</small></cite></article>
-          <article class="review reveal" style="--d:100ms"><div><div class="stars" aria-label="5 estrelas">★★★★★</div><p>"Excelentes profissionais, ótimo passeio! Equipe preparada, lanchas e Jet Skis super novos."</p></div><cite>Vinicius Fazolo<small>Avaliação verificada no Google</small></cite></article>
-          <article class="review reveal" style="--d:200ms"><div><div class="stars" aria-label="5 estrelas">★★★★★</div><p>"Passeio maravilhoso, o pessoal é muito bacana e prestativo. Quero agradecer ao Luis Fernando pelo carinho e dedicação!"</p></div><cite>Sergio Luiz C. Santos<small>Avaliação verificada no Google</small></cite></article>
-        </div>
+        <figure class="trav reveal">
+          <svg id="travSvg" viewBox="0 0 360 300" role="img" aria-label="Mapa animado: lancha, barco e jet ski navegando entre Cabo Frio e Arraial do Cabo">
+            <defs>
+              <linearGradient id="tvMar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#16C4D6"/><stop offset="1" stop-color="#0A1B33"/></linearGradient>
+              <radialGradient id="tvSol" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFE9A8"/><stop offset="1" stop-color="#F5B301" stop-opacity="0"/></radialGradient>
+              <path id="tvRota" d="M286 70 C 250 120, 300 160, 240 196 S 120 214, 86 250"/>
+              <path id="tvRota2" d="M86 250 C 140 236, 200 230, 240 196 S 270 120, 286 70"/>
+            </defs>
+            <rect width="360" height="300" rx="26" fill="url(#tvMar)"/>
+            <circle class="tv-sol" cx="72" cy="66" r="54" fill="url(#tvSol)"/>
+            <circle cx="72" cy="66" r="16" fill="#FFE9A8"/>
+            <g class="tv-ondas" fill="none" stroke="#93EBF3" stroke-width="1.6" stroke-linecap="round" opacity=".45">
+              <path d="M-40 120 q 20 -8 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0"/>
+              <path d="M-40 170 q 20 -8 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0" style="animation-delay:-2s"/>
+              <path d="M-40 226 q 20 -8 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0" style="animation-delay:-4s"/>
+            </g>
+            <path d="M360 0 V 96 C 330 96, 318 70, 300 58 C 286 48, 300 22, 288 0 Z" fill="#EEF4F4"/>
+            <path d="M0 300 V 236 C 30 238, 54 262, 70 262 C 92 262, 104 280, 132 286 C 150 290, 160 300, 170 300 Z" fill="#EEF4F4"/>
+            <path d="M0 236 C 18 230, 30 232, 44 240" fill="none" stroke="#DCEBEC" stroke-width="5"/>
+            <use href="#tvRota" class="tv-trilha" fill="none" stroke="#FBF8F3" stroke-width="2.4" stroke-dasharray="6 8" opacity=".55"/>
+            <use href="#tvRota" class="tv-cheia" fill="none" stroke="#FBF8F3" stroke-width="3" stroke-linecap="round"/>
+            <g class="tv-pino"><circle cx="286" cy="70" r="7" fill="#0A1B33" stroke="#fff" stroke-width="3"/></g>
+            <g class="tv-pino" style="animation-delay:.4s"><circle cx="86" cy="250" r="7" fill="#0A1B33" stroke="#fff" stroke-width="3"/></g>
+            <g font-family="Gabarito, system-ui, sans-serif" font-weight="700" font-size="14" fill="#0A1B33">
+              <text x="344" y="30" text-anchor="end">Cabo Frio</text>
+              <text x="14" y="282">Arraial do Cabo</text>
+            </g>
+            <g class="tv-lancha">
+              <path d="M-15 -3 L 10 -3 L 16 0 L 10 3 L -15 3 Z" fill="#FBF8F3"/><rect x="-6" y="-2" width="8" height="4" rx="1" fill="#0A1B33"/>
+              <path d="M-16 -2 l -14 -4 M-16 2 l -14 4" stroke="#FBF8F3" stroke-width="1.4" stroke-linecap="round" opacity=".7"/>
+              <animateMotion dur="9s" repeatCount="indefinite" rotate="auto" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines=".45 0 .55 1"><mpath href="#tvRota"/></animateMotion>
+            </g>
+            <g class="tv-jet">
+              <path d="M-8 -2.4 L 6 -2.4 L 10 0 L 6 2.4 L -8 2.4 Z" fill="#F5B301"/><circle cx="-1" cy="0" r="1.8" fill="#0A1B33"/>
+              <path d="M-9 0 l -12 0" stroke="#FBF8F3" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="2 3"/>
+              <animateMotion dur="6s" begin="-2s" repeatCount="indefinite" rotate="auto"><mpath href="#tvRota2"/></animateMotion>
+            </g>
+            <g class="tv-barco" transform="translate(196 116)">
+              <g class="tv-boia">
+                <path d="M-14 0 L 14 0 L 10 7 L -10 7 Z" fill="#FBF8F3"/><path d="M0 0 V -20 L 11 -4 Z" fill="#93EBF3"/><path d="M-1 -18 L -10 -3 L -1 -3 Z" fill="#FBF8F3"/>
+              </g>
+            </g>
+            <g class="tv-bolhas" fill="#FBF8F3">
+              <circle cx="150" cy="200" r="2"/><circle cx="214" cy="248" r="1.6" style="animation-delay:-1.2s"/><circle cx="300" cy="190" r="2.2" style="animation-delay:-2.4s"/>
+            </g>
+          </svg>
+          <figcaption class="trav-leg">
+            <span><i style="background:#FBF8F3"></i>Lancha privativa</span>
+            <span><i style="background:#93EBF3"></i>Passeio de barco</span>
+            <span><i style="background:#F5B301"></i>Jet Ski</span>
+          </figcaption>
+        </figure>
       </div>
     </section>
 
@@ -1075,6 +1124,7 @@
             <div class="where-actions">
               <a href="https://www.google.com/maps/place/?q=place_id:ChIJPYs88soFlwARjp5l1egRsi8" target="_blank" rel="noopener" class="btn" data-mag><span>Abrir no Google Maps</span><i>↗</i></a>
               <a href="https://www.instagram.com/mareazulpasseios/" target="_blank" rel="noopener" class="btn-line"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg><span>@mareazulpasseios</span></a>
+              <a href="#" target="_blank" rel="noopener" class="btn-line tt-link" hidden><svg viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none"><path d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.7 5.7 0 1 0 4.9 5.7V9.1a7.4 7.4 0 0 0 4.3 1.4V7.4a4.3 4.3 0 0 1-3.2-1.6z"/></svg><span>TikTok</span></a>
             </div>
           </div>
           <div class="map reveal" style="--d:100ms">
@@ -1109,7 +1159,7 @@
     <div class="wrap foot">
       <div style="display:flex;align-items:center;gap:14px"><img src="img/logo-mare-azul-128.webp" alt="Logo Maré Azul Passeios" width="56" height="56" style="border-radius:50%;object-fit:cover;border:1.5px solid rgba(251,248,243,0.22);flex:none"><div><strong>Maré Azul Passeios Náuticos</strong><p>Passeio de lancha (diversos modelos) e Jet Ski em Cabo Frio e Arraial do Cabo - RJ.</p></div></div>
       <div><h4>Navegue</h4><ul><li><a href="#frota">Lancha &amp; Jet Ski</a></li><li><a href="#roteiros">Roteiros</a></li><li><a href="#reservar">Monte seu Passeio</a></li></ul></div>
-      <div><h4>Contatos &amp; Redes</h4><ul><li><a href="https://wa.me/5522999374547" target="_blank" rel="noopener">WhatsApp (22) 99937-4547</a></li><li><a href="https://www.instagram.com/mareazulpasseios/" target="_blank" rel="noopener">Instagram @mareazulpasseios</a></li><li>Rua dos Camarões, 117 — Ogiva</li><li>Nota 5,0 ★ no Google Maps</li></ul></div>
+      <div><h4>Contatos &amp; Redes</h4><ul><li><a href="https://wa.me/5522999374547" target="_blank" rel="noopener">WhatsApp (22) 99937-4547</a></li><li><a href="https://www.instagram.com/mareazulpasseios/" target="_blank" rel="noopener">Instagram @mareazulpasseios</a></li><li class="tt-item" hidden><a href="#" target="_blank" rel="noopener" class="tt-link">TikTok</a></li><li>Rua dos Camarões, 117 — Ogiva</li><li>Nota 5,0 ★ no Google Maps</li></ul></div>
     </div>
   </footer>
 
@@ -1157,6 +1207,11 @@
         });
       });
       atualizar();
+
+      // ---------- TikTok: preencher o link oficial aqui e os botões aparecem (topo de roteiros, contato e rodapé) ----------
+      var TIKTOK_URL = '';
+      if (TIKTOK_URL) document.querySelectorAll('.tt-link').forEach(function (b) { b.href = TIKTOK_URL; b.hidden = false; if (b.parentElement.classList.contains('tt-item')) b.parentElement.hidden = false; });
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) { var tv = document.getElementById('travSvg'); if (tv && tv.pauseAnimations) { tv.pauseAnimations(); tv.setCurrentTime(3); } }
 
       // ---------- revelações (IntersectionObserver: leve no Android e sem depender de CDN) ----------
       var els = document.querySelectorAll('.reveal, .clip, .reveal-wave, .stops');
