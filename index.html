@@ -10,9 +10,10 @@
   <meta name="author" content="Maré Azul Passeios Náuticos — Cabo Frio, RJ">
   <meta name="geo.region" content="BR-RJ">
   <meta name="geo.placename" content="Cabo Frio - RJ">
-  <meta name="geo.position" content="-22.8721;-42.0089">
-  <meta name="ICBM" content="-22.8721, -42.0089">
+  <meta name="geo.position" content="-22.87210;-42.00890">
+  <meta name="ICBM" content="-22.87210, -42.00890">
   <link rel="canonical" href="https://mareazulpasseios.com.br/">
+  <link rel="alternate" type="text/markdown" href="https://mareazulpasseios.com.br/llms.txt" title="Resumo estruturado para LLMs (Maré Azul Passeios)">
 
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
@@ -51,21 +52,75 @@
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": ["LocalBusiness", "TravelAgency"],
+        "@type": "WebSite",
+        "@id": "https://mareazulpasseios.com.br/#website",
+        "url": "https://mareazulpasseios.com.br/",
+        "name": "Maré Azul Passeios",
+        "inLanguage": "pt-BR",
+        "publisher": { "@id": "https://mareazulpasseios.com.br/#business" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://mareazulpasseios.com.br/#webpage",
+        "url": "https://mareazulpasseios.com.br/",
+        "name": "Maré Azul Passeios | Passeio de Lancha, Barco e Jet Ski em Cabo Frio e Arraial do Cabo",
+        "isPartOf": { "@id": "https://mareazulpasseios.com.br/#website" },
+        "about": { "@id": "https://mareazulpasseios.com.br/#business" },
+        "inLanguage": "pt-BR",
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": ["h1", ".hero-lead", "#embarque .facts", ".faq"]
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://mareazulpasseios.com.br/#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Maré Azul Passeios", "item": "https://mareazulpasseios.com.br/" },
+          { "@type": "ListItem", "position": 2, "name": "Lancha & Jet Ski", "item": "https://mareazulpasseios.com.br/#frota" },
+          { "@type": "ListItem", "position": 3, "name": "Roteiros", "item": "https://mareazulpasseios.com.br/#roteiros" },
+          { "@type": "ListItem", "position": 4, "name": "Monte seu Passeio", "item": "https://mareazulpasseios.com.br/#reservar" }
+        ]
+      },
+      {
+        "@type": ["LocalBusiness", "TravelAgency", "BoatTrip"],
         "@id": "https://mareazulpasseios.com.br/#business",
         "name": "Maré Azul Passeios",
         "alternateName": "Maré Azul Passeios Náuticos Cabo Frio",
-        "description": "Passeio de lancha das 10h às 17h em diversos modelos de lanchas (gelo, carvão, som Bluetooth e marinheiro para condução e preparo do churrasco) e Jet Ski com marinheiro habilitado, coletes e jet skis novos e revisados. Dois roteiros saindo de Cabo Frio: Roteiro Cabo Frio e Roteiro Arraial do Cabo (panorâmico).",
+        "description": "A Maré Azul Passeios realiza passeios de lancha privativa, passeio de barco e aluguel de Jet Ski em Cabo Frio e Arraial do Cabo, com saída na Ogiva (Rua dos Camarões, 117 — Canal do Itajuru). Nossa frota tem lanchas privativas (10h às 17h) com marinheiro habilitado, churrasqueira a bordo (carvão incluso), cooler com gelo, som Bluetooth e tapete flutuante, além de Jet Skis (passeio de 30 min com piloto, aluguel por hora ou diária com CHA e combo Lancha + Jet Ski). Roteiros em Cabo Frio (Ilha do Japonês, Canal do Itajuru, Praia do Forte e Ilha dos Papagaios) e travessia para Arraial do Cabo (Ilha do Farol, Prainhas do Pontal do Atalaia, Praia do Forno e Gruta Azul).",
         "url": "https://mareazulpasseios.com.br/",
         "telephone": "+55-22-99937-4547",
         "priceRange": "$$",
+        "foundingDate": "2026-01-03",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://mareazulpasseios.com.br/img/logo-mare-azul-1080.jpg",
+          "width": 1080,
+          "height": 1080
+        },
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+55-22-99937-4547",
+            "contactType": "reservations",
+            "areaServed": ["Cabo Frio", "Arraial do Cabo", "São Pedro da Aldeia"],
+            "availableLanguage": ["Portuguese"]
+          }
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "bestRating": "5",
+          "ratingCount": "32",
+          "reviewCount": "32"
+        },
         "areaServed": [
           { "@type": "City", "name": "Cabo Frio" },
           { "@type": "City", "name": "Arraial do Cabo" },
           { "@type": "City", "name": "São Pedro da Aldeia" }
         ],
         "image": [
-          "https://mareazulpasseios.com.br/img/logo-mare-azul.jpg",
+          "https://mareazulpasseios.com.br/img/logo-mare-azul-1080.jpg",
           "https://mareazulpasseios.com.br/img/combo-lancha-jetski.jpg",
           "https://mareazulpasseios.com.br/img/frota-jetskis.jpg",
           "https://mareazulpasseios.com.br/img/og-mare-azul-v2.jpg",
@@ -78,14 +133,12 @@
           "@type": "OfferCatalog",
           "name": "Passeios Maré Azul",
           "itemListElement": [
-
-
             { "@type": "Offer", "priceCurrency": "BRL", "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "BRL", "minPrice": "1199" }, "itemOffered": { "@type": "Service", "name": "Passeio de Lancha", "description": "A partir de R$ 1.199 (lancha de Cabo Frio para Arraial do Cabo: consulte no WhatsApp). Incluso: gelo, carvão, som Bluetooth e marinheiro para condução e preparo do churrasco (caso queiram fazer)." } },
             { "@type": "Offer", "priceCurrency": "BRL", "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "BRL", "minPrice": "1199" }, "itemOffered": { "@type": "Service", "name": "Passeio de Barco privativo — Cabo Frio", "description": "A partir de R$ 1.199." } },
             { "@type": "Offer", "priceCurrency": "BRL", "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "BRL", "minPrice": "1499" }, "itemOffered": { "@type": "Service", "name": "Passeio de Barco privativo — Arraial do Cabo", "description": "A partir de R$ 1.499." } },
             { "@type": "Offer", "priceCurrency": "BRL", "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "BRL", "minPrice": "70" }, "itemOffered": { "@type": "Service", "name": "Passeio de Barco compartilhado — Cabo Frio e Arraial do Cabo", "description": "A partir de R$ 70 por pessoa." } },
             { "@type": "Offer", "priceCurrency": "BRL", "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "BRL", "minPrice": "199" }, "itemOffered": { "@type": "Service", "name": "Jet Ski", "description": "A partir de: meia hora R$ 199, 1 hora R$ 399, diária R$ 1.199 (baixa temporada). Marinheiro habilitado, coletes, jet skis novos e revisados." } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Combo Lancha + Jet Ski", "description": "Consulte no WhatsApp." } }
+            { "@type": "Offer", "priceCurrency": "BRL", "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "BRL", "minPrice": "1999" }, "itemOffered": { "@type": "Service", "name": "Combo Lancha + Jet Ski", "description": "A partir de R$ 1.999 em Cabo Frio. Consulte no WhatsApp." } }
           ]
         },
         "address": {
@@ -98,21 +151,23 @@
         },
         "geo": {
           "@type": "GeoCoordinates",
-          "latitude": -22.8721,
-          "longitude": -42.0089
+          "latitude": -22.87210,
+          "longitude": -42.00890
         },
         "openingHoursSpecification": [
           {
             "@type": "OpeningHoursSpecification",
             "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-            "opens": "07:00",
-            "closes": "20:00"
+            "opens": "06:00",
+            "closes": "23:59"
           }
         ],
         "hasMap": "https://www.google.com/maps/place/?q=place_id:ChIJPYs88soFlwARjp5l1egRsi8",
         "sameAs": [
-          "https://www.instagram.com/mareazulpasseios/", "https://www.tiktok.com/@mareazulpasseios",
-          "https://www.google.com/maps/place/?q=place_id:ChIJPYs88soFlwARjp5l1egRsi8"
+          "https://www.instagram.com/mareazulpasseios/",
+          "https://www.tiktok.com/@mareazulpasseios",
+          "https://www.google.com/maps/place/?q=place_id:ChIJPYs88soFlwARjp5l1egRsi8",
+          "https://wa.me/5522999374547"
         ]
       },
       {
@@ -1117,7 +1172,7 @@
             <ul class="facts">
               <li><small>Ponto de saída</small><b>Bairro da Passagem ou Portinho — combinado na reserva</b></li>
               <li><small>Endereço no Google</small><b>Rua dos Camarões, 117 — Ogiva, Cabo Frio - RJ</b></li>
-              <li><small>Horário de atendimento</small><b>Todos os dias, das 07h00 às 20h00</b></li>
+              <li><small>Horário de atendimento</small><b>Todos os dias, das 06h00 às 00h00 (passeios 10h às 17h)</b></li>
               <li><small>WhatsApp direto</small><b>(22) 99937-4547 · Maré Azul Passeios</b></li>
               <li><small>Instagram &amp; TikTok</small><b><a href="https://www.instagram.com/mareazulpasseios/" target="_blank" rel="noopener">@mareazulpasseios</a> · <a href="https://www.tiktok.com/@mareazulpasseios" target="_blank" rel="noopener">TikTok</a></b></li>
             </ul>
@@ -1157,7 +1212,7 @@
 
   <footer class="footer">
     <div class="wrap foot">
-      <div style="display:flex;align-items:center;gap:14px"><img src="img/logo-mare-azul-128.webp" alt="Logo Maré Azul Passeios" width="56" height="56" style="border-radius:50%;object-fit:cover;border:1.5px solid rgba(251,248,243,0.22);flex:none"><div><strong>Maré Azul Passeios Náuticos</strong><p>Passeio de lancha (diversos modelos) e Jet Ski em Cabo Frio e Arraial do Cabo - RJ.</p></div></div>
+      <div style="display:flex;align-items:center;gap:14px"><img src="img/logo-mare-azul-128.webp" alt="Logo Maré Azul Passeios" width="56" height="56" style="border-radius:50%;object-fit:cover;border:1.5px solid rgba(251,248,243,0.22);flex:none"><div><strong>Maré Azul Passeios</strong><p>Passeio de lancha (diversos modelos), barco e Jet Ski em Cabo Frio e Arraial do Cabo - RJ.</p></div></div>
       <div><h4>Navegue</h4><ul><li><a href="#frota">Lancha &amp; Jet Ski</a></li><li><a href="#roteiros">Roteiros</a></li><li><a href="#reservar">Monte seu Passeio</a></li></ul></div>
       <div><h4>Contatos &amp; Redes</h4><ul><li><a href="https://wa.me/5522999374547" target="_blank" rel="noopener">WhatsApp (22) 99937-4547</a></li><li><a href="https://www.instagram.com/mareazulpasseios/" target="_blank" rel="noopener">Instagram @mareazulpasseios</a></li><li class="tt-item"><a href="https://www.tiktok.com/@mareazulpasseios" target="_blank" rel="noopener" class="tt-link">TikTok @mareazulpasseios</a></li><li>Rua dos Camarões, 117 — Ogiva</li><li>Nota 5,0 ★ no Google Maps</li></ul></div>
     </div>
@@ -1190,13 +1245,33 @@
         });
       }
       document.querySelectorAll('.chips').forEach(function (group) {
+        group.setAttribute('role', 'group');
         group.querySelectorAll('.chip').forEach(function (btn) {
+          btn.setAttribute('aria-pressed', btn.classList.contains('active') ? 'true' : 'false');
           btn.addEventListener('click', function () {
-            group.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('active'); });
-            btn.classList.add('active'); atualizar();
+            group.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('active'); c.setAttribute('aria-pressed', 'false'); });
+            btn.classList.add('active'); btn.setAttribute('aria-pressed', 'true'); atualizar();
           });
         });
       });
+      if (navigator.modelContext && typeof navigator.modelContext.registerTool === 'function') {
+        navigator.modelContext.registerTool({
+          name: 'consultar_passeio_mare_azul_cabo_frio',
+          description: 'Monta a consulta de passeio de lancha, barco ou Jet Ski na Maré Azul Passeios (Cabo Frio e Arraial do Cabo) e retorna o link direto de WhatsApp.',
+          inputSchema: {
+            type: 'object',
+            properties: {
+              modalidade: { type: 'string', description: 'Passeio de Lancha, Jet Ski, Combo Lancha + Jet Ski ou Passeio de Barco' },
+              roteiro: { type: 'string', description: 'Roteiro Cabo Frio ou Roteiro Arraial do Cabo (panorâmico)' },
+              adultos: { type: 'number', description: 'Quantidade de adultos' },
+              criancas: { type: 'number', description: 'Quantidade de crianças' }
+            }
+          },
+          execute: async function (args) {
+            return { whatsappUrl: document.getElementById('sendWa').href, resumo: mensagem() };
+          }
+        });
+      }
       document.querySelectorAll('.c-btn').forEach(function (btn) {
         btn.addEventListener('click', function () {
           var k = btn.dataset.c, min = k === 'adultos' ? 1 : 0;
